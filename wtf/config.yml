@@ -1,0 +1,150 @@
+wtf:
+  colors:
+    border:
+      focusable: "gray"
+      focused: "darkslategray"
+      normal: "dimgray"
+    checked: "gray"
+    highlight:
+      fore: "black"
+      back: "green"
+    labels: "green::b"
+    rows:
+      even: "lime"
+      odd: "lightgreen"
+    subheading: "lightgreen::b"
+    text: "lime"
+    title: "green"
+  grid:
+    columns: [35, 40]
+    rows: [12, 6, 10, 12]
+  mods:
+    todo:
+      enabled: true
+      filename: "todo.yml"
+      checkedIcon: "X"
+      colors:
+        checked: "gray"
+      format: true
+      position:
+        top: 0
+        left: 0
+        height: 2
+        width: 1
+      refreshInterval: 3600
+      wrapText: false
+    textfile:
+      enabled: true
+      filePaths:
+      - "~/.config/wtf/config.yml"
+      format: true
+      position:
+        top: 0
+        left: 1
+        height: 2
+        width: 1
+      refreshInterval: 3600
+      wrapText: false
+    hackernews:
+      enabled: true
+      position:
+        top: 0
+        left: 2
+        width: 1
+        height: 1
+      updateInterval: 1800
+    feedreader:
+      enabled: true
+      focusable: false
+      feeds:
+      - http://wtfutil.com/blog/index.xml
+      position:
+        top: 1
+        left: 2
+        width: 1
+        height: 1
+      updateInterval: 3600
+      title: "wtfutil"
+    digitalclock:
+      enabled: true
+      font: digitalfont
+      color: lime
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 15
+      title: "Time"
+    prettyweather:
+      city: "Kolin"
+      enabled: true
+      position:
+        top: 2
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 1800
+    power:
+      enabled: true
+      position:
+        top: 2
+        left: 2
+        height: 1
+        width: 1
+      refreshInterval: 30
+    security:
+      enabled: false
+      position:
+        top: 3
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 60
+    ipinfo:
+      colors:
+        name: "red"
+        value: "lime"
+      enabled: true
+      position:
+        top: 3
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 60
+    resourceusage:
+      enabled: true
+      cpuCombined: false
+      position:
+        top: 3
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 5
+      title: "Resources"
+    disk:
+      enabled: true
+      cmd: "df"
+      args: ["-h"]
+      position:
+        top: 3
+        left: 2
+        height: 1
+        width: 1
+      refreshInterval: 30
+      title: "Disk usage"
+      type: cmdrunner
+    uptime:
+      enabled: true
+      focusable: false
+      cmd: "uptime"
+      args: ["-p"]
+      color: lime
+      position:
+        top: 4
+        left: 0
+        height: 1
+        width: 3
+      refreshInterval: 15
+      type: cmdrunner
+      title: Uptime
