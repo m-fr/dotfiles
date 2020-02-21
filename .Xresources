@@ -1,0 +1,6 @@
+urxvt*font:        xft:Fira Code:size=11
+urxvt*depth:       32
+urxvt*background:  [75]#2f2f2f 
+urxvt*foreground:  #c6c6c6
+urxvt*scrollBar:   false
+
