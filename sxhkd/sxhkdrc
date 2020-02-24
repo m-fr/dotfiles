@@ -3,8 +3,12 @@ super + F1
 	urxvt -geometry 1x1 -name sxhkd_help -e ~/.config/sxhkd/sxhkd_help.sh
 
 # shut down / reboot
-super + ctrl + alt + {q,r}
-	systemctl {poweroff,reboot}
+super + ctrl + alt + {q,r,s}
+	systemctl {poweroff,reboot,suspend}
+
+# lock screen
+super + ctrl + alt + l
+	i3lock -c 2f2f2f -i "~/.wallpaper/lockscreen/debian_lockscreen.png" -e -f
 
 # toggle keyboard layout
 alt + space
