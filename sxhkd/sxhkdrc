@@ -6,6 +6,10 @@ super + F1
 super + ctrl + alt + {q,r}
 	systemctl {poweroff,reboot}
 
+# toggle keyboard layout
+alt + space
+	~/.config/sxhkd/switch_kb_layout.sh
+
 #
 # wm independent hotkeys
 #
