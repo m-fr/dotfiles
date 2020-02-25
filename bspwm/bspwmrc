@@ -16,4 +16,4 @@ bspc rule -a URxvt:sxhkd_help state=floating
 
 compton &
 urxvt -e wtf &
-panel &
+melonpanel &
