@@ -20,7 +20,7 @@ alt + space
 
 # turn volume
 XF86Audio{Lower,Raise}Volume
-	amixer -q set Master 1%{-,+}
+	amixer -q set Master 5%{-,+}
 
 # terminal emulator
 super + Return
