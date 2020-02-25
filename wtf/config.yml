@@ -1,10 +1,10 @@
 wtf:
   colors:
     border:
-      focusable: "gray"
+      focusable: "dimgray"
       focused: "darkslategray"
       normal: "dimgray"
-    checked: "gray"
+    checked: "dimgray"
     highlight:
       fore: "black"
       back: "green"
@@ -17,7 +17,7 @@ wtf:
     title: "green"
   grid:
     columns: [35, 40]
-    rows: [12, 6, 10, 12]
+    rows: [12, 6, 10, 11]
   mods:
     todo:
       enabled: true
