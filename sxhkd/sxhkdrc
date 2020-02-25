@@ -8,7 +8,7 @@ super + ctrl + alt + {q,r,s}
 
 # lock screen
 super + ctrl + alt + l
-	i3lock -c 2f2f2f -i "~/.wallpaper/lockscreen/debian_lockscreen.png" -e -f
+	i3lock -c 3d3d3d -e -f
 
 # toggle keyboard layout
 alt + space
