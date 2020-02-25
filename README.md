@@ -1,2 +1,2 @@
-# dotfiles
-Custom onfiguration files
+# Dotfiles
+Custom configuration files
