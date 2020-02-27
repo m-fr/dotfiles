@@ -22,6 +22,10 @@ alt + space
 XF86Audio{Lower,Raise}Volume
 	amixer -q set Master 5%{-,+}
 
+# mute/unmute
+XF86AudioMuteVolume
+	~/.config/sxhkd/mute.sh
+
 # terminal emulator
 super + Return
 	urxvt
