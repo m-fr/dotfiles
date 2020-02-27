@@ -358,7 +358,7 @@ _melonpanel() {
         esac
 
         _panel_layout() {
-            echo -e "%{l}$wm%{r}$key $bat $therm $vol $date "
+            echo -e "%{l} $wm%{c}$date%{r}$key $bat $therm $vol "
         }
 
         if [ "$(bspc query -M | wc -l)" -gt 1 ]; then
