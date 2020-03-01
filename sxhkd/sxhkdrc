@@ -3,8 +3,12 @@ super + F1
 	urxvt -geometry 1x1 -name sxhkd_help -e ~/.config/sxhkd/sxhkd_help.sh
 
 # shut down / reboot
-super + ctrl + alt + {q,r,s}
-	systemctl {poweroff,reboot,suspend}
+super + ctrl + alt + {q,r}
+	systemctl {poweroff,reboot}
+
+# suspend
+super + ctrl + alt + s
+	i3lock -c 3d3d3d -e -f && systemctl suspend
 
 # lock screen
 super + ctrl + alt + l
