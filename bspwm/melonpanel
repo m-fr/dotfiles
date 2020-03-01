@@ -165,13 +165,13 @@ _temperature() {
     # indicator red.
     case "$output" in
         [12345][0-9])
-            echo "%{F$fg_alt}${label}%{F-} ${output}°C"
+            echo "%{F$fg_alt}\uf2ca%{F-} ${output}°C"
             ;;
         [67][0-9])
-            echo "%{F$fg_alt}${label}%{F-} %{F$red}${output}°C%{F-}"
+            echo "%{F$fg_alt}\uf2c8%{F-} %{F$red}${output}°C%{F-}"
             ;;
         *)
-            echo "%{F$bg_main}%{B$red} $label ${output}°C %{B-}%{F-}"
+            echo "%{F$bg_main}%{B$red} \uf2c7 ${output}°C %{B-}%{F-}"
             ;;
     esac
 }
