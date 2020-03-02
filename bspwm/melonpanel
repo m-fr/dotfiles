@@ -115,7 +115,7 @@ _wifi() {
     status="$(iwgetid -r)"
 
     if [ -n "$status" ]; then
-    	echo "%{F$fg_alt}${label}%{F-} ${status}"
+        echo "%{F$fg_alt}${label}%{F-} ${status}"
     else
         echo "%{F$red}${label}%{F-}"
     fi
@@ -255,7 +255,7 @@ _modules() {
     while true; do
         echo "B" "$(_battery)"
         echo "T" "$(_temperature)"
-        echo "W" "$(_wifi)"
+        echo "N" "$(_wifi)"
         echo "D" "$(_datetime)"
         echo "K" "$(_keyboard)"
         echo "V" "$(_volume)"
@@ -292,8 +292,8 @@ _melonpanel() {
             B*)
                 # battery status
                 bat="${line#?}"
-		;;
-            W*)
+                ;;
+            N*)
                 # wifi status
                 wifi="${line#?}"
                 ;;
