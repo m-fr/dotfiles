@@ -105,7 +105,21 @@ fi
 # The various sequences %{..} are part of lemonbar's syntax for styling
 # the output.  See `man lemonbar`.
 
+# Wireless info
+_wifi() {
+    command -v iwgetid > /dev/null || return 1
 
+    local label command status
+
+    label='\uf1eb'
+    status="$(iwgetid -r)"
+
+    if [ -n "$status" ]; then
+    	echo "%{F$fg_alt}${label}%{F-} ${status}"
+    else
+        echo "%{F$red}${label}%{F-}"
+    fi
+}
 
 # Battery status.
 _battery() {
@@ -241,6 +255,7 @@ _modules() {
     while true; do
         echo "B" "$(_battery)"
         echo "T" "$(_temperature)"
+        echo "W" "$(_wifi)"
         echo "D" "$(_datetime)"
         echo "K" "$(_keyboard)"
         echo "V" "$(_volume)"
@@ -277,6 +292,10 @@ _melonpanel() {
             B*)
                 # battery status
                 bat="${line#?}"
+		;;
+            W*)
+                # wifi status
+                wifi="${line#?}"
                 ;;
             T*)
                 # temperature
@@ -358,7 +377,7 @@ _melonpanel() {
         esac
 
         _panel_layout() {
-            echo -e "%{l} $wm%{c}$date%{r}$key $bat $therm $vol "
+            echo -e "%{l} $wm%{c}$date%{r}$key $wifi $bat $therm $vol "
         }
 
         if [ "$(bspc query -M | wc -l)" -gt 1 ]; then
