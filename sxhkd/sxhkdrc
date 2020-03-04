@@ -8,11 +8,11 @@ super + ctrl + alt + {q,r}
 
 # suspend
 super + ctrl + alt + s
-	i3lock -c 3d3d3d -e -f && systemctl suspend
+	~/.config/sxhkd/lock.sh && systemctl suspend
 
 # lock screen
 super + ctrl + alt + l
-	i3lock -c 3d3d3d -e -f
+	~/.config/sxhkd/lock.sh
 
 # toggle keyboard layout
 alt + space
