@@ -287,6 +287,8 @@ bspc subscribe report > "$melonpanel_fifo" &
 # (see modules above).  Here we just add a shorter variable to each
 # module, which helps position it on the panel (the last printf).
 _melonpanel() {
+	num_mon=$(bspc query -M | wc -l)
+
     while read -r line ; do
         case $line in
             B*)
@@ -315,64 +317,99 @@ _melonpanel() {
                 ;;
             W*)
                 # bspwm's state
-                wm=
-                IFS=':'
-                set -- ${line#?}
-                while [ "$#" -gt 0 ] ; do
-                    item="$1"
-                    name="${item#?}"
-                    case "$item" in
-                        [mMfFoOuULG]*)
-                            case "$item" in
-                                m*)
-                                    # monitor
-                                    FG="$fg_alt" # needed to avoid invalid colour error
-                                    on_focused_monitor=
-                                    name=
-                                    ;;
-                                M*)
-                                    # focused monitor
-                                    FG="$fg_alt" # needed to avoid invalid colour error
-                                    on_focused_monitor=1
-                                    name=
-                                    ;;
-                                # {Free,Occupied,Urgent} focused
-                                [FOU]*)
-                                    if [ -n "$on_focused_monitor" ]; then
-                                        name="%{T2}${name/*/[$name]}%{T-}"
-                                        FG="$fg_main"
-                                    else
-                                        name="${name/*/ $name-}"
-                                        FG="$fg_alt"
-                                    fi
-                                    ;;
-                                # {free,occupied,urgent} unfocused
-                                f*)
-                                    FG="$fg_alt"
-                                    name="${name/*/ $name }"
-                                    ;;
-                                o*)
-                                    FG="$fg_alt"
-                                    name="${name/*/ $name^}"
-                                    ;;
-                                u*)
-                                    FG="$red"
-                                    name="${name/*/ $name\#}"
-                                    ;;
-                                # desktop layout for monocle and node flags
-                                LM|G*?)
-                                    FG="$fg_main"
-                                    name="${name/*/ $name }"
-                                    ;;
-                                *)
-                                    FG="$fg_alt"
-                                    name="${name/*/ * }"
-                                    ;;
-                            esac
-                            wm="${wm}%{F$FG}${name}%{F-}"
-                            ;;
-                    esac
-                    shift
+			wm=
+			IFS=':'
+			set -- ${line#?}
+			while [ $# -gt 0 ] ; do
+				item=$1
+				name=${item#?}
+				case $item in
+					[mM]*)
+						case $item in
+							m*)
+								# monitor
+								FG=$fg_alt
+								BG=$bg_main
+								on_focused_monitor=
+								;;
+							M*)
+								# focused monitor
+								FG=$fg_main
+								BG=$bg_alt
+								on_focused_monitor=1
+								;;
+						esac
+						[ $num_mon -lt 2 ] && shift && continue
+						wm="${wm}%{F${FG}}%{B${BG}} ${name} %{B-}%{F-}"
+						;;
+					[fFoOuU]*)
+						case $item in
+							f*)
+								# free desktop
+								FG=$fg_alt
+								BG=$bg_main
+								UL=$BG
+								;;
+							F*)
+								if [ "$on_focused_monitor" ] ; then
+									# focused free desktop
+									FG=$fg_alt
+									BG=$bg_main
+									UL=$fg_main
+								else
+									# active free desktop
+									FG=$fg_alt
+									BG=$bg_main
+									UL=$BG
+								fi
+								;;
+							o*)
+								# occupied desktop
+								FG=$fg_main
+								BG=$bg_main
+								UL=$BG
+								;;
+							O*)
+								if [ "$on_focused_monitor" ] ; then
+									# focused occupied desktop
+									FG=$fg_main
+									BG=$bg_alt
+									UL=$fg_main
+								else
+									# active occupied desktop
+									FG=$fg_main
+									BG=$bg_alt
+									UL=$BG
+								fi
+								;;
+							u*)
+								# urgent desktop
+								FG=$red
+								BG=$bg_main
+								UL=$BG
+								;;
+							U*)
+								if [ "$on_focused_monitor" ] ; then
+									# focused urgent desktop
+									FG=$red
+									BG=$bg_alt
+									UL=$BG
+								else
+									# active urgent desktop
+									FG=$red
+									BG=$bg_alt
+									UL=$fg_main
+								fi
+								;;
+						esac
+						wm="${wm}%{F${FG}}%{B${BG}}%{U${UL}}%{+u} ${name} %{B-}%{F-}%{-u}"
+						;;
+					[LTG]*)
+						# layout, state and flags
+						wm="${wm}%{F$fg_alt}%{B$bg_main} ${name} %{B-}%{F-}"
+						;;
+				esac
+				shift
                 done
         esac
 
