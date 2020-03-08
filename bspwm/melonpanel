@@ -105,6 +105,29 @@ fi
 # The various sequences %{..} are part of lemonbar's syntax for styling
 # the output.  See `man lemonbar`.
 
+# Bluetooth info
+
+_bluetooth() {
+    command -v bluetoothctl > /dev/null || return 1
+
+    local label command status
+
+    label='\uf294'
+    status=""
+
+    for i in "Powered" "Discoverable" "Pairable" "Discovering"
+    do
+        command="$(bluetoothctl show | grep $i | cut -d : -f 2)"
+        if [ "$command" = " yes" ]; then
+            status="$status%{F$green}${i:0:1}%{F-}"
+        else
+            status="$status%{F$red}${i:0:1}%{F-}"
+        fi
+    done
+
+    echo "%{F$fg_alt}${label}%{F-} $status"
+}
+
 # Wireless info
 _wifi() {
     command -v iwgetid > /dev/null || return 1
@@ -256,6 +279,7 @@ _modules() {
         echo "B" "$(_battery)"
         echo "T" "$(_temperature)"
         echo "N" "$(_wifi)"
+        echo "C" "$(_bluetooth)"
         echo "D" "$(_datetime)"
         echo "K" "$(_keyboard)"
         echo "V" "$(_volume)"
@@ -294,6 +318,10 @@ _melonpanel() {
             B*)
                 # battery status
                 bat="${line#?}"
+                ;;
+            C*)
+                # bluetooth status
+                bth="${line#?}"
                 ;;
             N*)
                 # wifi status
@@ -414,7 +442,7 @@ _melonpanel() {
         esac
 
         _panel_layout() {
-            echo -e "%{l} $wm%{c}$date%{r}$key $wifi $bat $therm $vol "
+            echo -e "%{l} $wm%{c}$date%{r}$key $wifi $bth $bat $therm $vol "
         }
 
         if [ "$(bspc query -M | wc -l)" -gt 1 ]; then
