@@ -80,7 +80,10 @@ yellow="#ffb21a"
 #
 # To verify it, follow the step-by-step instructions (what I did):
 # https://protesilaos.com/codelog/2019-06-24-lemonbar-xft-howto/
-if [ -n "$(fc-list Roboto)" ]; then
+if [ -n "$(fc-list Metropolis)" ]; then
+    fontmain='Metropolis:style=regular:size=10'
+    fontbold='Metropolis:style=bold:size=10'
+elif [ -n "$(fc-list Roboto)" ]; then
     fontmain='Roboto:style=regular:size=10'
     fontbold='Roboto:style=bold:size=10'
 else
