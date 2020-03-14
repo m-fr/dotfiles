@@ -16,9 +16,23 @@ wtf:
     text: "lime"
     title: "green"
   grid:
-    columns: [35, 40]
-    rows: [12, 6, 10, 11]
+    columns: [38, 38]
+    rows: [12, 7, 9, 11]
   mods:
+    textfile:
+      enabled: true
+      filePaths:
+        - "~/.config/wtf/art.txt"
+        - "~/.config/wtf/config.yml"
+      format: true
+      position:
+        top: 0
+        left: 0
+        height: 1
+        width: 1
+      wrapText: false
+      refreshInterval: 3600
+      title: "Notes"
     todo:
       enabled: true
       filename: "todo.yml"
@@ -28,23 +42,12 @@ wtf:
       format: true
       position:
         top: 0
-        left: 0
-        height: 2
-        width: 1
-      refreshInterval: 3600
-      wrapText: false
-    textfile:
-      enabled: true
-      filePaths:
-      - "~/.config/wtf/config.yml"
-      format: true
-      position:
-        top: 0
         left: 1
         height: 2
         width: 1
-      refreshInterval: 3600
       wrapText: false
+      refreshInterval: 3600
+      title: "To-Do"
     hackernews:
       enabled: true
       position:
@@ -52,7 +55,22 @@ wtf:
         left: 2
         width: 1
         height: 1
-      updateInterval: 1800
+      refreshInterval: 1800
+      title: "Hacker News"
+    exchangerates:
+      enabled: true
+      rates:
+        USD:
+          - "CZK"
+        EUR:
+          - "CZK"
+      position:
+        top: 1
+        left: 0
+        width: 1
+        height: 1
+      refreshInterval: 60
+      title: "Exchange"
     feedreader:
       enabled: true
       focusable: false
@@ -63,8 +81,8 @@ wtf:
         left: 2
         width: 1
         height: 1
-      updateInterval: 3600
-      title: "wtfutil"
+      refreshInterval: 3600
+      title: "WTF releases"
     digitalclock:
       enabled: true
       font: digitalfont
@@ -85,6 +103,7 @@ wtf:
         height: 1
         width: 1
       refreshInterval: 1800
+      title: "Weather"
     power:
       enabled: true
       position:
@@ -93,14 +112,7 @@ wtf:
         height: 1
         width: 1
       refreshInterval: 30
-    security:
-      enabled: false
-      position:
-        top: 3
-        left: 0
-        height: 1
-        width: 1
-      refreshInterval: 60
+      title: "Power"
     ipinfo:
       colors:
         name: "red"
@@ -112,6 +124,7 @@ wtf:
         height: 1
         width: 1
       refreshInterval: 60
+      title: "IP info"
     resourceusage:
       enabled: true
       cpuCombined: false
@@ -124,6 +137,7 @@ wtf:
       title: "Resources"
     disk:
       enabled: true
+      type: cmdrunner
       cmd: "df"
       args: ["-h"]
       position:
@@ -133,10 +147,10 @@ wtf:
         width: 1
       refreshInterval: 30
       title: "Disk usage"
-      type: cmdrunner
     uptime:
       enabled: true
       focusable: false
+      type: cmdrunner
       cmd: "uptime"
       args: ["-p"]
       color: lime
@@ -146,11 +160,11 @@ wtf:
         height: 1
         width: 2
       refreshInterval: 15
-      type: cmdrunner
-      title: Uptime
+      title: "Uptime"
     version:
       enabled: true
       focusable: false
+      type: cmdrunner
       cmd: "wtf"
       args: ["-v"]
       color: lime
@@ -160,5 +174,4 @@ wtf:
         height: 1
         width: 1
       refreshInterval: 0
-      type: cmdrunner
-      title: Version
+      title: "Version"
