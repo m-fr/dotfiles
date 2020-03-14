@@ -19,5 +19,9 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 xset -b
+xsetroot -cursor_name trek
+xrdb -merge ~/.Xresources
+
 ~/.dropbox-dist/dropboxd &
+
 feh --randomize --bg-fill ~/.wallpaper/*.jpg &
