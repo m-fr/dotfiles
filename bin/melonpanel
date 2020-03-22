@@ -131,6 +131,41 @@ _bluetooth() {
     echo "%{F$fg_alt}${label}%{F-} $status"
 }
 
+# Network info
+_network() {
+    command -v nmcli > /dev/null || return 1
+
+    local label status color
+
+    label='?'
+    color='fg_main'
+    status="$(nmcli -t general status | cut -d: -f2)"
+
+    case "$status" in
+        'none')
+            label='\uf1e6'
+            color="$red"
+            ;;
+        'portal')
+            label='\uf3ed'
+            ;;
+        'limited')
+            label='\uf0ac'
+            color="$red"
+            ;;
+        'full')
+            label='\uf0ac'
+            color="$green"
+            ;;
+        *)
+            label='\uf0ac'
+            color="$fg_alt"
+            ;;
+    esac
+
+    echo "%{F$color}${label}%{F-}"
+}
+
 # Wireless info
 _wifi() {
     command -v iwgetid > /dev/null || return 1
@@ -281,7 +316,8 @@ _modules() {
     while true; do
         echo "B" "$(_battery)"
         echo "T" "$(_temperature)"
-        echo "N" "$(_wifi)"
+        echo "P" "$(_wifi)"
+        echo "N" "$(_network)"
         echo "C" "$(_bluetooth)"
         echo "D" "$(_datetime)"
         echo "K" "$(_keyboard)"
@@ -326,9 +362,13 @@ _melonpanel() {
                 # bluetooth status
                 bth="${line#?}"
                 ;;
-            N*)
+            P*)
                 # wifi status
                 wifi="${line#?}"
+                ;;
+            N*)
+                # wifi status
+                network="${line#?}"
                 ;;
             T*)
                 # temperature
@@ -445,7 +485,7 @@ _melonpanel() {
         esac
 
         _panel_layout() {
-            echo -e "%{l} $wm%{c}$date%{r}$key $wifi $bth $bat $therm $vol "
+            echo -e "%{l} $wm%{c}$date%{r}$key $wifi $network $bth $bat $therm $vol "
         }
 
         if [ "$(bspc query -M | wc -l)" -gt 1 ]; then
