@@ -17,22 +17,8 @@ wtf:
     title: "green"
   grid:
     columns: [38, 38]
-    rows: [12, 7, 9, 11]
+    rows: [13, 6, 9, 11]
   mods:
-    textfile:
-      enabled: true
-      filePaths:
-        - "~/.config/wtf/art.txt"
-        - "~/.config/wtf/config.yml"
-      format: true
-      position:
-        top: 0
-        left: 0
-        height: 1
-        width: 1
-      wrapText: false
-      refreshInterval: 3600
-      title: "Notes"
     todo:
       enabled: true
       filename: "todo.yml"
@@ -42,14 +28,28 @@ wtf:
       format: true
       position:
         top: 0
-        left: 1
-        height: 2
+        left: 0
+        height: 1
         width: 1
       wrapText: false
       refreshInterval: 3600
       title: "To-Do"
+    logo:
+      enabled: true
+      focusable: false
+      type: cmdrunner
+      cmd: "screenfetch"
+      args: ["-L"]
+      position:
+        top: 0
+        left: 1
+        height: 2
+        width: 1
+      refreshInterval: 14400
+      title: "OS"
     hackernews:
       enabled: true
+      numberOfStories: 20
       position:
         top: 0
         left: 2
@@ -75,7 +75,8 @@ wtf:
       enabled: true
       focusable: false
       feeds:
-      - http://wtfutil.com/blog/index.xml
+      - https://wtfutil.com/blog/index.xml
+      feedLimit: 3
       position:
         top: 1
         left: 2
