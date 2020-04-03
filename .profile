@@ -24,4 +24,4 @@ xrdb -merge ~/.Xresources
 
 ~/.dropbox-dist/dropboxd &
 
-feh --randomize --bg-fill ~/.wallpaper/*.jpg &
+wall_theme &
