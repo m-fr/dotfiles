@@ -5,6 +5,6 @@ prefix=""
 count=17
 
 while true; do
-    feh --bg-fill "$folder$prefix$((`date +%H` * $count / 24)).jpg"
+    feh --bg-fill "$folder$prefix$((`date +%-H` * $count / 24)).jpg"
     sleep 15m
 done
