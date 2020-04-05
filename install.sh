@@ -3,7 +3,7 @@ CMD="ln"
 FLAGS="-sT"
 
 profile=".profile .vimrc .Xresources"
-config="bspwm sxhkd rofi wtf"
+config="bspwm sxhkd rofi wtf .shortcuts"
 BIN="bin"
 
 while getopts ":lmtfh" opt; do

@@ -1,0 +1,35 @@
+# Open new tab
+ctrl + shift + Return
+
+# Previous tab
+ctrl + shift + h
+
+# Next tab
+ctrl + shift + l
+
+# Move selected tab one to the left
+ctrl + shift + j
+
+# Move selected tab one to the right
+ctrl + shift + k
+
+# Toggle autofocus of urgent tabs
+ctrl + shift + u
+
+# Toggle between the selected and last selected tab
+ctrl + Tab
+
+# Open dmenu to either create a new tab appending the entered string or select an already existing tab
+ctrl + grave
+
+# Close tab
+ctrl + q
+
+# Focus next urgent tab
+ctrl + u
+
+# Jumps to nth tab
+ctrl + {0-9}
+
+# Toggle fullscreen mode
+F11

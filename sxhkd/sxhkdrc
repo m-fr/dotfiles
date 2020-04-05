@@ -1,5 +1,5 @@
 # show help
-super + {_,alt} + F1
+{super,alt} + F1
 	urxvt -geometry 1x1 -name sxhkd_help -e ~/.config/sxhkd/{sxhkd,app}_help.sh
 
 # shut down / reboot
