@@ -9,6 +9,7 @@ bspc config border_width        0
 bspc config window_gap          2
 
 bspc config split_ratio          0.52
+bspc config single_monocle       true
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
@@ -16,4 +17,4 @@ bspc rule -a URxvt:sxhkd_help state=floating
 
 compton &
 urxvt -e wtf &
-melonpanel &
+~/.config/polybar/launch.sh &
