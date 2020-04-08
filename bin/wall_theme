@@ -1,10 +1,58 @@
 #!/bin/bash
 
-folder="$HOME/.wallpaper/Mojave/"
-prefix=""
-count=17
+FOLDER="$HOME/.wallpaper"
+PREFIX=""
+SUFFIX=".jpg"
+COUNT=24
 
-while true; do
-    feh --bg-fill "$folder$prefix$((`date +%-H` * $count / 24)).jpg"
+while getopts ":f:p:s:c:" opt
+do
+    case $opt in
+    f)
+        FOLDER=$OPTARG
+        ;;
+    p)
+        PREFIX=$OPTARG
+        ;;
+    s)
+        SUFFIX=$OPTARG
+        ;;
+    c)
+        if [ "$OPTARG" -gt 0 ] && [ "$OPTARG" -le 24 ]
+        then
+            COUNT=$OPTARG
+        else
+            echo "Set $opt in range <1..24>."
+            echo "  (Got \"$OPTARG\")"
+            exit 1
+        fi
+        ;;
+    \?)
+        echo "Usage:"
+        echo "  $0 [flags]"
+        echo "      -f  set folder (default \"$HOME/.walpaper\")"
+        echo "      -p  set file prefix (default empty)"
+        echo "      -s  set file suffix (default \".jpg\")"
+        echo "      -c  set number of wallpapers (default 24)"
+        exit 1
+        ;;
+    esac
+done
+shift $((OPTIND -1))
+
+missing=0
+for ((i=0; i < COUNT ; i++))
+do
+    if [ ! -f "$FOLDER/${PREFIX}$i$SUFFIX" ]
+    then
+        echo "  \"$FOLDER/${PREFIX}$i$SUFFIX\" is missing"
+        missing=$((missing +1))
+    fi
+done
+[ $missing -gt 0 ] && exit 1
+
+while true
+do
+    feh --bg-fill "$FOLDER/$PREFIX$((`date +%-H` * COUNT / 24))$SUFFIX"
     sleep 15m
 done

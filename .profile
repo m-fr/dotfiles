@@ -22,6 +22,6 @@ xset -b
 xsetroot -cursor_name trek
 xrdb -merge ~/.Xresources
 
-~/.dropbox-dist/dropboxd &
+wall_theme -p Mojave/ -c 17 &
 
-wall_theme &
+~/.dropbox-dist/dropboxd &
