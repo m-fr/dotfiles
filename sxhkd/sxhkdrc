@@ -38,6 +38,10 @@ super + Return
 super + d
 	rofi -show window
 
+# quick launch (web, documents, email)
+super + alt + {1,2,3}
+	{firefox,nautilus,thunderbird}
+
 # program launcher
 super + r
 	rofi -show run
