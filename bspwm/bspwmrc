@@ -16,5 +16,5 @@ bspc config gapless_monocle      true
 bspc rule -a URxvt:sxhkd_help state=floating
 
 compton &
-urxvt -e wtf &
 ~/.config/polybar/launch.sh &
+urxvt -e sh -c ". ~/.env && wtf" &

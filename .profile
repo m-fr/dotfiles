@@ -7,6 +7,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 PATH="$PATH:/usr/local/texlive/2019/bin/i386-linux"
+PATH="$PATH:/usr/local/go/bin/"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
