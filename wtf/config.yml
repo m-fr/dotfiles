@@ -64,6 +64,8 @@ wtf:
           - "CZK"
         EUR:
           - "CZK"
+        GBP:
+          - "CZK"
       position:
         top: 1
         left: 0
@@ -71,19 +73,15 @@ wtf:
         height: 1
       refreshInterval: 60
       title: "Exchange"
-    feedreader:
+    transmission:
       enabled: true
-      focusable: false
-      feeds:
-      - https://wtfutil.com/blog/index.xml
-      feedLimit: 3
+      host: "localhost"
       position:
         top: 1
         left: 2
         width: 1
         height: 1
-      refreshInterval: 3600
-      title: "WTF releases"
+      refreshInterval: 5
     digitalclock:
       enabled: true
       font: digitalfont
@@ -148,20 +146,6 @@ wtf:
         width: 1
       refreshInterval: 30
       title: "Disk usage"
-    uptime:
-      enabled: true
-      focusable: false
-      type: cmdrunner
-      cmd: "uptime"
-      args: ["-p"]
-      color: lime
-      position:
-        top: 4
-        left: 0
-        height: 1
-        width: 2
-      refreshInterval: 15
-      title: "Uptime"
     version:
       enabled: true
       focusable: false
@@ -171,8 +155,35 @@ wtf:
       color: lime
       position:
         top: 4
-        left: 2
+        left: 0
         height: 1
         width: 1
       refreshInterval: 0
       title: "Version"
+    feedreader:
+      enabled: true
+      focusable: false
+      feeds:
+      - https://wtfutil.com/blog/index.xml
+      feedLimit: 2
+      position:
+        top: 4
+        left: 1
+        width: 1
+        height: 1
+      refreshInterval: 3600
+      title: "WTF releases"
+    uptime:
+      enabled: true
+      focusable: false
+      type: cmdrunner
+      cmd: "uptime"
+      args: ["-p"]
+      color: lime
+      position:
+        top: 4
+        left: 2
+        height: 1
+        width: 1
+      refreshInterval: 15
+      title: "Uptime"
