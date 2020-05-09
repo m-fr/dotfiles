@@ -55,7 +55,7 @@ inherit = bar/bar
 monitor = LVDS-1
 modules-left = bspwm
 modules-center = date
-modules-right = wifi network bth cpu memory battery temperature alsa backlight keyboard
+modules-right = wifi network cpu memory battery temperature alsa backlight keyboard
 tray-position = right
 tray-padding = 2
 tray-background = ${colors.background-alt}
@@ -65,7 +65,7 @@ inherit = bar/bar
 monitor = VGA-1
 modules-left = bspwm
 modules-center = dateLong
-modules-right = wifiLong networkLong bth cpu memoryLong batteryLong temperature alsa backlight keyboard
+modules-right = wifiLong networkLong cpuLong memoryLong batteryLong temperature alsa backlight keyboard
 tray-position = none
 
 [module/bspwm]
@@ -141,7 +141,7 @@ ramp-4 = 
 
 [module/battery]
 type = internal/battery
-full-at = 99
+full-at = 98
 battery = BAT0
 adapter = AC
 format-charging    = <animation-charging> <label-charging>
@@ -166,8 +166,7 @@ label-discharging = %percentage%% %time% %consumption%W
 
 [module/cpu]
 type = internal/cpu
-format =  <ramp-coreload> <label>
-label = %percentage%%
+format =  <ramp-coreload>
 ramp-coreload-spacing = 0
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
@@ -177,6 +176,11 @@ ramp-coreload-4 = ▅
 ramp-coreload-5 = ▆
 ramp-coreload-6 = ▇
 ramp-coreload-7 = █
+
+[module/cpuLong]
+inherit = module/cpu
+format =  <ramp-coreload> <label>
+label = %percentage:2%%
 
 [module/date]
 type = internal/date
@@ -195,7 +199,7 @@ label =  %date%  %time%
 
 [module/memory]
 type = internal/memory
-format =  <bar-used> <label>
+format =  <bar-used>
 bar-used-indicator = 
 bar-used-width = 6
 bar-used-foreground-0 = ${colors.secondary-alt}
@@ -207,13 +211,14 @@ bar-used-empty-foreground = ${colors.background-alt}
 
 [module/memoryLong]
 inherit = module/memory
+format =  <bar-used> <label>
 bar-used-width = 10
 
 [module/wifi]
 type = internal/network
 interface = wlp2s0
 format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
+label-connected = %{A:ip -o address | cut -d' ' -f2,7 | rofi -dmenu -filter wlp2s0 -location 3:}%essid% %downspeed:8%%{A}
 format-disconnected = <label-disconnected>
 label-disconnected = 
 label-disconnected-foreground = ${colors.secondary}
@@ -224,20 +229,18 @@ ramp-signal-3 = 
 
 [module/wifiLong]
 inherit = module/wifi
-label-connected = %essid% %local_ip% %local_ip6%
 
 [module/network]
 type = internal/network
 interface = enp0s25
 format-connected =  <label-connected>
-label-connected = %linkspeed%
+label-connected = %{A:ip -o address | cut -d' ' -f2,7 | rofi -dmenu -filter enp0s25 -location 3:}%downspeed:8%%{A}
 format-disconnected = <label-disconnected>
 label-disconnected = 
 label-disconnected-foreground = ${colors.secondary}
 
 [module/networkLong]
 inherit = module/network
-label-connected = %linkspeed% %local_ip% %local_ip6%
 
 [module/temperature]
 type = internal/temperature
