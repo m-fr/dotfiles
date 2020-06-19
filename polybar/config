@@ -55,7 +55,7 @@ inherit = bar/bar
 monitor = LVDS-1
 modules-left = bspwm
 modules-center = date
-modules-right = wifi network cpu memory battery temperature alsa backlight keyboard
+modules-right = wifi network cpu memory battery temperature alsa backlight updates keyboard
 tray-position = right
 tray-padding = 2
 tray-background = ${colors.background-alt}
@@ -65,7 +65,7 @@ inherit = bar/bar
 monitor = VGA-1
 modules-left = bspwm
 modules-center = dateLong
-modules-right = wifiLong networkLong cpuLong memoryLong batteryLong temperature alsa backlight keyboard
+modules-right = wifiLong networkLong cpuLong memoryLong batteryLong temperature alsa backlight updates keyboard
 tray-position = none
 
 [module/bspwm]
@@ -263,6 +263,11 @@ interval = 1
 format = <label>
 format-padding = 1
 format-background = ${colors.background-alt}
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/apt.sh
+interval = 600
 
 [global/wm]
 margin-top = 2
