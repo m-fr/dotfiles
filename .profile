@@ -26,3 +26,4 @@ xrdb -merge ~/.Xresources
 wall_theme -p Mojave/ -c 17 &
 
 ~/.dropbox-dist/dropboxd &
+birdtray &
