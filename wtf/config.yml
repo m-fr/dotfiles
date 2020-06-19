@@ -17,7 +17,7 @@ wtf:
     title: "green"
   grid:
     columns: [38, 38]
-    rows: [13, 6, 9, 11]
+    rows: [13, 7, 9, 12]
   mods:
     todo:
       enabled: true
@@ -53,8 +53,8 @@ wtf:
       position:
         top: 0
         left: 2
-        width: 1
         height: 1
+        width: 1
       refreshInterval: 1800
       title: "Hacker News"
     exchangerates:
@@ -69,19 +69,19 @@ wtf:
       position:
         top: 1
         left: 0
-        width: 1
         height: 1
+        width: 1
       refreshInterval: 60
       title: "Exchange"
-    transmission:
+    power:
       enabled: true
-      host: "localhost"
       position:
         top: 1
         left: 2
-        width: 1
         height: 1
-      refreshInterval: 5
+        width: 1
+      refreshInterval: 30
+      title: "Power"
     digitalclock:
       enabled: true
       font: digitalfont
@@ -103,27 +103,30 @@ wtf:
         width: 1
       refreshInterval: 1800
       title: "Weather"
-    power:
-      enabled: true
-      position:
-        top: 2
-        left: 2
-        height: 1
-        width: 1
-      refreshInterval: 30
-      title: "Power"
     ipinfo:
       colors:
         name: "red"
         value: "lime"
       enabled: true
       position:
-        top: 3
-        left: 0
+        top: 2
+        left: 2
         height: 1
         width: 1
       refreshInterval: 60
       title: "IP info"
+    firewall:
+      enabled: true
+      type: cmdrunner
+      cmd: "ufw"
+      args: ["show","listening"]
+      position:
+        top: 3
+        left: 0
+        height: 1
+        width: 1
+      refreshInterval: 30
+      title: "Open ports"
     resourceusage:
       enabled: true
       cpuCombined: false
@@ -148,6 +151,7 @@ wtf:
       title: "Disk usage"
     version:
       enabled: true
+      border: false
       focusable: false
       type: cmdrunner
       cmd: "wtf"
@@ -162,6 +166,7 @@ wtf:
       title: "Version"
     feedreader:
       enabled: true
+      border: false
       focusable: false
       feeds:
       - https://wtfutil.com/blog/index.xml
@@ -169,12 +174,13 @@ wtf:
       position:
         top: 4
         left: 1
-        width: 1
         height: 1
+        width: 1
       refreshInterval: 3600
       title: "WTF releases"
     uptime:
       enabled: true
+      border: false
       focusable: false
       type: cmdrunner
       cmd: "uptime"
