@@ -14,6 +14,9 @@ super + ctrl + alt + s
 super + ctrl + alt + l
 	~/.config/sxhkd/lock.sh
 
+XF86ScreenSaver
+	~/.config/sxhkd/lock.sh
+
 # toggle keyboard layout
 alt + space
 	~/.config/sxhkd/switch_kb_layout.sh
@@ -21,6 +24,13 @@ alt + space
 #
 # wm independent hotkeys
 #
+
+# set monitor layout
+super + alt + p
+    ~/.config/sxhkd/display.sh
+
+XF86Display
+    ~/.config/sxhkd/display.sh
 
 # turn volume
 XF86Audio{Lower,Raise}Volume
@@ -49,6 +59,10 @@ super + r
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+# take screenshot (full, active window, select window)
+Print + {_,ctrl,alt}
+    scrot -d 3 {-m,-u,-s} ~/Pictures/screenshot/'%Y%m%d_%H%M%S_$wx$h.png' -e 'feh -F $f'
 
 #
 # bspwm hotkeys
