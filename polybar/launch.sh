@@ -1,9 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Terminate already running bar instances
-# killall -q polybar
-polybar-msg cmd quit
-rm /tmp/ipc-bar*
+killall -q polybar
+rm -f /tmp/ipc-bar*
 
 for BAR in $(polybar -m | cut -d- -f1)
 do

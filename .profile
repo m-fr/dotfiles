@@ -23,7 +23,7 @@ xset -b
 xsetroot -cursor_name trek
 xrdb -merge ~/.Xresources
 
-wall_theme -p Mojave/ -c 17 &
+mons -a -x ~/.local/bin/display-switcher &
 
 ~/.dropbox-dist/dropboxd &
 birdtray &

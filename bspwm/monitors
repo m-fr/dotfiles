@@ -1,0 +1,13 @@
+#!/bin/bash
+if [[ $(mons | grep Monitors | cut -d : -f 2) -le 1 ]]
+then
+    bspc monitor -d I II III IV V VI VII VIII
+else
+    bspc monitor LVDS-1 -d I II III IV V
+    bspc monitor VGA-1 -d VI VII VIII IX X
+fi
+
+~/.config/polybar/launch.sh &
+
+killall -q wall_theme 
+wall_theme -p Mojave/ -c 17 &

@@ -2,8 +2,7 @@
 
 sxhkd &
 
-bspc monitor LVDS-1 -d I II III IV V
-bspc monitor VGA-1 -d VI VII VIII IX X
+~/.config/bspwm/monitors
 
 bspc config border_width        0
 bspc config window_gap          2
@@ -13,8 +12,12 @@ bspc config single_monocle       true
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a URxvt:sxhkd_help state=floating
+bspc config remove_disabled_monitors      true
+bspc config remove_unplugged_monitors     true
 
+bspc rule -a URxvt:sxhkd_help state=floating
+bspc rule -a Firefox:Toolkit state=floating
+
+#mons -a -x ~/.local/bin/display-switcher &
 compton &
-~/.config/polybar/launch.sh &
 urxvt -e wtf &

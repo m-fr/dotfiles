@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#if [[ !"$MONS_NUMBBER" ]]
+#then
+    MONS_NUMBER=$(mons | grep Monitors | cut -d ' ' -f 2)
+#fi
+
+case ${MONS_NUMBER} in
+    1)
+        mons -o
+        ~/.config/bspwm/monitors &
+        ;;
+    2)
+        mons -e right
+        ~/.config/bspwm/monitors &
+        ;;
+    *)
+        # Handle it manually
+        ;;
+esac
