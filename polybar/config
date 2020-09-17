@@ -166,7 +166,8 @@ label-discharging = %percentage%% %time% %consumption%W
 
 [module/cpu]
 type = internal/cpu
-format =  <ramp-coreload>
+format = <label> <ramp-coreload>
+label = %{A:ps -eo pcpu,pmem,pid,args --sort=-pcpu | rofi -dmenu -location 3:}%{A}
 ramp-coreload-spacing = 0
 ramp-coreload-0 = ▁
 ramp-coreload-1 = ▂
@@ -180,7 +181,7 @@ ramp-coreload-7 = █
 [module/cpuLong]
 inherit = module/cpu
 format =  <ramp-coreload> <label>
-label = %percentage:2%%
+label = %{A:ps -eo pcpu,pmem,pid,args --sort=-pcpu | rofi -dmenu -location 3:}%percentage:2%%%{A}
 
 [module/date]
 type = internal/date
@@ -199,7 +200,8 @@ label =  %date%  %time%
 
 [module/memory]
 type = internal/memory
-format =  <bar-used>
+format = <label> <bar-used>
+label = %{A:ps -eo pmem,pcpu,pid,args --sort=-pmem | rofi -dmenu -location 3:}%{A}
 bar-used-indicator = 
 bar-used-width = 6
 bar-used-foreground-0 = ${colors.secondary-alt}
@@ -212,6 +214,7 @@ bar-used-empty-foreground = ${colors.background-alt}
 [module/memoryLong]
 inherit = module/memory
 format =  <bar-used> <label>
+label = %{A:ps -eo pmem,pcpu,pid,args --sort=-pmem | rofi -dmenu -location 3:}%percentage_used:2%%%{A}
 bar-used-width = 10
 
 [module/wifi]
