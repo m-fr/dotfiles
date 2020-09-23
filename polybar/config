@@ -55,7 +55,7 @@ inherit = bar/bar
 monitor = LVDS-1
 modules-left = bspwm
 modules-center = date
-modules-right = wifi network cpu memory battery temperature alsa backlight updates keyboard
+modules-right = wifi network cpu memory battery temperature alsa backlight updates keyboard playerctl
 tray-position = right
 tray-padding = 2
 tray-background = ${colors.background-alt}
@@ -65,7 +65,7 @@ inherit = bar/bar
 monitor = VGA-1
 modules-left = bspwm
 modules-center = dateLong
-modules-right = wifiLong networkLong cpuLong memoryLong batteryLong temperature alsa backlight updates keyboard
+modules-right = wifiLong networkLong cpuLong memoryLong batteryLong temperature alsa backlight updates keyboard playerctl
 tray-position = none
 
 [module/bspwm]
@@ -127,6 +127,12 @@ ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-headphones-0 = 
 ramp-headphones-1 = 
+
+[module/playerctl]
+type = custom/script
+interval = 2
+exec = echo %{A1:playerctl previous:}%{A} %{A1:playerctl play-pause:}$(playerctl status 2>/dev/null | grep Playing >/dev/null && echo '' || echo '')%{A} %{A1:playerctl next:}%{A} $(playerctl metadata -f '{{title}}' 2>/dev/null)
+exec-if = playerctl metadata -f {{playerName}} 2>/dev/null | grep -v mopidy >/dev/null
 
 [module/backlight]
 type = internal/backlight
