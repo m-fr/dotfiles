@@ -131,7 +131,7 @@ ramp-headphones-1 = 
 [module/playerctl]
 type = custom/script
 interval = 2
-exec = echo %{A1:playerctl previous:}%{A} %{A1:playerctl play-pause:}$(playerctl status 2>/dev/null | grep Playing >/dev/null && echo '' || echo '')%{A} %{A1:playerctl next:}%{A} $(playerctl metadata -f '{{title}}' 2>/dev/null)
+exec = echo %{A1:playerctl previous:}%{A} %{A1:'playerctl play-pause &':}$(playerctl status 2>/dev/null | grep Playing >/dev/null && echo '' || echo '')%{A} %{A1:playerctl next:}%{A} $(playerctl metadata -f '{{title}}' 2>/dev/null)
 exec-if = playerctl metadata -f {{playerName}} 2>/dev/null | grep -v mopidy >/dev/null
 
 [module/backlight]

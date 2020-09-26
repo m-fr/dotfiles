@@ -22,6 +22,34 @@ alt + space
 	~/.config/sxhkd/switch_kb_layout.sh
 
 #
+# media handling
+#
+
+# turn volume
+XF86Audio{Lower,Raise}Volume
+	amixer -q set Master 5%{-,+}
+
+# mute/unmute
+XF86AudioMute
+	~/.config/sxhkd/mute.sh
+
+# play/pause
+XF86AudioPlay
+    playerctl play-pause &
+
+# stop
+XF86AudioStop
+    playerctl stop &
+
+# previous track
+XF86AudioPrev
+    playerctl previous &
+
+# next track
+XF86AudioNext
+    playerctl next &
+
+#
 # wm independent hotkeys
 #
 
@@ -31,14 +59,6 @@ super + alt + p
 
 XF86Display
     ~/.config/sxhkd/display.sh
-
-# turn volume
-XF86Audio{Lower,Raise}Volume
-	amixer -q set Master 5%{-,+}
-
-# mute/unmute
-XF86AudioMute
-	~/.config/sxhkd/mute.sh
 
 # terminal emulator
 super + Return
