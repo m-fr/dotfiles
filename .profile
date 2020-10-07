@@ -19,6 +19,11 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# environment
+if [ -f ~/.env ]; then
+    . ~/.env
+fi
+
 xset -b
 xsetroot -cursor_name trek
 xrdb -merge ~/.Xresources

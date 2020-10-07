@@ -18,6 +18,5 @@ bspc config remove_unplugged_monitors     true
 bspc rule -a URxvt:sxhkd_help state=floating
 bspc rule -a Firefox:Toolkit state=floating
 
-#mons -a -x ~/.local/bin/display-switcher &
 compton &
 urxvt -e wtf &
