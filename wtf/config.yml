@@ -35,7 +35,7 @@ wtf:
       refreshInterval: 3600
       title: "To-Do"
     logo:
-      enabled: true
+      enabled: false
       focusable: false
       type: cmdrunner
       cmd: "screenfetch"
@@ -47,6 +47,19 @@ wtf:
         width: 1
       refreshInterval: 14400
       title: "OS"
+    calendar:
+       enabled: true
+       focusable: true
+       type: cmdrunner
+       cmd: "khal"
+       args: ["list","now","5d"]
+       position:
+         top: 0
+         left: 1
+         height: 1
+         width: 1
+       refreshInterval: 600
+       title: "Calendar"
     hackernews:
       enabled: true
       numberOfStories: 20
@@ -77,11 +90,22 @@ wtf:
       enabled: true
       position:
         top: 1
-        left: 2
+        left: 1
         height: 1
         width: 1
       refreshInterval: 30
       title: "Power"
+    travisci:
+      enabled: true
+      position:
+        top: 1
+        left: 2
+        height: 1
+        width: 1
+      sort_by: "finished_at:desc"
+      compact: true
+      pro: true
+      refreshInterval: 900
     digitalclock:
       enabled: true
       font: digitalfont
