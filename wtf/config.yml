@@ -52,7 +52,7 @@ wtf:
        focusable: true
        type: cmdrunner
        cmd: "khal"
-       args: ["list","now","5d"]
+       args: ["list", "now"]
        position:
          top: 0
          left: 1
@@ -105,7 +105,7 @@ wtf:
       sort_by: "finished_at:desc"
       compact: true
       pro: true
-      refreshInterval: 900
+      refreshInterval: 300
     digitalclock:
       enabled: true
       font: digitalfont

@@ -1,0 +1,35 @@
+[calendars]
+
+[[icloud_local]]
+path  = ~/.calendars/icloud/*
+color = dark cyan
+type  = discover
+
+[[fit_ctu_local]]
+path     = ~/.calendars/fit_ctu/
+color    = light green
+readonly = true
+type     = calendar
+
+[[fit_tasks_local]]
+path     = ~/.calendars/fit_tasks/
+color    = light blue
+readonly = true
+type     = calendar
+
+[default]
+timedelta = 5d
+
+[highlight_days]
+default_color = light green
+method        = fg
+
+[view]
+agenda_event_format = "{calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol}{reset}"
+
+[locale]
+timeformat         = %H:%M
+dateformat         = %d/%m/%Y
+longdateformat     = %d/%m/%Y
+datetimeformat     = %d/%m/%Y %H:%M
+longdatetimeformat = %d/%m/%Y %H:%M
