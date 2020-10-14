@@ -193,16 +193,15 @@ label = %{A:ps -eo pcpu,pmem,pid,args --sort=-pcpu | rofi -dmenu -location 3:}%p
 type = internal/date
 date = %d %b %Y
 time = %H:%M
-date-alt = %A, %d %B %Y, W%W
+date-alt = %A, %d %B %Y, W%V
 time-alt = %H:%M:%S
 format = <label>
-label =  %date% %time%
+label = %{A3:urxvt -name calendar -e ikhal:}  %date%  %time% %{A}
 
 [module/dateLong]
 inherit = module/date
 date = ${module/date.date-alt}
 time = ${module/date.time-alt}
-label =  %date%  %time%
 
 [module/memory]
 type = internal/memory

@@ -1,8 +1,8 @@
-urxvt*font:        xft:Fira Code:size=11
-urxvt*depth:       32
-urxvt*background:  [75]#2f2f2f 
-urxvt*foreground:  #c6c6c6
-urxvt*scrollBar:   false
+Rxvt*font:        xft:Fira Code:size=11
+Rxvt*depth:       32
+Rxvt*background:  [75]#2f2f2f 
+Rxvt*foreground:  #c6c6c6
+Rxvt*scrollBar:   false
 
 !! colors
 ! black

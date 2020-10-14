@@ -16,6 +16,7 @@ bspc config remove_disabled_monitors      true
 bspc config remove_unplugged_monitors     true
 
 bspc rule -a URxvt:sxhkd_help state=floating
+bspc rule -a URxvt:calendar state=floating
 bspc rule -a Firefox:Toolkit state=floating
 
 compton &
