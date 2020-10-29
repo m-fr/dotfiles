@@ -276,6 +276,7 @@ format-background = ${colors.background-alt}
 type = custom/script
 exec = ~/.config/polybar/apt.sh
 interval = 600
+format = %{A:~/.config/polybar/apt.sh -l:}<label>%{A}
 
 [global/wm]
 margin-top = 2
