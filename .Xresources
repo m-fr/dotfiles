@@ -15,13 +15,13 @@ URxvt.color9:      #b45bcf
 URxvt.color2:      #32cd32
 URxvt.color10:     #00ff7f
 ! yellow
-URxvt.color3:      #ffd700
-URxvt.color11:     #ffff00
+URxvt.color3:      #ffff00
+URxvt.color11:     #ffd700
 ! blue
 URxvt.color4:      #1e90ff
 URxvt.color12:     #62d6e8
 ! magenta
-URxvt.color5:      #a1268e
+URxvt.color5:      #ff1493
 URxvt.color13:     #dab2d3
 ! cyan
 URxvt.color6:      #00ffff
