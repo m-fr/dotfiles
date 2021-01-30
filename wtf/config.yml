@@ -15,9 +15,6 @@ wtf:
     subheading: "lightgreen::b"
     text: "lime"
     title: "green"
-  grid:
-    columns: [38, 38]
-    rows: [13, 7, 9, 12]
   mods:
     todo:
       enabled: true
@@ -29,8 +26,8 @@ wtf:
       position:
         top: 0
         left: 0
-        height: 1
-        width: 1
+        height: 13
+        width: 2
       wrapText: false
       refreshInterval: 3600
       title: "To-Do"
@@ -38,13 +35,13 @@ wtf:
       enabled: false
       focusable: false
       type: cmdrunner
-      cmd: "screenfetch"
+      cmd: "neofetch"
       args: ["-L"]
       position:
         top: 0
-        left: 1
-        height: 2
-        width: 1
+        left: 2
+        height: 20
+        width: 2
       refreshInterval: 14400
       title: "OS"
     calendar:
@@ -55,9 +52,9 @@ wtf:
        args: ["list", "now"]
        position:
          top: 0
-         left: 1
-         height: 1
-         width: 1
+         left: 2
+         height: 13
+         width: 2
        refreshInterval: 600
        title: "Calendar"
     hackernews:
@@ -65,9 +62,9 @@ wtf:
       numberOfStories: 20
       position:
         top: 0
-        left: 2
-        height: 1
-        width: 1
+        left: 4
+        height: 13
+        width: 3
       refreshInterval: 1800
       title: "Hacker News"
     exchangerates:
@@ -80,28 +77,28 @@ wtf:
         GBP:
           - "CZK"
       position:
-        top: 1
+        top: 13
         left: 0
-        height: 1
-        width: 1
+        height: 7
+        width: 2
       refreshInterval: 60
       title: "Exchange"
     power:
       enabled: true
       position:
-        top: 1
-        left: 1
-        height: 1
-        width: 1
+        top: 13
+        left: 2
+        height: 7
+        width: 2
       refreshInterval: 30
       title: "Power"
     travisci:
       enabled: true
       position:
-        top: 1
-        left: 2
-        height: 1
-        width: 1
+        top: 13
+        left: 4
+        height: 7
+        width: 3
       sort_by: "finished_at:desc"
       compact: true
       pro: true
@@ -111,20 +108,20 @@ wtf:
       font: digitalfont
       color: lime
       position:
-        top: 2
+        top: 20
         left: 0
-        height: 1
-        width: 1
+        height: 9
+        width: 2
       refreshInterval: 15
       title: "Time"
     prettyweather:
       city: "Kolin"
       enabled: true
       position:
-        top: 2
-        left: 1
-        height: 1
-        width: 1
+        top: 20
+        left: 2
+        height: 9
+        width: 2
       refreshInterval: 1800
       title: "Weather"
     ipinfo:
@@ -133,10 +130,10 @@ wtf:
         value: "lime"
       enabled: true
       position:
-        top: 2
-        left: 2
-        height: 1
-        width: 1
+        top: 20
+        left: 4
+        height: 9
+        width: 3
       refreshInterval: 60
       title: "IP info"
     firewall:
@@ -145,32 +142,32 @@ wtf:
       cmd: "ufw"
       args: ["show","listening"]
       position:
-        top: 3
+        top: 29
         left: 0
-        height: 1
-        width: 1
+        height: 12
+        width: 2
       refreshInterval: 30
       title: "Open ports"
     resourceusage:
       enabled: true
       cpuCombined: false
       position:
-        top: 3
-        left: 1
-        height: 1
-        width: 1
+        top: 29
+        left: 2
+        height: 12
+        width: 2
       refreshInterval: 5
       title: "Resources"
     disk:
       enabled: true
       type: cmdrunner
       cmd: "df"
-      args: ["-h"]
+      args: ["-h", "-x", "squashfs"]
       position:
-        top: 3
-        left: 2
-        height: 1
-        width: 1
+        top: 29
+        left: 4
+        height: 12
+        width: 3
       refreshInterval: 30
       title: "Disk usage"
     version:
@@ -182,10 +179,10 @@ wtf:
       args: ["-v"]
       color: lime
       position:
-        top: 4
+        top: 41
         left: 0
         height: 1
-        width: 1
+        width: 2
       refreshInterval: 0
       title: "Version"
     feedreader:
@@ -196,10 +193,10 @@ wtf:
       - https://github.com/wtfutil/wtf/releases.atom
       feedLimit: 1
       position:
-        top: 4
-        left: 1
+        top: 41
+        left: 2
         height: 1
-        width: 1
+        width: 2
       refreshInterval: 3600
       title: "WTF releases"
     uptime:
@@ -211,9 +208,9 @@ wtf:
       args: ["-p"]
       color: lime
       position:
-        top: 4
-        left: 2
+        top: 41
+        left: 4
         height: 1
-        width: 1
+        width: 3
       refreshInterval: 15
       title: "Uptime"
