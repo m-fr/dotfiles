@@ -193,8 +193,8 @@ wtf:
       border: false
       focusable: false
       feeds:
-      - https://wtfutil.com/blog/index.xml
-      feedLimit: 2
+      - https://github.com/wtfutil/wtf/releases.atom
+      feedLimit: 1
       position:
         top: 4
         left: 1

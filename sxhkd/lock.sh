@@ -1,7 +1,6 @@
 #!/bin/bash
 
 i3lock \
-    --nofork \
     --show-failed-attempts \
     --pass-media-keys \
     --pass-volume-keys \
@@ -20,7 +19,7 @@ i3lock \
     --datecolor=00000000 \
     \
     --force-clock \
-    --timestr="%I:%M" \
+    --timestr="%H:%M" \
     --timesize=125 \
     --time-font="IBM Plex Sans Cond:style=Bold" \
     --timepos="x+w*0,1:h*0,2" \
