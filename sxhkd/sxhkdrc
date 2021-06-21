@@ -53,6 +53,13 @@ XF86AudioNext
 # wm independent hotkeys
 #
 
+# control brightness
+XF86MonBrightnessUp
+    brightnessctl set +5%
+
+XF86MonBrightnessDown
+    brightnessctl set 5%-
+
 # set monitor layout
 super + alt + p
     ~/.config/sxhkd/display.sh
