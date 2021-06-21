@@ -17,14 +17,13 @@
 ;==========================================================
 
 [colors]
-background = #3d3d3d
-background-alt = #2f2f2f
-foreground = #dfe4de
-foreground-alt = #9ea2ab
-primary = #ffb52a
-primary-alt = #00a9fe
-secondary = #e60053
-secondary-alt = #32cd32
+background     = ${xrdb:background:#000}
+background-alt = ${xrdb:selection:#000}
+foreground     = ${xrdb:foreground:#000}
+foreground-alt = ${xrdb:comment:#000}
+red            = ${xrdb:red:#000}
+green          = ${xrdb:green:#000}
+orange         = ${xrdb:orange:#000}
 
 [bar/bar]
 width = 100%
@@ -88,29 +87,29 @@ format = <label-monitor> <label-state> <label-mode>
 label-monitor = " %name%"
 label-dimmed-focused-underline = ${colors.foreground-alt}
 label-focused = %icon%
-label-focused-underline = ${colors.primary}
+label-focused-underline = ${colors.orange}
 label-focused-empty-foreground = ${colors.foreground-alt}
 label-occupied = %icon%
 label-urgent = %icon%
-label-urgent-underline = ${colors.secondary}
+label-urgent-underline = ${colors.red}
 label-empty = %icon%
 label-empty-foreground = ${colors.foreground-alt}
 label-monocle = 
-label-monocle-foreground = ${colors.primary-alt}
+label-monocle-foreground = ${colors.foreground}
 label-tiled = 
-label-tiled-foreground = ${colors.primary-alt}
-label-fullscreen = 
-label-fullscreen-foreground = ${colors.primary-alt}
-label-floating = 
-label-floating-foreground = ${colors.primary-alt}
-label-locked = 
-label-locked-foreground = ${colors.primary-alt}
-label-sticky = 若
-label-sticky-foreground = ${colors.primary-alt}
-label-private = 
-label-private-foreground = ${colors.primary-alt}
-label-marked = 
-label-marked-foreground = ${colors.primary-alt}
+label-tiled-foreground = ${colors.foreground}
+label-fullscreen = " "
+label-fullscreen-foreground = ${colors.foreground}
+label-floating = " "
+label-floating-foreground = ${colors.foreground}
+label-locked = " "
+label-locked-foreground = ${colors.foreground}
+label-sticky = " 若"
+label-sticky-foreground = ${colors.foreground}
+label-private = " "
+label-private-foreground = ${colors.foreground}
+label-marked = " "
+label-marked-foreground = ${colors.foreground}
 
 label-separator = " "
 label-separator-padding = 0
@@ -209,9 +208,9 @@ format = <label> <bar-used>
 label = %{A:ps -eo pmem,pcpu,pid,args --sort=-pmem | rofi -dmenu -location 3:}%{A}
 bar-used-indicator = 
 bar-used-width = 6
-bar-used-foreground-0 = ${colors.secondary-alt}
-bar-used-foreground-1 = ${colors.primary}
-bar-used-foreground-2 = ${colors.secondary}
+bar-used-foreground-0 = ${colors.green}
+bar-used-foreground-1 = ${colors.orange}
+bar-used-foreground-2 = ${colors.red}
 bar-used-fill = █
 bar-used-empty = █
 bar-used-empty-foreground = ${colors.background-alt}
@@ -229,7 +228,7 @@ format-connected = <ramp-signal> <label-connected>
 label-connected = %{A:ip -o address | cut -d' ' -f2,7 | rofi -dmenu -filter wlp2s0 -location 3:}%essid% %downspeed:8%%{A}
 format-disconnected = <label-disconnected>
 label-disconnected = 
-label-disconnected-foreground = ${colors.secondary}
+label-disconnected-foreground = ${colors.foreground-alt}
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
@@ -245,7 +244,7 @@ format-connected =  <label-connected>
 label-connected = %{A:ip -o address | cut -d' ' -f2,7 | rofi -dmenu -filter enp0s25 -location 3:}%downspeed:8%%{A}
 format-disconnected = <label-disconnected>
 label-disconnected = 
-label-disconnected-foreground = ${colors.secondary}
+label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/networkLong]
 inherit = module/network
@@ -257,7 +256,7 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 label = %temperature-c%
 label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.red}
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 

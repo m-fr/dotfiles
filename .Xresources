@@ -1,33 +1,58 @@
-URxvt*font:        xft:Fira Code:size=11
-URxvt*depth:       32
-URxvt*scrollBar:   false
-URxvt*background: [75]#282A36
+! Theme
+#define AnsiBlack         #21222C
+#define AnsiRed           #FF5555
+#define AnsiGreen         #50FA7B
+#define AnsiYellow        #F1FA8C
+#define AnsiBlue          #BD93F9
+#define AnsiMagenta       #FF79C6
+#define AnsiCyan          #8BE9FD
+#define AnsiWhite         #F8F8F2
+#define AnsiBrightBlack   #6272A4
+#define AnsiBrightRed     #FF6E6E
+#define AnsiBrightGreen   #69FF94
+#define AnsiBrightYellow  #FFFFA5
+#define AnsiBrightBlue    #D6ACFF
+#define AnsiBrightMagenta #FF92DF
+#define AnsiBrightCyan    #A4FFFF
+#define AnsiBrightWhite   #FFFFFF
 
-! Dracula Xresources palette
-*.foreground: #F8F8F2
-*.background: #282A36
-! black
-*.color0:     #000000
-*.color8:     #4D4D4D
-! red
-*.color1:     #FF5555
-*.color9:     #FF6E67
-! green
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-! yellow
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-! blue
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-! magenta
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-! cyan
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-! white
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
+#define Background        #282A36
+#define Foreground        AnsiWhite
+
+! Common
+*.foreground: Foreground
+*.background: Background
+*.selection:  #44475A
+*.comment:    AnsiBrightBlack
+*.red:        AnsiRed
+*.orange:     #FFB86C
+*.yellow:     AnsiYellow
+*.green:      AnsiGreen
+*.purple:     AnsiBlue
+*.cyan:       AnsiCyan
+*.pink:       AnsiMagenta
+
+! urxvt
+URxvt*font:       xft:Fira Code:size=11
+URxvt*depth:      32
+URxvt*scrollBar:  false
+URxvt*background: [75]Background
+
+! ANSI palette
+*.color0:  AnsiBlack
+*.color8:  AnsiBrightBlack
+*.color1:  AnsiRed
+*.color9:  AnsiBrightRed
+*.color2:  AnsiGreen
+*.color10: AnsiBrightGreen
+*.color3:  AnsiYellow
+*.color11: AnsiBrightYellow
+*.color4:  AnsiBlue
+*.color12: AnsiBrightBlue
+*.color5:  AnsiMagenta
+*.color13: AnsiBrightMagenta
+*.color6:  AnsiCyan
+*.color14: AnsiBrightCyan
+*.color7:  AnsiWhite
+*.color15: AnsiBrightWhite
 
