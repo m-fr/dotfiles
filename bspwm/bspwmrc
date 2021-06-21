@@ -4,8 +4,13 @@ sxhkd &
 
 ~/.config/bspwm/monitors
 
-bspc config border_width        0
+bspc config border_width        2
 bspc config window_gap          2
+
+bspc config normal_border_color   "#44475a"
+bspc config active_border_color   "#bd93f9"
+bspc config focused_border_color  "#8be9fd"
+bspc config presel_feedback_color "#6272a4"
 
 bspc config split_ratio          0.52
 bspc config single_monocle       true
@@ -20,4 +25,4 @@ bspc rule -a URxvt:calendar state=floating
 bspc rule -a Firefox:Toolkit state=floating
 
 compton &
-urxvt -e wtf &
+urxvt -e wtfutil &
