@@ -4,7 +4,7 @@ then
     bspc monitor -d I II III IV V VI VII VIII
 else
     bspc monitor $MON_PRIMARY -d I II III IV V
-    bspc monitor $MON_SECONDARY VI VII VIII IX X
+    bspc monitor $MON_SECONDARY -d VI VII VIII IX X
 fi
 
 ~/.config/polybar/launch.sh &
