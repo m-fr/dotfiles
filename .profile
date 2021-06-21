@@ -19,6 +19,11 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# autocompletion
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
 # environment
 if [ -f ~/.env ]; then
     . ~/.env
@@ -30,5 +35,5 @@ xrdb -merge ~/.Xresources
 
 mons -a -x ~/.local/bin/display-switcher &
 
-~/.dropbox-dist/dropboxd &
-birdtray &
+#~/.dropbox-dist/dropboxd &
+#birdtray &
