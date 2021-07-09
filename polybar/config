@@ -52,7 +52,7 @@ cursor-scroll = ns-resize
 [bar/primary]
 inherit = bar/bar
 monitor = ${env:MON_PRIMARY}
-modules-left = bspwm
+modules-left = powermenu menu bspwm
 modules-center = date
 modules-right = wifi network cpu memory battery temperature alsa backlight updates xkeyboard playerctl
 tray-position = right
@@ -61,11 +61,17 @@ tray-background = ${colors.background-alt}
 
 [bar/secondary]
 inherit = bar/bar
-monitor = ${env:MON_SECONDARY}
+monitor = ${env:MON_SECONDARY:DP-2-2}
 modules-left = bspwm
 modules-center = dateLong
 modules-right = wifiLong networkLong cpuLong memoryLong batteryLong temperature alsa backlight updates xkeyboard playerctl
 tray-position = none
+
+[module/menu]
+include-file = $HOME/.config/polybar/menu
+
+[module/powermenu]
+include-file = $HOME/.config/polybar/powermenu
 
 [module/bspwm]
 type = internal/bspwm

@@ -1,0 +1,26 @@
+type = custom/menu
+expand-right = true
+
+;menu-0-0 =  Files
+menu-0-0 = 
+menu-0-0-exec = ${env:APP_FILES}
+;menu-0-1 =  Browser
+menu-0-1 = 
+menu-0-1-exec = ${env:APP_BROWSER}
+;menu-0-2 =  Virtualisation
+menu-0-2 = 
+menu-0-2-exec = ${env:APP_VIRTUAL}
+;menu-0-3 =  IDE
+menu-0-3 = 
+menu-0-3-exec = ${env:APP_IDE}
+;menu-0-4 =  Secrets
+menu-0-4 = 
+menu-0-4-exec = ${env:APP_SECRETS}
+;menu-0-5 =  Mixer
+menu-0-5 = 
+menu-0-5-exec = ${env:APP_MIXER}
+
+;label-open = Apps
+label-open = 
+label-close = %{F#6272a4}%{F-}
+label-separator = " "
