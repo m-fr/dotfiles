@@ -4,18 +4,19 @@
 
 # shut down / reboot
 super + ctrl + alt + {q,r}
-	systemctl {poweroff,reboot}
+	power {poweroff,reboot}
 
 # suspend
 super + ctrl + alt + s
-	~/.config/sxhkd/lock.sh && systemctl suspend
+	power suspend
 
 # lock screen
 super + ctrl + alt + l
-	~/.config/sxhkd/lock.sh
+	power lock
 
+# lock screen
 XF86ScreenSaver
-	~/.config/sxhkd/lock.sh
+	power lock
 
 # toggle keyboard layout
 alt + space

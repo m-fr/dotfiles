@@ -1,0 +1,31 @@
+#!/bin/bash
+
+usage () {
+    echo "Usage:"
+    echo "  $0 <action>"
+    exit 0
+}
+
+lock () {
+    i3lock --color=282a36
+}
+
+case $1 in
+    "poweroff"|"shutdown"|"halt")
+        systemctl poweroff
+        ;;
+    "reboot"|"restart")
+        systemctl reboot
+        ;;
+    "suspend"|"sleep")
+        lock && systemctl suspend
+        ;;
+    "logout"|"logoff")
+        ;;
+    "lock")
+        lock
+        ;;
+    *)
+        usage
+        ;;
+esac
