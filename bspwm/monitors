@@ -1,8 +1,12 @@
 #!/bin/bash
-if [[ $(mons | grep Monitors | cut -d : -f 2) -le 1 ]]
+[[ $MONS_NUMBER ]] || export MONS_NUMBER=$(mons | tail -1 | cut -d : -f 2)
+
+#if [[ $(mons | grep Monitors | cut -d : -f 2) -le 1 ]]
+if [[ $MONS_NUMBER -le 1 ]]
 then
     bspc monitor -d I II III IV V VI VII VIII
 else
+    export MON_SECONDARY=$(mons | grep enabled | grep -v '*' | tail -1 | cut -d: -f2 | tr -d ' ' | cut -d'(' -f1)
     bspc monitor $MON_PRIMARY -d I II III IV V
     bspc monitor $MON_SECONDARY -d VI VII VIII IX X
 fi

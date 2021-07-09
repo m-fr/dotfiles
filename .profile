@@ -33,7 +33,7 @@ xset -b
 xsetroot -cursor_name trek
 xrdb -merge ~/.Xresources
 
-mons -a -x ~/.local/bin/display-switcher &
+#mons -a -x ~/.local/bin/display-switcher &
 
 #~/.dropbox-dist/dropboxd &
 #birdtray &

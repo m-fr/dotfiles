@@ -2,7 +2,7 @@
 
 #if [[ !"$MONS_NUMBBER" ]]
 #then
-    MONS_NUMBER=$(mons | grep Monitors | cut -d ' ' -f 2)
+    MONS_NUMBER=$(mons | grep Monitors | cut -d ':' -f 2 | tr -d ' ')
 #fi
 
 case ${MONS_NUMBER} in
@@ -12,6 +12,7 @@ case ${MONS_NUMBER} in
         ;;
     2)
         mons -e right
+        export MON_SECONDARY=$(mons | grep enabled | grep -v '*' | cut -d: -f2 | tr -d ' ' | cut -d'(' -f1)
         ~/.config/bspwm/monitors &
         ;;
     *)
