@@ -10,19 +10,19 @@ selected=`echo "$modes" | rofi -dmenu -i -no-show-icons -width 1000`
 case $selected in
 "primary")
 mons -o
-~/.config/bspwm/monitors
+~/.config/bspwm/monitors -1
 ;;
 "secondary")
 mons -s
-~/.config/bspwm/monitors
+~/.config/bspwm/monitors -1
 ;;
 "mirror")
 mons -m
-~/.config/bspwm/monitors
+~/.config/bspwm/monitors -1
 ;;
 "duplicate")
 mons -d
-~/.config/bspwm/monitors
+~/.config/bspwm/monitors -1
 ;;
 "extend")
 mons -e right
@@ -32,4 +32,4 @@ mons -e right
 ;;
 esac
 
-~/.config/bspwm/monitors &
+#~/.config/bspwm/monitors &

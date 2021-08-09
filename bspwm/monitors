@@ -1,8 +1,16 @@
 #!/bin/bash
-[[ $MONS_NUMBER ]] || export MONS_NUMBER=$(mons | tail -1 | cut -d : -f 2)
+[[ $MONS_NUMBER ]] || export MONS_NUMBER=$(mons | grep Monitors | cut -d : -f 2)
+
+monitors=0
+if [[ "$1" = "-1" ]]
+then
+    monitors=1
+fi
+
+echo \"$1\"
 
 #if [[ $(mons | grep Monitors | cut -d : -f 2) -le 1 ]]
-if [[ $MONS_NUMBER -le 1 ]]
+if [ $MONS_NUMBER -le 1 ] || [ $monitors -eq 1 ]
 then
     bspc monitor -d I II III IV V VI VII VIII
 else
