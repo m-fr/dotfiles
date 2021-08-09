@@ -1,6 +1,7 @@
 #!/bin/bash
 CMD="ln"
 FLAGS="-sT"
+MKDIR="mkdir -p"
 
 profile=".profile .vimrc .Xresources"
 config="bspwm sxhkd rofi wtf polybar .shortcuts"
@@ -19,6 +20,7 @@ while getopts ":lmtfh" opt; do
         t)
             CMD="printf"
             FLAGS='\t%s -> %s\n'
+            MKDIR="echo creating"
             ;;
         f)
             FLAGS="${FLAGS}f"
@@ -53,12 +55,14 @@ do
 done
 
 echo "Installing config files to $CONFDIR"
+[[ -d $CONFDIR  ]] || $MKDIR $CONFDIR
 for item in $config
 do
     $CMD "$FLAGS" "$BASEDIR/$item" "$CONFDIR/$item"
 done
 
 echo "Installing executables to $BINDIR"
+[[ -d $BINDIR  ]] || $MKDIR $BINDIR
 for item in $(ls $BASEDIR/$BIN)
 do
     $CMD "$FLAGS" "$BASEDIR/$item" "$BINDIR/$item"
