@@ -6,9 +6,6 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-PATH="$PATH:/usr/local/texlive/2019/bin/i386-linux"
-PATH="$PATH:/usr/local/go/bin/"
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
@@ -19,21 +16,15 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# autocompletion
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+# environment
+if [ -f "$HOME/.env" ]; then
+    . "$HOME/.env"
 fi
 
-# environment
-if [ -f ~/.env ]; then
-    . ~/.env
+if [ -f "$HOME/.cargo/env" ]; then
+    . "$HOME/.cargo/env"
 fi
 
 xset -b
 xsetroot -cursor_name trek
-xrdb -merge ~/.Xresources
-
-#mons -a -x ~/.local/bin/display-switcher &
-
-#~/.dropbox-dist/dropboxd &
-#birdtray &
+xrdb -merge "$HOME/.Xresources"

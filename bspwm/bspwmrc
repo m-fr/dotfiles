@@ -3,7 +3,6 @@
 sxhkd &
 
 ~/.config/bspwm/monitors
-#mons -a -x  ~/.config/bspwm/monitors &
 
 bspc config border_width        2
 bspc config window_gap          2
@@ -25,5 +24,5 @@ bspc rule -a URxvt:sxhkd_help state=floating
 bspc rule -a URxvt:calendar state=floating
 bspc rule -a Firefox:Toolkit state=floating
 
-compton &
+picom &
 urxvt -e wtfutil &
