@@ -118,6 +118,21 @@ $iconFont: 'Font Awesome 6 Free';
 	margin: 5px;
 	padding: 5px;
 }
+.btn.icon.stop * {
+	color: $red;
+}
+.btn.icon.reset * {
+	color: $orange;
+}
+.btn.icon.suspend * {
+	color: $purple;
+}
+.btn.icon.pause * {
+	color: $cyan;
+}
+.btn.icon.run * {
+	color: $green;
+}
 
 /** bspwm ***************************************/
 .bspwm .icon {

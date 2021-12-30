@@ -77,7 +77,7 @@
                 :class "box"
                 (button
                     :onclick "power poweroff"
-                    :class "icon btn"
+                    :class "icon btn stop"
                     ""
                 )
             )
@@ -85,7 +85,7 @@
                 :class "box"
                 (button
                     :onclick "power reboot"
-                    :class "icon btn"
+                    :class "icon btn reset"
                     ""
                 )
             )
@@ -93,19 +93,15 @@
                 :class "box"
                 (button
                     :onclick "power suspend"
-                    :class "icon btn"
+                    :class "icon btn suspend"
                     ""
                 )
             )
-        )
-        (box
-            :orientation "h"
-            :space-evenly false
             (box
                 :class "box"
                 (button
                     :onclick "power logout"
-                    :class "icon btn"
+                    :class "icon btn pause"
                     ""
                 )
             )
@@ -113,7 +109,7 @@
                 :class "box"
                 (button
                     :onclick "power lock"
-                    :class "icon btn"
+                    :class "icon btn run"
                     ""
                 )
             )
