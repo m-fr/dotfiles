@@ -6,22 +6,22 @@ wtf:
       normal: "dimgray"
     checked: "dimgray"
     highlight:
-      fore: "black"
-      back: "green"
-    labels: "green::b"
+      fore: "#4D4D4D"
+      back: "#50FA7B"
+    labels: "#50FA7B::b"
     rows:
-      even: "lime"
-      odd: "lightgreen"
-    subheading: "lightgreen::b"
-    text: "lime"
-    title: "green"
+      even: "#5AF78E"
+      odd: "#50FA7B"
+    subheading: "#50FA7B::b"
+    text: "#5AF78E"
+    title: "#50FA7B"
   mods:
     todo:
       enabled: true
       filename: "todo.yml"
       checkedIcon: "X"
       colors:
-        checked: "gray"
+        checked: "#BFBFBF"
       format: true
       position:
         top: 0
@@ -32,7 +32,7 @@ wtf:
       refreshInterval: 3600
       title: "To-Do"
     logo:
-      enabled: false
+      enabled: true
       focusable: false
       type: cmdrunner
       cmd: "neofetch"
@@ -45,7 +45,7 @@ wtf:
       refreshInterval: 14400
       title: "OS"
     calendar:
-       enabled: true
+       enabled: false
        focusable: true
        type: cmdrunner
        cmd: "khal"
@@ -67,33 +67,37 @@ wtf:
         width: 3
       refreshInterval: 1800
       title: "Hacker News"
-    exchangerates:
+    yfinance:
       enabled: true
-      rates:
-        USD:
-          - "CZK"
-        EUR:
-          - "CZK"
-        GBP:
-          - "CZK"
+      symbols:
+        - "AAPL"
+        - "CZK=X"
+        - "EURCZK=X"
+        - "BTC-USD"
+      colors:
+        bigup: "#50FA7B"
+        up: "#5AF78E"
+        bigdrop: "#FF5555"
+        drop: "#FF6E67"
       position:
         top: 13
         left: 0
         height: 7
         width: 2
+      sort: true
       refreshInterval: 60
-      title: "Exchange"
+      title: "Finance"
     power:
       enabled: true
       position:
         top: 13
-        left: 2
+        left: 4
         height: 7
-        width: 2
+        width: 3
       refreshInterval: 30
       title: "Power"
     travisci:
-      enabled: true
+      enabled: false
       position:
         top: 13
         left: 4
@@ -106,7 +110,7 @@ wtf:
     digitalclock:
       enabled: true
       font: digitalfont
-      color: lime
+      color: "#30FA7B"
       position:
         top: 20
         left: 0
@@ -124,10 +128,17 @@ wtf:
         width: 2
       refreshInterval: 1800
       title: "Weather"
-    ipinfo:
+    ipapi:
       colors:
-        name: "red"
-        value: "lime"
+        name: "#50FA7B"
+        value: "#E6E6E6"
+      args:
+        - "ip"
+        - "organization"
+        - "city"
+        - "country"
+        - "coordinates"
+        - "timezone"
       enabled: true
       position:
         top: 20
@@ -175,7 +186,7 @@ wtf:
       border: false
       focusable: false
       type: cmdrunner
-      cmd: "wtf"
+      cmd: "wtfutil"
       args: ["-v"]
       color: lime
       position:
@@ -190,7 +201,7 @@ wtf:
       border: false
       focusable: false
       feeds:
-      - https://github.com/wtfutil/wtf/releases.atom
+      - "https://github.com/wtfutil/wtf/releases.atom"
       feedLimit: 1
       position:
         top: 41
@@ -206,7 +217,6 @@ wtf:
       type: cmdrunner
       cmd: "uptime"
       args: ["-p"]
-      color: lime
       position:
         top: 41
         left: 4
