@@ -1,0 +1,129 @@
+(include "variables.yuck")
+(include "bspwm.yuck")
+(include "vmware.yuck")
+
+(defwidget metric [class label value onchange ?maxValue]
+    (box
+        :orientation "h"
+        :space-evenly false
+        :class class
+        (box
+            :class "icon" 
+            label
+        )
+        (scale
+            :min 0
+            :max {maxValue ?: 100}
+            :value value
+            :active {onchange != ""}
+            :onchange onchange
+        )
+    )
+)
+
+(defwidget clock[]
+    (box
+        :class "clock box"
+        (label :class "time" :text time)
+    )
+)
+
+(defwidget cal[]
+    (box
+        :space-evenly false
+        :class "cal box"
+        (calendar
+            :class "calendar"
+            :day day
+            :month month
+            :year year
+            ;:show-heading: true
+            ;:show-week-numbers: true
+        )
+    )
+)
+
+(defwidget date[]
+    (box
+        :class "date box"
+        (label :class "time" :text date)
+    )
+)
+
+(defwidget sys[]
+    (box
+        :orientation "v"
+        :space-evenly false
+        :halign "end"
+        :class "sys box"
+        (metric :class "cpu_bar" :label "" :value {EWW_CPU.avg} :onchange "")
+        (metric :class "mem_bar" :label "" :value {EWW_RAM.used_mem_perc} :onchange "")
+        (metric :class "disk_bar" :label "" :value {EWW_DISK["/"].used_perc} :onchange "")
+        (metric :class "bright_bar" :label "" :value brightness :onchange "")
+        (metric :class "vol_bar" :label "" :value volume :onchange "")
+        (metric :class "bat_bar" :label "" :value {EWW_BATTERY["BAT0"].capacity} :onchange "")
+    )
+)
+
+(defwidget powermenu[]
+    (box
+        :orientation "v"
+        :space-evenly false
+        :class "menu"
+        (box
+            :orientation "h"
+            :space-evenly false
+            (box
+                :class "box"
+                (button
+                    :onclick "power poweroff"
+                    :class "icon btn"
+                    ""
+                )
+            )
+            (box
+                :class "box"
+                (button
+                    :onclick "power reboot"
+                    :class "icon btn"
+                    ""
+                )
+            )
+            (box
+                :class "box"
+                (button
+                    :onclick "power suspend"
+                    :class "icon btn"
+                    ""
+                )
+            )
+        )
+        (box
+            :orientation "h"
+            :space-evenly false
+            (box
+                :class "box"
+                (button
+                    :onclick "power logout"
+                    :class "icon btn"
+                    ""
+                )
+            )
+            (box
+                :class "box"
+                (button
+                    :onclick "power lock"
+                    :class "icon btn"
+                    ""
+                )
+            )
+        )
+    )
+)
+
+(defwidget info[]
+    (box
+        ;:class "info box"
+    )
+)
+

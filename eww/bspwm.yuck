@@ -1,0 +1,25 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll bspwm
+    :interval '500ms'
+    :initial ""
+    `python3 bspwm.py`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget desktop[id label ?class]
+    (box
+        :class "box"
+        (button
+            :class "icon ${class ?: ''}"
+            :onclick "bspc desktop -f ^${id}"
+            label
+        )
+    )
+)
+
+(defwidget bspwm[]
+    (literal :content bspwm)
+)
+

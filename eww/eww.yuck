@@ -1,0 +1,39 @@
+(include "widgets.yuck")
+
+(defwindow dashboard
+     :monitor 0
+     :geometry (geometry ;:x "200px"
+          ;:y "100px"
+          ;:width "1000px"
+          ;:height "200px"
+          :anchor "center"
+     )
+     :stacking "fg"
+     :windowtype "dialog"
+     :wm-ignore true
+     (box
+          :orientation "h"
+          :space-evenly false
+          :class "bg"
+          (box
+               :orientation "v"
+               :space-evenly false
+               (clock)
+               (cal)
+               (date)
+          )
+          (box
+               :orientation "v"
+               :space-evenly false
+               (bspwm)
+               (sys)
+          )
+          (box
+               :orientation "v"
+               :space-evenly false
+               (powermenu)
+               (vmware)
+               (info)
+          )
+     )
+)

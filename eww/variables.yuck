@@ -1,0 +1,37 @@
+(defpoll time
+    :interval "1s"
+    `date +%H:%M`
+)
+
+(defpoll date
+    :interval "1m"
+    `date +'%A%n%e %B %Y'`
+)
+
+(defpoll day
+    :interval "1m"
+    `date +%-d`
+)
+
+(defpoll month
+    :interval "1m"
+    `date +%-m`
+)
+
+(defpoll year
+    :interval "1m"
+    `date +%Y`
+)
+
+(defpoll brightness
+    :interval "1s"
+    :initial 0
+    `$HOME/.config/eww/brightness.sh`
+)
+
+(defpoll volume
+    :interval "1s"
+    :initial 0
+    `$HOME/.config/eww/volume.sh`
+)
+

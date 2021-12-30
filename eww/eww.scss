@@ -1,0 +1,174 @@
+/** Variables*****************************************/
+$background: #282a36;
+$currentLine: #44475a;
+$foreground: #f8f8f2;
+$comment: #6272a4;
+$cyan: #8be9fd;
+$green: #50fa7b;
+$orange: #ffb86c;
+$pink: #ff79c6;
+$purple: #bd93f9;
+$red: #ff5555;
+$yellow: #f1fa8c;
+
+$font: 'DejaVu Sans Mono';
+$iconFont: 'Font Awesome 6 Free';
+
+/** Global *******************************************/
+*{
+	all: unset;
+	font-family: $font;
+	color: $foreground;
+}
+
+/** Background ***************************************/
+.bg {
+	opacity: 1;
+}
+
+/** Box ***********************************************/
+.box {
+	background-color: $background;
+	border-radius: 16px;
+	margin: 5px;
+	padding: 5px;
+}
+
+/** System ********************************************/
+.icon, .icon * {
+	font-size: 32px;
+	font-weight: normal;
+	font-family: $iconFont;
+}
+.cpu_bar .icon, .mem_bar .icon, .disk_bar .icon, .bat_bar .icon, .bright_bar .icon, .vol_bar .icon {
+	min-width: 45px;
+}
+.cpu_bar .icon  * {
+	color: $red;
+}
+.mem_bar .icon * {
+	color: $green;
+}
+.disk_bar .icon * {
+	color: $orange;
+}
+.bat_bar .icon * {
+	color: $cyan;
+}
+.bright_bar .icon * {
+	color: $yellow;
+}
+.vol_bar .icon * {
+	color: $purple;
+}
+.cpu_bar, .mem_bar, .disk_bar, .bat_bar, .bright_bar, .vol_bar, scale trough {
+	all: unset;
+	background-color: $currentLine;
+	border-radius: 16px;
+	min-height: 28px;
+	min-width: 240px;
+	margin: 5px;
+}
+.cpu_bar, .mem_bar, .disk_bar, .bat_bar, .bright_bar, .vol_bar, scale trough highlight {
+	all: unset;
+	border-radius: 16px;
+}
+.cpu_bar scale trough highlight {
+	background-color: $red;
+}
+.mem_bar scale trough highlight {
+	background-color: $green;
+}
+.disk_bar scale trough highlight {
+	background-color: $orange;
+}
+.bat_bar scale trough highlight {
+	background-color: $cyan;
+}
+.bright_bar scale trough highlight {
+	background-color: $yellow;
+}
+.vol_bar scale trough highlight {
+	background-color: $purple;
+}
+
+/** Clock ********************************************/
+.clock {
+	font-size : 70px;
+	font-weight : bold;
+}
+.time {
+	color: $cyan;
+	margin: 5px;
+}
+
+/** Calendar ********************************************/
+.calendar {
+	font-size: 16px;
+}
+
+/** Date ********************************************/
+.date {
+	font-size: 20px;
+}
+
+/** Power buttons ***************************************/
+.btn {
+	font-weight : bold;
+	margin: 5px;
+	padding: 5px;
+}
+
+/** bspwm ***************************************/
+.bspwm .icon {
+	min-width: 40px;
+	min-height: 40px;
+}
+.bspwm .icon * {
+	font-size: 24px;
+}
+.bspwm .icon.empty * {
+	font-size: 24px;
+	color: $currentLine;
+}
+.bspwm .icon.shown * {
+	font-size: 24px;
+	color: $cyan;
+}
+.bspwm .icon.urgent * {
+	font-size: 24px;
+	color: $red;
+}
+
+/** vmware ***************************************/
+.vm.icon {
+	min-width: 40px;
+	min-height: 40px;
+}
+.vm.icon * {
+	font-size: 16px;
+    color: $currentLine;
+}
+.vm.icon.stop.true * {
+	color: $red;
+}
+.vm.icon.reset.true * {
+	color: $orange;
+}
+.vm.icon.suspend.true * {
+	color: $purple;
+}
+.vm.icon.pause.true * {
+	color: $cyan;
+}
+.vm.icon.run * {
+	color: $green;
+}
+.vmName {
+	font-size: 16px;
+    color: $cyan;
+}
+.vmName.true {
+	font-size: 16px;
+    color: $green;
+}

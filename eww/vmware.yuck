@@ -1,0 +1,83 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll vmware
+    :interval '2s'
+    :initial ""
+    `python3 vmware.py`
+)
+
+(defvar vmToggle1 false)
+(defvar vmToggle2 false)
+(defvar vmToggle3 false)
+(defvar vmToggle4 false)
+(defvar vmToggle5 false)
+(defvar vmToggle6 false)
+(defvar vmToggle7 false)
+(defvar vmToggle8 false)
+(defvar vmToggle9 false)
+(defvar vmToggle10 false)
+(defvar vmToggle11 false)
+(defvar vmToggle12 false)
+(defvar vmToggle13 false)
+(defvar vmToggle14 false)
+(defvar vmToggle15 false)
+(defvar vmToggle16 false)
+(defvar vmToggle17 false)
+(defvar vmToggle18 false)
+(defvar vmToggle19 false)
+(defvar vmToggle20 false)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget vm[name path info var varname ?active]
+    (box
+        :class "box"
+        :orientation "v"
+        :space-evenly false
+        (button
+            :onclick "eww update ${varname}=${ var ? false : true }"
+            (box
+                :orientation "v"
+                :space-evenly false
+                (label :class "vmName ${active ?: false}" :text name)
+                (label :text info)
+            )
+        )
+        (revealer
+            :transition "slidedown"
+            :reveal var
+            (box
+                (button
+                    :class "icon vm stop ${active ?: false}"
+                    :onclick {active ?: false ? "vmrun -T ws stop ${path}" : ""}
+                    ""
+                )
+                (button
+                    :class "icon vm reset ${active ?: false}"
+                    :onclick {active ?: false ? "vmrun -T ws reset ${path}" : ""}
+                    ""
+                )
+                (button
+                    :class "icon vm suspend ${active ?: false}"
+                    :onclick {active ?: false ? "vmrun -T ws suspend ${path}" : ""}
+                    ""
+                )
+                (button
+                    :class "icon vm pause ${active ?: false}"
+                    :onclick {active ?: false ? "vmrun -T ws pause ${path}" : ""}
+                    ""
+                )
+                (button
+                    :class "icon vm run"
+                    :onclick "vmrun -T ws ${active ?: false ? 'unpause' : 'start'} ${path}"
+                    ""
+                )
+            )
+        )
+    )
+)
+
+(defwidget vmware[]
+    (literal :content vmware)
+)
+
