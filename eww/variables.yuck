@@ -5,23 +5,25 @@
 
 (defpoll date
     :interval "1m"
-    `date +'%A%n%e %B %Y'`
+    `date +'%A%n%e. %B %Y'`
 )
 
 (defpoll day
-    :interval "1m"
+    :interval "1h"
     `date +%-d`
 )
 
 (defpoll month
-    :interval "1m"
+    :interval "1h"
     `date +%-m`
 )
 
 (defpoll year
-    :interval "1m"
+    :interval "1h"
     `date +%Y`
 )
+
+(defvar showCal false)
 
 (defpoll brightness
     :interval "1s"
@@ -33,5 +35,17 @@
     :interval "1s"
     :initial 0
     `$HOME/.config/eww/volume.sh`
+)
+
+(defpoll caps
+    :interval "500ms"
+    :initial "off"
+    `xset -q | awk '/Caps/ { print $4 }'`
+)
+
+(defpoll kb
+    :interval "500ms"
+    :initial "us"
+    `setxkbmap -query | awk -F : 'NR==3{sub(/^[ \t]+/, "", $2);print $2}'`
 )
 

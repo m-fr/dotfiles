@@ -18,8 +18,8 @@
           (box
                :orientation "v"
                :space-evenly false
+               (keyboard)
                (clock)
-               (cal)
                (date)
           )
           (box
@@ -27,6 +27,7 @@
                :space-evenly false
                (bspwm)
                (sys)
+               (apps)
           )
           (box
                :orientation "v"

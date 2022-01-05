@@ -1,6 +1,7 @@
 (include "variables.yuck")
 (include "bspwm.yuck")
 (include "vmware.yuck")
+(include "app.yuck")
 
 (defwidget metric [class label value onchange ?maxValue]
     (box
@@ -28,25 +29,25 @@
     )
 )
 
-(defwidget cal[]
-    (box
-        :space-evenly false
-        :class "cal box"
-        (calendar
-            :class "calendar"
-            :day day
-            :month month
-            :year year
-            ;:show-heading: true
-            ;:show-week-numbers: true
-        )
-    )
-)
-
 (defwidget date[]
     (box
-        :class "date box"
-        (label :class "time" :text date)
+        :class "box"
+        :orientation "v"
+        :space-evenly false
+        (button
+            :class "date"
+            :onclick "eww update showCal=${ showCal ? false : true }"
+            date)
+        (revealer
+            :reveal showCal
+            :transition "slidedown"
+            (calendar
+                :class "calendar"
+                :day day
+                :month {month - 1}
+                :year year
+            )
+        )
     )
 )
 
@@ -62,6 +63,24 @@
         (metric :class "bright_bar" :label "" :value brightness :onchange "")
         (metric :class "vol_bar" :label "" :value volume :onchange "")
         (metric :class "bat_bar" :label "" :value {EWW_BATTERY["BAT0"].capacity} :onchange "")
+    )
+)
+
+(defwidget keyboard[]
+    (box
+        :orientation "h"
+        :class "keyboard"
+        :space-evenly false
+        (box
+            :space-evenly false
+            :class "box"
+            (box :class "icon" "")
+            (box :class "kb icon" kb)
+        )
+        (box
+            :class "box icon ${caps == 'off' ? 'inactive' : ''}"
+            ""
+        )
     )
 )
 

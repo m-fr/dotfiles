@@ -53,13 +53,13 @@ $iconFont: 'Font Awesome 6 Free';
 	color: $orange;
 }
 .bat_bar .icon * {
-	color: $cyan;
+	color: $purple;
 }
 .bright_bar .icon * {
 	color: $yellow;
 }
 .vol_bar .icon * {
-	color: $purple;
+	color: $cyan;
 }
 .cpu_bar, .mem_bar, .disk_bar, .bat_bar, .bright_bar, .vol_bar, scale trough {
 	all: unset;
@@ -83,18 +83,34 @@ $iconFont: 'Font Awesome 6 Free';
 	background-color: $orange;
 }
 .bat_bar scale trough highlight {
-	background-color: $cyan;
+	background-color: $purple;
 }
 .bright_bar scale trough highlight {
 	background-color: $yellow;
 }
 .vol_bar scale trough highlight {
-	background-color: $purple;
+	background-color: $cyan;
+}
+
+/** Keyboard ********************************************/
+.keyboard .icon * {
+    color: $cyan;
+    font-size: 24;
+}
+.keyboard .icon {
+    min-width: 40px;
+    min-height: 40px;
+}
+.keyboard .icon.inactive * {
+    color: $currentLine;
+}
+.kb {
+    margin-left: 8px;
 }
 
 /** Clock ********************************************/
 .clock {
-	font-size : 70px;
+	font-size : 64px;
 	font-weight : bold;
 }
 .time {
@@ -102,14 +118,13 @@ $iconFont: 'Font Awesome 6 Free';
 	margin: 5px;
 }
 
-/** Calendar ********************************************/
-.calendar {
-	font-size: 16px;
-}
-
 /** Date ********************************************/
-.date {
-	font-size: 20px;
+.calendar {
+	font-size: 18px;
+}
+.date * {
+	font-size: 32px;
+	color: $cyan;
 }
 
 /** Power buttons ***************************************/
@@ -132,6 +147,16 @@ $iconFont: 'Font Awesome 6 Free';
 }
 .btn.icon.run * {
 	color: $green;
+}
+
+/** apps ***************************************/
+.apps .icon {
+	min-width: 40px;
+	min-height: 40px;
+}
+.apps .icon * {
+	font-size: 24px;
+	color: $cyan;
 }
 
 /** bspwm ***************************************/
