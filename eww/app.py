@@ -1,10 +1,11 @@
-apps = [["Files",   "", "nemo"],
-        ["Browser", "", "firefox"],
-        ["Virtual", "", "vmware"],
-        ["Notes",   "", "obsidian"],
-        ["IDE",     "", "codium"],
-        ["Secrets", "", "keepass2"],
-        ["Mixer",   "", "pavucontrol"]]
+apps = [["Files",    "", "nemo"],
+        ["Browser",  "", "firefox"],
+        ["Virtual",  "", "vmware"],
+        ["Notes",    "", "obsidian"],
+        ["IDE",      "", "codium"],
+        ["Terminal", "", "urxvt --chdir \"$HOME\""],
+        ["Secrets",  "", "keepass2"],
+        ["Mixer",    "", "pavucontrol"]]
 
 width = 5
 

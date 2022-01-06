@@ -3,7 +3,7 @@
 (include "vmware.yuck")
 (include "app.yuck")
 
-(defwidget metric [class label value onchange ?maxValue]
+(defwidget metric [class label value ?onchange ?maxValue]
     (box
         :orientation "h"
         :space-evenly false
@@ -15,9 +15,9 @@
         (scale
             :min 0
             :max {maxValue ?: 100}
-            :value value
-            :active {onchange != ""}
-            :onchange onchange
+            :value {value == 'x' ? 0 : value}
+            :active {onchange ?: "" != ""}
+            :onchange {onchange ?: "" }
         )
     )
 )
@@ -51,18 +51,54 @@
     )
 )
 
+(defwidget core [value ?class]
+    (progress
+        :class {class ?: ""}
+        :flipped true
+        :value {value == 'x' ? 0 : value}
+        :orientation "v"
+    )
+)
+
+(defwidget cpu[]
+    (box
+        :class "cpu"
+        :orientation "v"
+        :space-evenly false
+        (button
+            :onclick "eww update showCores=${ showCores ? false : true }"
+            (metric :class "cpu_bar" :label "" :value {EWW_CPU.avg})
+        )
+        (revealer
+            :reveal showCores
+            :transition "slidedown"
+            :class "cores"
+            (box
+                :orientation "h"
+                (core :value {EWW_CPU.cores[0].usage})
+                (core :value {EWW_CPU.cores[1].usage})
+                (core :value {EWW_CPU.cores[2].usage})
+                (core :value {EWW_CPU.cores[3].usage})
+                (core :value {EWW_CPU.cores[4].usage})
+                (core :value {EWW_CPU.cores[5].usage})
+                (core :value {EWW_CPU.cores[6].usage})
+                (core :value {EWW_CPU.cores[7].usage})
+            )
+        )
+    )
+)
+
 (defwidget sys[]
     (box
         :orientation "v"
         :space-evenly false
-        :halign "end"
         :class "sys box"
-        (metric :class "cpu_bar" :label "" :value {EWW_CPU.avg} :onchange "")
-        (metric :class "mem_bar" :label "" :value {EWW_RAM.used_mem_perc} :onchange "")
-        (metric :class "disk_bar" :label "" :value {EWW_DISK["/"].used_perc} :onchange "")
-        (metric :class "bright_bar" :label "" :value brightness :onchange "")
-        (metric :class "vol_bar" :label "" :value volume :onchange "")
-        (metric :class "bat_bar" :label "" :value {EWW_BATTERY["BAT0"].capacity} :onchange "")
+        (cpu)
+        (metric :class "mem_bar" :label "" :value {EWW_RAM.used_mem_perc})
+        (metric :class "disk_bar" :label "" :value {EWW_DISK["/"].used_perc})
+        (metric :class "bright_bar" :label "" :value brightness)
+        (metric :class "vol_bar ${volume == 'x' ? 'mute' : ''}" :label "" :value volume)
+        (metric :class "bat_bar" :label "" :value {EWW_BATTERY["BAT0"].capacity})
     )
 )
 
@@ -74,12 +110,16 @@
         (box
             :space-evenly false
             :class "box"
-            (box :class "icon" "")
-            (box :class "kb icon" kb)
+            (box :class "icon" "")
+            (box :class "kb icon" kbd)
         )
         (box
-            :class "box icon ${caps == 'off' ? 'inactive' : ''}"
+            :class "box icon ${caps == 'on' ? 'on' : 'off'}"
             ""
+        )
+        (box
+            :class "box icon ${kbdlight == 2 ? 'max' : kbdlight == 1 ? 'on' : 'off'}"
+            ""
         )
     )
 )

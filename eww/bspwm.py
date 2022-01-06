@@ -29,12 +29,12 @@ for i in range(monitors):
         if d['root']:
             flags = getFlags(d['root'])
             f = "" + " urgent" if flags[0] else "" + " shown" if flags[1] else ""
-            print("(desktop :id ", ctr,
-                " :label '", labels[d['name']] if d['name'] in labels else defaultlabel,
+            print("(desktop :name '", d['name'],
+                "' :label '", labels[d['name']] if d['name'] in labels else defaultlabel,
                 "' :class '", f, "')", sep='')
         else:
-            print("(desktop :id ", ctr,
-                " :label '", labels[d['name']] if d['name'] in labels else defaultlabel,
+            print("(desktop :name '", d['name'],
+                "' :label '", labels[d['name']] if d['name'] in labels else defaultlabel,
                 "' :class 'empty')", sep='')
         if ctr%width == 0:
             print(')(box :orientation "h" :space-evenly false')

@@ -25,6 +25,8 @@
 
 (defvar showCal false)
 
+(defvar showCores false)
+
 (defpoll brightness
     :interval "1s"
     :initial 0
@@ -43,9 +45,15 @@
     `xset -q | awk '/Caps/ { print $4 }'`
 )
 
-(defpoll kb
+(defpoll kbd
     :interval "500ms"
     :initial "us"
     `setxkbmap -query | awk -F : 'NR==3{sub(/^[ \t]+/, "", $2);print $2}'`
+)
+
+(defpoll kbdlight
+    :interval "500ms"
+    :initial 0
+    `grep status /proc/acpi/ibm/kbdlight | tr -d [:blank:] | cut -d':' -f2`
 )
 

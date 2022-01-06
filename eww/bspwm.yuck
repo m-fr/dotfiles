@@ -8,12 +8,13 @@
 
 ;;;;;;; WIDGETS   ;;;;;;;
 
-(defwidget desktop[id label ?class]
+(defwidget desktop[name label ?class]
     (box
         :class "box"
         (button
+            :tooltip name
             :class "icon ${class ?: ''}"
-            :onclick "bspc desktop -f ^${id}"
+            :onclick "bspc desktop -f ${name}"
             label
         )
     )

@@ -6,5 +6,5 @@ mute=`amixer get Master | grep 'Left:' | cut -d'[' -f3 | cut -d']' -f1`
 if [[ $mute == "on" ]]; then
     echo $vol
 else
-    echo 0
+    echo "x"
 fi

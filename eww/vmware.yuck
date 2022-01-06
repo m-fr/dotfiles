@@ -40,7 +40,11 @@
                 :orientation "v"
                 :space-evenly false
                 (label :class "vmName ${active ?: false}" :text name)
-                (label :text info)
+                (revealer
+                    :reveal {info != ""}
+                    :transition "slidedown"
+                    (label :class "vmInfo" :text info)
+                )
             )
         )
         (revealer

@@ -61,20 +61,39 @@ $iconFont: 'Font Awesome 6 Free';
 .vol_bar .icon * {
 	color: $cyan;
 }
+.vol_bar.mute .icon * {
+	color: $currentLine;
+}
 .cpu_bar, .mem_bar, .disk_bar, .bat_bar, .bright_bar, .vol_bar, scale trough {
 	all: unset;
 	background-color: $currentLine;
-	border-radius: 16px;
+	border-radius: 14px;
 	min-height: 28px;
 	min-width: 240px;
 	margin: 5px;
 }
 .cpu_bar, .mem_bar, .disk_bar, .bat_bar, .bright_bar, .vol_bar, scale trough highlight {
 	all: unset;
-	border-radius: 16px;
+	border-radius: 14px;
+}
+.cpu progressbar trough {
+	all: unset;
+	background-color: $currentLine;
+	border-radius: 12px;
+	min-width: 24px;
+    margin: 5px;
+}
+.cpu progressbar trough progress {
+	all: unset;
+	border-radius: 12px;
+	min-width: 24px;
+	background-color: $red;
 }
 .cpu_bar scale trough highlight {
 	background-color: $red;
+}
+.cpu .cores {
+    padding: 0 12px;
 }
 .mem_bar scale trough highlight {
 	background-color: $green;
@@ -101,8 +120,14 @@ $iconFont: 'Font Awesome 6 Free';
     min-width: 40px;
     min-height: 40px;
 }
-.keyboard .icon.inactive * {
+.keyboard .icon.off * {
     color: $currentLine;
+}
+.keyboard .icon.on * {
+    color: $cyan;
+}
+.keyboard .icon.max * {
+    color: $green;
 }
 .kb {
     margin-left: 8px;
@@ -156,7 +181,7 @@ $iconFont: 'Font Awesome 6 Free';
 }
 .apps .icon * {
 	font-size: 24px;
-	color: $cyan;
+	color: $comment;
 }
 
 /** bspwm ***************************************/
@@ -166,6 +191,7 @@ $iconFont: 'Font Awesome 6 Free';
 }
 .bspwm .icon * {
 	font-size: 24px;
+	color: $comment;
 }
 .bspwm .icon.empty * {
 	font-size: 24px;
@@ -203,6 +229,9 @@ $iconFont: 'Font Awesome 6 Free';
 }
 .vm.icon.run * {
 	color: $green;
+}
+.vmInfo {
+    color: $comment;
 }
 .vmName {
 	font-size: 16px;
