@@ -13,6 +13,7 @@
             label
         )
         (scale
+            :tooltip {value == 'x' ? 0 : value}
             :min 0
             :max {maxValue ?: 100}
             :value {value == 'x' ? 0 : value}
@@ -97,8 +98,25 @@
         (metric :class "mem_bar" :label "" :value {EWW_RAM.used_mem_perc})
         (metric :class "disk_bar" :label "" :value {EWW_DISK["/"].used_perc})
         (metric :class "bright_bar" :label "" :value brightness)
-        (metric :class "vol_bar ${volume == 'x' ? 'mute' : ''}" :label "" :value volume)
-        (metric :class "bat_bar" :label "" :value {EWW_BATTERY["BAT0"].capacity})
+        (metric
+            :class "vol_bar ${volume == 'x' ? 'mute' : ''}"
+            :label {volume == "x" ? "" :
+                volume > 50 ? "" :
+                volume > 0 ? "" : ""
+            }
+            :value volume
+        )
+        (metric
+            :class "bat_bar"
+            :label {EWW_BATTERY["BAT0"].status == "Discharging" ?
+                EWW_BATTERY["BAT0"].capacity > 90 ? "" :
+                EWW_BATTERY["BAT0"].capacity > 60 ? "" :
+                EWW_BATTERY["BAT0"].capacity > 30 ? "" :
+                EWW_BATTERY["BAT0"].capacity > 10 ? "" : "" :
+                EWW_BATTERY["BAT0"].status == "Charging" ? "" : ""
+            }
+            :value {EWW_BATTERY["BAT0"].capacity}
+        )
     )
 )
 
