@@ -1,8 +1,11 @@
 ;;;;;;; VARIABLES ;;;;;;;
 
+(defvar showNetwork true)
+
 (defpoll network
-    :interval '500ms'
+    :interval '5s'
     :initial ""
+    :run-while showNetwork
     `python3 network.py`
 )
 
@@ -30,6 +33,29 @@
 )
 
 (defwidget network[]
-    (literal :content network)
+    (box
+        :orientation "v"
+        :space-evenly false
+        (revealer
+            :reveal {!showNetwork}
+            :transition "slidedown"
+            (box
+                :space-evenly false
+                (button
+                    :class "box icon net"
+                    :onclick "eww update showNetwork=${ showNetwork ? false : true }"
+                    ""
+                )
+            )
+        )
+        (revealer
+            :reveal showNetwork
+            :transition "slidedown"
+            (button
+                :onclick "eww update showNetwork=${ showNetwork ? false : true }"
+                (literal :content network)
+            )
+        )
+    )
 )
 

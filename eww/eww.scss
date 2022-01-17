@@ -192,6 +192,12 @@ $iconFont: 'Font Awesome 6 Free';
 .if .info * {
     color: $comment;
 }
+.net {
+    padding: 16px;
+}
+.net * {
+    color: $cyan;
+}
 
 /** apt ***************************************/
 .packages * {
