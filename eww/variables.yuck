@@ -57,3 +57,16 @@
     `grep status /proc/acpi/ibm/kbdlight | tr -d [:blank:] | cut -d':' -f2`
 )
 
+(defvar showApt false)
+
+(defpoll aptNum
+    :interval "300s"
+    :initial 0
+    `apt list --upgradable | grep -c upgradable`
+)
+
+(defpoll apt
+    :interval "300s"
+    :initial ""
+    `apt list --upgradable | tail -n +2 | cut -d"/" -f1`
+)

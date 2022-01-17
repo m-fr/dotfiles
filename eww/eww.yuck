@@ -21,6 +21,7 @@
                (keyboard)
                (clock)
                (date)
+               (apt)
           )
           (box
                :orientation "v"
@@ -34,7 +35,7 @@
                :space-evenly false
                (powermenu)
                (vmware)
-               (info)
+               (network)
           )
      )
 )

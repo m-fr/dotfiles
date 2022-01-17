@@ -1,0 +1,35 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll network
+    :interval '500ms'
+    :initial ""
+    `python3 network.py`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget if[id type status ?name ?info]
+    (box
+        :class "if"
+        :orientation "v"
+        :space-evenly false
+        (box
+            :class "status ${status}"
+            :space-evenly false
+            (label :class "icon" :text type)
+            (label :text id)
+            (label :text "${name !='' ? '—': ''} ${name ?: ''}")
+        )
+        (revealer
+            :class "info"
+            :reveal {info != "" ? true : false}
+            :transition "slidedown"
+            (label :text info)
+        )
+    )
+)
+
+(defwidget network[]
+    (literal :content network)
+)
+

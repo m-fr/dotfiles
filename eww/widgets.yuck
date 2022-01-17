@@ -2,6 +2,7 @@
 (include "bspwm.yuck")
 (include "vmware.yuck")
 (include "app.yuck")
+(include "network.yuck")
 
 (defwidget metric [class label value ?onchange ?maxValue]
     (box
@@ -194,9 +195,29 @@
     )
 )
 
-(defwidget info[]
+(defwidget apt[]
     (box
-        ;:class "info box"
+        :class "info box"
+        :orientation "v"
+        :space-evenly false
+        (button
+            :onclick "eww update showApt=${ showApt ? false : true }"
+            (box
+                :class "apt"
+                :space-evenly false
+                (label :text "")
+                (label :text aptNum)
+            )
+        )
+        (revealer
+            :transition "slidedown"
+            :reveal showApt
+            (box
+                :class "packages"
+                :orientation "v"
+                apt
+            )
+        )
     )
 )
 
