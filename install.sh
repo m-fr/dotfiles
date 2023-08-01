@@ -9,7 +9,7 @@ BIN="bin"
 
 APTINSTALL=
 APTMINIMAL="bash-completion bspwm sxhkd picom rofi dunst polybar wget2 neofetch fonts-firacode ufw feh rxvt-unicode"
-APTEXTRA="${APTMINIMAL} khal keepass2 tree htop scrot pavucontrol cava"
+APTEXTRA="${APTMINIMAL} khal keepass2 tree htop scrot pavucontrol cava powerline"
 APTFULL="${APTEXTRA} texlive-full"
 APT=$APTEXTRA
 
