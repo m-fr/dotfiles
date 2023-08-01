@@ -42,6 +42,7 @@ Default install is same as `install.sh -l`.
 - keepass2
 - tree
 - htop
+- pavucontrol
 
 ### Extra packages
 
