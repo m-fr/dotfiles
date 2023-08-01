@@ -3,20 +3,23 @@ CMD="ln"
 FLAGS="-sT"
 MKDIR="mkdir -p"
 
-profile=".xsessionrc .profile .env .vimrc .Xresources"
+profile=".xsessionrc .profile .env .vimrc .Xresources .wallpaper"
 config="bspwm sxhkd rofi wtf polybar .shortcuts"
 BIN="bin"
 
 APTINSTALL=
-APT="bash-completion bspwm sxhkd picom rofi dunst keepass2 polybar wget2 tree htop neofetch fonts-firacode ufw feh texlive-full scrot"
+APTMINIMAL="bash-completion bspwm sxhkd picom rofi dunst polybar wget2 neofetch fonts-firacode ufw feh rxvt-unicode"
+APTEXTRA="${APTMINIMAL} khal keepass2 tree htop scrot"
+APTFULL="${APTEXTRA} texlive-full"
+APT=$APTEXTRA
 
-while getopts ":lmtfh" opt; do
+while getopts ":lctfamxh" opt; do
     case ${opt} in
         l)
             CMD="ln"
             FLAGS="-sT"
             ;;
-        m)
+        c)
             CMD="cp"
             FLAGS="-r"
             ;;
@@ -30,15 +33,26 @@ while getopts ":lmtfh" opt; do
             ;;
         a)
             APTINSTALL=1
+            APT=$APTEXTRA
+            ;;
+        m)
+            APT=$APTMINIMAL
+            APTINSTALL=1
+            ;;
+        x)
+            APT=$APTFULL
+            APTINSTALL=1
             ;;
         h)
             echo "Usage:"
             echo "  $0 [flags]"
             echo "      -l  use symbolic links (default)"
-            echo "      -m  copy files instead of linking"
+            echo "      -c  copy files instead of linking"
             echo "      -t  test installation"
             echo "      -f  force installation"
             echo "      -a  install apt packages"
+            echo "      -m  install minimal set of apt packages"
+            echo "      -x  install all apt packages"
             echo "      -h  show this help"
             exit 0
             ;;
