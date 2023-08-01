@@ -3,7 +3,7 @@ CMD="ln"
 FLAGS="-sT"
 MKDIR="mkdir -p"
 
-profile=".xsessionrc .profile .env .vimrc .Xresources .wallpaper"
+profile=".xsessionrc .profile .env .vimrc .Xresources .wallpaper .bash_aliases .dircolors .bashrc"
 config="bspwm sxhkd rofi wtf polybar .shortcuts cava"
 BIN="bin"
 

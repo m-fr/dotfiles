@@ -44,6 +44,7 @@ Default install is same as `install.sh -l`.
 - htop
 - pavucontrol
 - cava
+- powerline
 
 ### Extra packages
 
