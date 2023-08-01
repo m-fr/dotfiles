@@ -4,12 +4,12 @@ FLAGS="-sT"
 MKDIR="mkdir -p"
 
 profile=".xsessionrc .profile .env .vimrc .Xresources .wallpaper"
-config="bspwm sxhkd rofi wtf polybar .shortcuts"
+config="bspwm sxhkd rofi wtf polybar .shortcuts cava"
 BIN="bin"
 
 APTINSTALL=
 APTMINIMAL="bash-completion bspwm sxhkd picom rofi dunst polybar wget2 neofetch fonts-firacode ufw feh rxvt-unicode"
-APTEXTRA="${APTMINIMAL} khal keepass2 tree htop scrot pavucontrol"
+APTEXTRA="${APTMINIMAL} khal keepass2 tree htop scrot pavucontrol cava"
 APTFULL="${APTEXTRA} texlive-full"
 APT=$APTEXTRA
 

@@ -43,6 +43,7 @@ Default install is same as `install.sh -l`.
 - tree
 - htop
 - pavucontrol
+- cava
 
 ### Extra packages
 
