@@ -40,6 +40,12 @@ do
 done
 shift $((OPTIND -1))
 
+if $COUNT -le 1; then
+    [ $PREFIX -eq "" ] && PREFIX="wallpaper"
+    feh --bg-fill "$FOLDER/$PREFIX$SUFFIX"
+    exit 0
+fi
+
 missing=0
 for ((i=0; i < COUNT ; i++))
 do

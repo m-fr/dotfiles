@@ -22,4 +22,4 @@ fi
 ~/.config/polybar/launch.sh &
 
 killall -q wall_theme 
-wall_theme -p Mojave/ -c 17 &
+wall_theme -p debian -s png -c 1 &
