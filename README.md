@@ -3,22 +3,11 @@ Custom configuration files
 
 ## Install
 
-Run `install.sh` script.
-For customized installation see options below.
-Default install is same as `install.sh -l`.
-
-### Options
-
-| Option | Meaning                             |
-| -----: | :---------------------------------- |
-|   `-l` | use symbolic links (default)        |
-|   `-c` | copy files instead of linking       |
-|   `-t` | test installation                   |
-|   `-f` | force installation                  |
-|   `-a` | install apt packages                |
-|   `-m` | install minimal set of apt packages |
-|   `-x` | install all apt packages            |
-|   `-h` | show this help                      |
+```bash
+git clone https://github.com/m-fr/dotfiles
+cd dotfiles
+./install
+```
 
 ## Software
 
@@ -46,12 +35,7 @@ Default install is same as `install.sh -l`.
 - cava
 - powerline
 
-### Extra packages
-
-- texlive-full
-
 ### Fonts
 
-- Fira Code
-- Font Awesome
+- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
 

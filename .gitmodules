@@ -1,0 +1,10 @@
+[submodule "dotbot"]
+	path = dotbot
+	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
+[submodule "mons"]
+	path = mons
+	url = https://github.com/Ventto/mons.git
+[submodule "nerd-fonts"]
+	path = nerd-fonts
+	url = https://github.com/ryanoasis/nerd-fonts.git

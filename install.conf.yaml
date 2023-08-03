@@ -1,0 +1,69 @@
+- defaults:
+    link:
+      relink: true
+      force: true
+    shell:
+      quiet: true
+      stderr: true
+
+- clean: ['~', '~/.local/bin']
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [cd mons && DESTDIR=$HOME/.local make install, Installing mons]
+  - [cd nerd-fonts && ./install.sh, Installing Nerd Fonts]
+
+- shell:
+  - command: cd apt && ./apt.sh packages
+    description: Installing APT apckages
+    stdin: true
+    stdout: true
+    stderr: false
+
+- link:
+    ~/.vimrc: vim/vimrc
+
+    ~/.bashrc: bash/bashrc
+    ~/.bash_aliases: bash/alias
+    ~/.env: bash/env
+    ~/.profile: bash/profile
+
+    ~/.Xresources: x11/resources
+    ~/.xsessionrc: x11/session
+
+- create:
+    - ~/.config/bspwm
+    - ~/.config/cava
+    - ~/.config/dunst
+    - ~/.config/rofi
+    - ~/.config/sxhkd
+
+- link:
+    ~/.config/bspwm:
+      glob: true
+      path: bspwm/*
+    ~/.config/cava:
+      glob: true
+      path: cava/*
+    ~/.config/dunst:
+      glob: true
+      path: dunst/*
+    ~/.config/rofi:
+      glob: true
+      path: rofi/*
+    ~/.config/sxhkd:
+      glob: true
+      path: sxhkd/*
+
+- create:
+    - ~/.local/bin
+    - ~/.wallpaper
+
+- link:
+    ~/.local/bin:
+      glob: true
+      path: bin/*
+    ~/.wallpaper:
+      glob: true
+      path: wallpaper/*
+
