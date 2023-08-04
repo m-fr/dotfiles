@@ -19,7 +19,13 @@ else
     bspc monitor $MON_SECONDARY -d VI VII VIII IX X
 fi
 
-~/.config/polybar/launch.sh &
+if [[ -f "$HOME/.config/polybar/config.ini" ]]
+    . $HOME/.config/polybar/launch.sh &
+fi
+
+if [[ -f "$HOME/.config/eww/eww.yuck" ]]
+    eww daemon &
+fi
 
 killall -q wall_theme 
 wall_theme -p debian -s .png -c 1 &
