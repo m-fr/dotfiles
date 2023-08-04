@@ -4,10 +4,10 @@ command -v apt > /dev/null || (echo "This system is not using APT package manage
 
 [[ -f "$1" ]] || (echo "Packages file not found" && exit 1)
 
-sudo apt update /dev/null
+sudo apt-get update > /dev/null
 
 for item in $(cat $1)
 do
     echo "Installing $item"
-    sudo apt install $item > /dev/null || echo -e "\e[31m$item installation failed\e[0m"
+    sudo apt-get install -y $item > /dev/null || echo -e "\e[31m$item installation failed\e[0m"
 done

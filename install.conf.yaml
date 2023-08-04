@@ -14,8 +14,8 @@
   - [cd nerd-fonts && ./install.sh, Installing Nerd Fonts]
 
 - shell:
-  - command: cd apt && ./apt.sh packages
-    description: Installing APT apckages
+  - command: cd meta && ./apt.sh packages
+    description: Installing APT packages
     stdin: true
     stdout: true
     stderr: false
@@ -54,6 +54,20 @@
     ~/.config/sxhkd:
       glob: true
       path: sxhkd/*
+
+- create:
+    - ~/.config/eww
+    - ~/.config/polybar
+
+- link:
+    ~/.config/eww:
+      if: '[ `hostname` != debian  ]'
+      glob: true
+      path: eww/*
+    ~/.config/polybar:
+      if: '[ `hostname` = debian  ]'
+      glob: true
+      path: polybar/*
 
 - create:
     - ~/.local/bin
