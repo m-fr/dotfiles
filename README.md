@@ -37,6 +37,6 @@ cd dotfiles
 
 ### Fonts
 
-- Fira Code
-- [Nerd Fonts](https://github.com/ryanoasis/nerd-fonts)
+- [Fira Code](https://github.com/tonsky/FiraCode)
+- [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
 

@@ -11,7 +11,6 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [cd mons && DESTDIR=$HOME/.local make install, Installing mons]
-  - [cd nerd-fonts && ./install.sh, Installing Nerd Fonts]
 
 - shell:
   - command: cd meta && ./apt.sh packages
