@@ -70,3 +70,29 @@
     :initial ""
     `apt list --upgradable | tail -n +2 | cut -d"/" -f1`
 )
+
+(defvar showCVE false)
+
+(defpoll CVElow
+    :interval "300s"
+    :initial 0
+    `debsecan | grep "low urgency" | wc -l`
+)
+
+(defpoll CVEmedium
+    :interval "300s"
+    :initial 0
+    `debsecan | grep -v "urgency" | wc -l`
+)
+
+(defpoll CVEhigh
+    :interval "300s"
+    :initial 0
+    `debsecan | grep "high urgency" | wc -l`
+)
+
+(defpoll CVE
+    :interval "300s"
+    :initial ""
+    `debsecan | awk '{ vuln[$2]++ } END { for (package in vuln) print vuln[package], package }' | sort -nr`
+)

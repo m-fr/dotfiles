@@ -210,6 +210,22 @@ $iconFont: 'Font Awesome 6 Free';
     color: $cyan;
 }
 
+/** cve ***************************************/
+.cve * {
+    font-size: 24px;
+    margin: 0px 10px;
+    color: $cyan;
+}
+.cve .low {
+	color: $green;
+}
+.cve .medium {
+	color: $orange;
+}
+.cve .high {
+	color: $red;
+}
+
 /** apps ***************************************/
 .apps .icon {
 	min-width: 40px;

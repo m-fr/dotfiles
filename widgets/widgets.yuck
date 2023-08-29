@@ -221,3 +221,40 @@
     )
 )
 
+(defwidget cve[]
+    (box
+        :class "info box"
+        :orientation "v"
+        :space-evenly false
+        (button
+            :onclick "eww update showCVE=${ showCVE ? false : true }"
+            (box
+                :class "cve"
+                :space-evenly false
+                (label :text "")
+                (label
+                    :class "low"
+                    :text CVElow
+                )
+                (label
+                    :class "medium"
+                    :text CVEmedium
+                )
+                (label
+                    :class "high"
+                    :text CVEhigh
+                )
+            )
+        )
+        (revealer
+            :transition "slidedown"
+            :reveal showCVE
+                (box
+                    :class "packages"
+                    :orientation "v"
+                    CVE
+                )
+        )
+    )
+)
+

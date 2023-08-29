@@ -1,0 +1,26 @@
+; generated with app.py
+(defwidget app[label action ?tooltip ?class]
+    (box
+        :class "box"
+        (button
+            :class {class ?: "icon"}
+            :tooltip {tooltip ?: ""}
+            :onclick action
+            label
+        )
+    )
+)
+
+(defwidget apps[]
+(box :orientation "v" :space-evenly false :class "apps"
+(box :orientation "h" :space-evenly false
+(app :tooltip 'Files' :label '' :action 'nemo')
+(app :tooltip 'Browser' :label '' :action 'firefox')
+(app :tooltip 'Virtual' :label '' :action 'vmware')
+(app :tooltip 'Notes' :label '' :action 'obsidian')
+(app :tooltip 'IDE' :label '' :action 'codium')
+)(box :orientation "h" :space-evenly false
+(app :tooltip 'Terminal' :label '' :action 'urxvt --chdir "$HOME"')
+(app :tooltip 'Secrets' :label '' :action 'keepass2')
+(app :tooltip 'Mixer' :label '' :action 'pavucontrol')
+)))

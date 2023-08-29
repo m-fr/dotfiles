@@ -1,10 +1,10 @@
 apps = [["Files",    "", "nemo"],
-        ["Browser",  "", "firefox"],
+        ["Browser",  "", "firefox"],
         ["Virtual",  "", "vmware"],
-        ["Notes",    "", "obsidian"],
+        ["Notes",    "", "obsidian"],
         ["IDE",      "", "codium"],
         ["Terminal", "", "urxvt --chdir \"$HOME\""],
-        ["Secrets",  "", "keepass2"],
+        ["Secrets",  "", "keepass2"],
         ["Mixer",    "", "pavucontrol"]]
 
 width = 5
