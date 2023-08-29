@@ -11,8 +11,8 @@
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
   - [cd mons && DESTDIR=$HOME/.local make install, Installing mons]
-  - [curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh, Installing rust]
-  - [cd eww && cargo build --release --no-default-features --features x11, Installing mons]
+  - [curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y, Installing rust]
+  - [cd eww && cargo build --release --no-default-features --features x11 && mv target/release/eww $HOME/.local/bin/, Installing eww]
 
 - shell:
   - command: cd meta && ./apt.sh packages

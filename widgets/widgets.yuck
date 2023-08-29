@@ -249,11 +249,14 @@
         (revealer
             :transition "slidedown"
             :reveal showCVE
+            (scroll
+                :vscroll true
                 (box
                     :class "packages"
                     :orientation "v"
                     CVE
                 )
+            )
         )
     )
 )
