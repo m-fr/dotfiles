@@ -110,8 +110,8 @@ $iconFont: 'Font Awesome 6 Free';
 /** Power buttons ***************************************/
 .btn {
 	font-weight : bold;
-	margin: 5px;
-	padding: 5px;
+	margin: 3px 6px;
+	padding: 3px 6px;
 }
 .btn.icon.stop * {
 	color: $red;
@@ -127,6 +127,9 @@ $iconFont: 'Font Awesome 6 Free';
 }
 .btn.icon.run * {
 	color: $green;
+}
+.btn.icon.close * {
+	color: $currentLine;
 }
 
 /** network ***************************************/

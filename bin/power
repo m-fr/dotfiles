@@ -21,6 +21,7 @@ case $1 in
         lock && systemctl suspend
         ;;
     "logout"|"logoff")
+        bspc quit
         ;;
     "lock")
         lock

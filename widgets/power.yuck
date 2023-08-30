@@ -37,17 +37,25 @@
             (box
                 :class "box"
                 (button
-                    :onclick "power logout"
-                    :class "icon btn pause"
-                    ""
+                    :onclick "power lock"
+                    :class "icon btn run"
+                    ""
                 )
             )
             (box
                 :class "box"
                 (button
-                    :onclick "power lock"
-                    :class "icon btn run"
-                    ""
+                    :onclick "power logout"
+                    :class "icon btn pause"
+                    ""
+                )
+            )
+            (box
+                :class "box"
+                (button
+                    :onclick "eww close-all"
+                    :class "icon btn close"
+                    ""
                 )
             )
         )
