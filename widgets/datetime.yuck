@@ -1,0 +1,60 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll time
+    :interval "1s"
+    `date +%H:%M`
+)
+
+(defpoll date
+    :interval "1m"
+    `date +'%A%n%e. %B %Y'`
+)
+
+(defpoll day
+    :interval "1h"
+    `date +%-d`
+)
+
+(defpoll month
+    :interval "1h"
+    `date +%-m`
+)
+
+(defpoll year
+    :interval "1h"
+    `date +%Y`
+)
+
+(defvar showCal false)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget clock[]
+    (box
+        :class "clock box"
+        (label :class "time" :text time)
+    )
+)
+
+(defwidget date[]
+    (box
+        :class "box"
+        :orientation "v"
+        :space-evenly false
+        (button
+            :class "date"
+            :onclick "eww update showCal=${ showCal ? false : true }"
+            date)
+        (revealer
+            :reveal showCal
+            :transition "slidedown"
+            (calendar
+                :class "calendar"
+                :day day
+                :month {month - 1}
+                :year year
+            )
+        )
+    )
+)
+

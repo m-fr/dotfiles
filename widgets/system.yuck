@@ -1,0 +1,107 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defvar showCores false)
+
+(defpoll brightness
+    :interval "1s"
+    :initial 0
+    `brightnessctl | grep % | cut -d'(' -f2 | cut -d'%' -f1`
+)
+
+(defpoll volume
+    :interval "1s"
+    :initial 0
+    `amixer get Master | grep 'Left:' | cut -d'[' -f2 | cut -d'%' -f1`
+)
+
+(defpoll unmute
+    :interval "1s"
+    :initial 0
+    `amixer get Master | grep 'Left:' | cut -d'[' -f3 | cut -d']' -f1`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget metric [class label value ?onchange ?maxValue]
+    (box
+        :orientation "h"
+        :space-evenly false
+        :class class
+        (box
+            :class "icon"
+            label
+        )
+        (scale
+            :tooltip {value == 'x' ? 0 : value}
+            :min 0
+            :max {maxValue ?: 100}
+            :value {value == 'x' ? 0 : value}
+            :active {onchange ?: "" != ""}
+            :onchange {onchange ?: "" }
+        )
+    )
+)
+
+(defwidget core [value ?class]
+    (progress
+        :class {class ?: ""}
+        :flipped true
+        :value {value == 'x' ? 0 : value}
+        :orientation "v"
+    )
+)
+
+(defwidget cpu[]
+    (box
+        :class "cpu"
+        :orientation "v"
+        :space-evenly false
+        (button
+            :onclick "eww update showCores=${ showCores ? false : true }"
+            (metric :class "cpu_bar" :label "" :value {EWW_CPU.avg})
+        )
+        (revealer
+            :reveal showCores
+            :transition "slidedown"
+            :class "cores"
+            (box
+                :orientation "h"
+                (for core in {EWW_CPU.cores}
+                    (core :value {core.usage})
+                )
+            )
+        )
+    )
+)
+
+(defwidget sys[]
+    (box
+        :orientation "v"
+        :space-evenly false
+        :class "sys box"
+        (cpu)
+        (metric :class "mem_bar" :label "" :value {EWW_RAM.used_mem_perc})
+        (metric :class "disk_bar" :label "" :value {EWW_DISK["/"].used_perc})
+        (metric :class "bright_bar" :label "" :value brightness)
+        (metric
+            :class "vol_bar ${unmute == 'off' ? 'mute' : ''}"
+            :label {unmute == "off" ? "" :
+                volume > 50 ? "" :
+                volume > 0 ? "" : ""
+            }
+            :value volume
+        )
+        (metric
+            :class "bat_bar"
+            :label {EWW_BATTERY["BAT0"].status == "Discharging" ?
+                EWW_BATTERY["BAT0"].capacity > 90 ? "" :
+                EWW_BATTERY["BAT0"].capacity > 60 ? "" :
+                EWW_BATTERY["BAT0"].capacity > 30 ? "" :
+                EWW_BATTERY["BAT0"].capacity > 10 ? "" : "" :
+                EWW_BATTERY["BAT0"].status == "Charging" ? "" : ""
+            }
+            :value {EWW_BATTERY["BAT0"].capacity}
+        )
+    )
+)
+

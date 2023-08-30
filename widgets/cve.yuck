@@ -1,0 +1,52 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defvar showCVE false)
+
+(defpoll CVElow
+    :interval "300s"
+    :initial 0
+    `debsecan | grep "low urgency" | wc -l`
+)
+
+(defpoll CVEmedium
+    :interval "300s"
+    :initial 0
+    `debsecan | grep -v "urgency" | wc -l`
+)
+
+(defpoll CVEhigh
+    :interval "300s"
+    :initial 0
+    `debsecan | grep "high urgency" | wc -l`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget cve[]
+    (box
+        :class "info box"
+        :orientation "v"
+        :space-evenly false
+        (button
+            :onclick "eww update showCVE=${ showCVE ? false : true }"
+            (box
+                :class "cve"
+                :space-evenly false
+                (label :text "")
+                (label
+                    :class "low"
+                    :text CVElow
+                )
+                (label
+                    :class "medium"
+                    :text CVEmedium
+                )
+                (label
+                    :class "high"
+                    :text CVEhigh
+                )
+            )
+        )
+    )
+)
+

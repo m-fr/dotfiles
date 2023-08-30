@@ -70,10 +70,6 @@
       glob: true
       path: polybar/*
 
-- shell:
-  - command: cd meta && ./apt.sh packages
-    description: Installing APT packages
-
 - create:
     - ~/.local/bin
     - ~/.wallpaper

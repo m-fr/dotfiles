@@ -1,0 +1,44 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defvar showApt false)
+
+(defpoll aptNum
+    :interval "300s"
+    :initial 0
+    `apt list --upgradable | grep -c upgradable`
+)
+
+(defpoll apt
+    :interval "300s"
+    :initial ""
+    `apt list --upgradable | tail -n +2 | cut -d"/" -f1`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget apt[]
+    (box
+        :class "info box"
+        :orientation "v"
+        :space-evenly false
+        (button
+            :onclick "eww update showApt=${ showApt ? false : true }"
+            (box
+                :class "apt"
+                :space-evenly false
+                (label :text "")
+                (label :text aptNum)
+            )
+        )
+        (revealer
+            :transition "slidedown"
+            :reveal showApt
+            (box
+                :class "packages"
+                :orientation "v"
+                apt
+            )
+        )
+    )
+)
+

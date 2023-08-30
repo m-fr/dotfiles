@@ -1,0 +1,44 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll caps
+    :interval "500ms"
+    :initial "off"
+    `xset -q | awk '/Caps/ { print $4 }'`
+)
+
+(defpoll kbd
+    :interval "500ms"
+    :initial "us"
+    `setxkbmap -query | awk -F : 'NR==3{sub(/^[ \t]+/, "", $2);print $2}'`
+)
+
+(defpoll kbdlight
+    :interval "500ms"
+    :initial 0
+    `grep status /proc/acpi/ibm/kbdlight | tr -d [:blank:] | cut -d':' -f2`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget keyboard[]
+    (box
+        :orientation "h"
+        :class "keyboard"
+        :space-evenly false
+        (box
+            :space-evenly false
+            :class "box"
+            (box :class "icon" "")
+            (box :class "kb icon" kbd)
+        )
+        (box
+            :class "box icon ${caps == 'on' ? 'on' : 'off'}"
+            ""
+        )
+        (box
+            :class "box icon ${kbdlight == 2 ? 'max' : kbdlight == 1 ? 'on' : 'off'}"
+            ""
+        )
+    )
+)
+
