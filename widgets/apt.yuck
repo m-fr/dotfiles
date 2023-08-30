@@ -8,6 +8,12 @@
     `apt list --upgradable | grep -c upgradable`
 )
 
+(defpoll aptTotal
+    :interval "300s"
+    :initial 0
+    `apt list --installed | grep -c installed`
+)
+
 (defpoll apt
     :interval "300s"
     :initial ""
@@ -28,6 +34,8 @@
                 :space-evenly false
                 (label :text "")
                 (label :text aptNum)
+                (label :class "dim" :text "of")
+                (label :class "dim" :text aptTotal)
             )
         )
         (revealer
