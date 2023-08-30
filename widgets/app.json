@@ -1,0 +1,46 @@
+[
+    [
+        {
+            "name":"Files",
+            "short":"",
+            "action":"nemo"
+        },
+        {
+            "name":"Browser",
+            "short":"",
+            "action":"firefox"
+        },
+        {
+            "name":"Virtual",
+            "short":"",
+            "action":"vmware"
+        },
+        {
+            "name":"Notes",
+            "short":"",
+            "action":"obsidian"
+        },
+        {
+            "name":"IDE",
+            "short":"",
+            "action":"codium"
+        }
+    ],
+    [
+        {
+            "name":"Terminal",
+            "short":"",
+            "action":"urxvt --chdir $HOME"
+        },
+        {
+            "name":"Secrets",
+            "short":"",
+            "action":"keepass2"
+        },
+        {
+            "name":"Mixer",
+            "short":"",
+            "action":"pavucontrol"
+        }
+    ]
+]

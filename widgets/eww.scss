@@ -44,6 +44,9 @@ $iconFont: 'Font Awesome 6 Free';
 	min-width: 45px;
     padding: .5em;
 }
+.cpu_bar, .mem_bar, .disk_bar, .bat_bar, .bright_bar, .vol_bar {
+	background-color: $currentLine;
+}
 .cpu_bar, .cpu_bar .icon {
 	color: $red;
 }
@@ -61,9 +64,6 @@ $iconFont: 'Font Awesome 6 Free';
 }
 .vol_bar, .vol_bar .icon {
 	color: $cyan;
-}
-.vol_bar.mute, .vol_bar.mute .icon {
-	color: $currentLine;
 }
 
 /** Keyboard ********************************************/

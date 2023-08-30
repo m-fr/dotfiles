@@ -1,4 +1,9 @@
-; generated with app.py
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll apps :interval "1h" :initial '[[]]' `cat $HOME/.config/eww/app.json`)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
 (defwidget app[label action ?tooltip ?class]
     (box
         :class "box"
@@ -12,15 +17,18 @@
 )
 
 (defwidget apps[]
-(box :orientation "v" :space-evenly false :class "apps"
-(box :orientation "h" :space-evenly false
-(app :tooltip 'Files' :label '' :action 'nemo')
-(app :tooltip 'Browser' :label '' :action 'firefox')
-(app :tooltip 'Virtual' :label '' :action 'vmware')
-(app :tooltip 'Notes' :label '' :action 'obsidian')
-(app :tooltip 'IDE' :label '' :action 'codium')
-)(box :orientation "h" :space-evenly false
-(app :tooltip 'Terminal' :label '' :action 'urxvt --chdir "$HOME"')
-(app :tooltip 'Secrets' :label '' :action 'keepass2')
-(app :tooltip 'Mixer' :label '' :action 'pavucontrol')
-)))
+    (box
+        :orientation "v"
+        :space-evenly false
+        :class "apps"
+        (for row in apps
+            (box
+                :orientation "h"
+                :space-evenly false
+                (for app in row
+                    (app :tooltip {app.name} :label {app.short} :action {app.action})
+                )
+            )
+        )
+    )
+)
