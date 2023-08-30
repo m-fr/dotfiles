@@ -42,73 +42,28 @@ $iconFont: 'Font Awesome 6 Free';
 }
 .cpu_bar .icon, .mem_bar .icon, .disk_bar .icon, .bat_bar .icon, .bright_bar .icon, .vol_bar .icon {
 	min-width: 45px;
+    padding: .5em;
 }
-.cpu_bar .icon  * {
+.cpu_bar, .cpu_bar .icon {
 	color: $red;
 }
-.mem_bar .icon * {
+.mem_bar, .mem_bar .icon {
 	color: $green;
 }
-.disk_bar .icon * {
+.disk_bar, .disk_bar .icon {
 	color: $orange;
 }
-.bat_bar .icon * {
+.bat_bar, .bat_bar .icon {
 	color: $purple;
 }
-.bright_bar .icon * {
+.bright_bar, .bright_bar .icon {
 	color: $yellow;
 }
-.vol_bar .icon * {
+.vol_bar, .vol_bar .icon {
 	color: $cyan;
 }
-.vol_bar.mute .icon * {
+.vol_bar.mute, .vol_bar.mute .icon {
 	color: $currentLine;
-}
-.cpu_bar, .mem_bar, .disk_bar, .bat_bar, .bright_bar, .vol_bar, scale trough {
-	all: unset;
-	background-color: $currentLine;
-	border-radius: 14px;
-	min-height: 28px;
-	min-width: 240px;
-	margin: 5px;
-}
-.cpu_bar, .mem_bar, .disk_bar, .bat_bar, .bright_bar, .vol_bar, scale trough highlight {
-	all: unset;
-	border-radius: 14px;
-}
-.cpu progressbar trough {
-	all: unset;
-	background-color: $currentLine;
-	border-radius: 12px;
-	min-width: 24px;
-    margin: 5px;
-}
-.cpu progressbar trough progress {
-	all: unset;
-	border-radius: 12px;
-	min-width: 24px;
-	background-color: $red;
-}
-.cpu_bar scale trough highlight {
-	background-color: $red;
-}
-.cpu .cores {
-    padding: 0 12px;
-}
-.mem_bar scale trough highlight {
-	background-color: $green;
-}
-.disk_bar scale trough highlight {
-	background-color: $orange;
-}
-.bat_bar scale trough highlight {
-	background-color: $purple;
-}
-.bright_bar scale trough highlight {
-	background-color: $yellow;
-}
-.vol_bar scale trough highlight {
-	background-color: $cyan;
 }
 
 /** Keyboard ********************************************/
@@ -208,6 +163,9 @@ $iconFont: 'Font Awesome 6 Free';
     font-size: 24px;
     margin: 0px 10px;
     color: $cyan;
+}
+.dim {
+    color: $currentLine;
 }
 
 /** cve ***************************************/
