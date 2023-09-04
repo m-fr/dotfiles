@@ -1,5 +1,5 @@
 # show help
-{super,alt} + F1
+{super,shift} + F1
 	urxvt -geometry 1x1 -name sxhkd_help -e ~/.config/sxhkd/{sxhkd,app}_help.sh
 
 # shut down / reboot
@@ -38,7 +38,7 @@ XF86AudioMute
 XF86AudioPlay
     playerctl play-pause &
 
-# stop
+# audio stop
 XF86AudioStop
     playerctl stop &
 
@@ -54,10 +54,11 @@ XF86AudioNext
 # wm independent hotkeys
 #
 
-# control brightness
+# raise brightness
 XF86MonBrightnessUp
     brightnessctl set +5%
 
+# lower brightness
 XF86MonBrightnessDown
     brightnessctl set 5%-
 
@@ -65,6 +66,7 @@ XF86MonBrightnessDown
 super + alt + p
     ~/.config/sxhkd/display.sh
 
+# set monitor layout
 XF86Display
     ~/.config/sxhkd/display.sh
 
@@ -74,19 +76,11 @@ super + Escape
 
 # terminal emulator
 super + Return
-	urxvt
+	urxvt --chdir $HOME
 
 # window switcher
 super + d
 	rofi -show window
-
-# quick launch (web, documents, email)
-super + alt + {1,2,3}
-	{firefox,nautilus,thunderbird}
-
-# program launcher
-super + r
-	rofi -show run
 
 # make sxhkd reload its configuration files:
 super + shift + Escape
@@ -95,6 +89,26 @@ super + shift + Escape
 # take screenshot (full, active window, select window)
 Print + {_,ctrl,alt}
     scrot -d 3 {-m,-u,-s} /tmp/'scr_%Y%m%d_%H%M%S_$wx$h.png' -e 'feh -F $f'
+
+#
+# launcher
+#
+
+# quick launch (files, browser, virtual, notes, ide)
+super + alt + {1,2,3,4,5}
+	{nemo,firefox,vmware,obsidian,codium}
+
+# quick launch (terminal, network)
+super + alt + {6,7,8,9,0}
+	urxvt {--chdir $HOME, -name nm -e nmtui}
+
+# quick launch (chat, secrets, mixer)
+super + alt + {6,7,8,9,0}
+	{signal-desktop,keepass2,pavucontrol}
+
+# program launcher
+super + r
+	rofi -show run
 
 #
 # bspwm hotkeys

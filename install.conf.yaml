@@ -38,6 +38,7 @@
     - ~/.config/dunst
     - ~/.config/rofi
     - ~/.config/sxhkd
+    - ~/.shortcuts
 
 - link:
     ~/.config/bspwm:
@@ -55,6 +56,9 @@
     ~/.config/sxhkd:
       glob: true
       path: sxhkd/*
+    ~/.shortcuts:
+      glob: true
+      path: shortcuts/*
 
 - create:
     - ~/.config/eww

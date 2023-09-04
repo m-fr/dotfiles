@@ -33,6 +33,16 @@
             "action":"urxvt --chdir $HOME"
         },
         {
+            "name":"Network",
+            "short":"",
+            "action":"urxvt -name nm -e nmtui"
+        },
+        {
+            "name":"Chat",
+            "short":"",
+            "action":"signal-desktop"
+        },
+        {
             "name":"Secrets",
             "short":"",
             "action":"keepass2"
