@@ -12,11 +12,17 @@ echo \"$1\"
 #if [[ $(mons | grep Monitors | cut -d : -f 2) -le 1 ]]
 if [ $MONS_NUMBER -le 1 ] || [ $monitors -eq 1 ]
 then
-    bspc monitor -d I II III IV V VI VII VIII
+    bspc monitor -d 1 2 3 4 5 6 7 8 9 a
 else
-    export MON_SECONDARY=$(mons | grep enabled | grep -v '*' | tail -1 | cut -d: -f2 | tr -d ' ' | cut -d'(' -f1)
-    bspc monitor $MON_PRIMARY -d I II III IV V
-    bspc monitor $MON_SECONDARY -d VI VII VIII IX X
+    export MON_SECONDARY=$(mons | grep enabled | grep -v '*' | cut -d: -f2 | tr -d ' ' | cut -d'(' -f1)
+    ctr = 0
+    bspc monitor $MON_PRIMARY -d `printf "%x %x %x %x %x" $((ctr+1)) $((ctr+2)) $((ctr+3)) $((ctr+4)) $((ctr+5))`
+
+    for mon in $MON_SECONDARY
+    do
+        ctr=$((ctr+5))
+        bspc monitor $mon -d `printf "%x %x %x %x %x" $((ctr+1)) $((ctr+2)) $((ctr+3)) $((ctr+4)) $((ctr+5))`
+    done
 fi
 
 if [[ -f "$HOME/.config/polybar/config.ini" ]]

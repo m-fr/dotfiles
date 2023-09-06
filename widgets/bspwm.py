@@ -15,8 +15,8 @@ def getFlags(node):
 
 monitors = int(subprocess.check_output("mons | grep enabled | wc -l", shell=True).decode("utf-8"))
 
-labels = {"I":"","II":"","III":"","IV":"","V":"","VI":"","VII":"","VIII":"","IX":"","X":""}
-defaultlabel = ""
+labels = {"1":"","2":"","3":"","4":"","5":"","6":"","7":"","8":"","9":"","a":"","b":"","c":"","d":"","e":"","f":""}
+defaultlabel = ""
 
 width = 5
 
