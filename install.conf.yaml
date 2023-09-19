@@ -13,6 +13,7 @@
   - [cd mons && DESTDIR=$HOME/.local make install, Installing mons]
   - [curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y, Installing rust]
   - [cd eww && cargo build --release --no-default-features --features x11 && mv target/release/eww $HOME/.local/bin/, Installing eww]
+  - [cargo install --git https://github.com/lsd-rs/lsd.git --branch master, Installing lsd]
 
 - shell:
   - command: cd meta && ./apt.sh packages
@@ -20,6 +21,12 @@
     stdin: true
     stdout: true
     stderr: false
+
+- create:
+  - ~/.local/share/fonts
+
+- shell:
+  - [cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/v3.0.2/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf, Installing Fira Code Nerd Font]
 
 - link:
     ~/.vimrc: vim/vimrc
@@ -36,6 +43,7 @@
     - ~/.config/bspwm
     - ~/.config/cava
     - ~/.config/dunst
+    - ~/.config/lsd
     - ~/.config/rofi
     - ~/.config/sxhkd
     - ~/.shortcuts
@@ -50,6 +58,9 @@
     ~/.config/dunst:
       glob: true
       path: dunst/*
+    ~/.config/lsd:
+      glob: true
+      path: lsd/*
     ~/.config/rofi:
       glob: true
       path: rofi/*

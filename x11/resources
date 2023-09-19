@@ -33,7 +33,7 @@
 *.pink:       AnsiMagenta
 
 ! urxvt
-URxvt*font:       xft:Fira Code:size=11,xft:FontAwesome:size=12
+URxvt*font:       xft:FiraCode Nerd Font:style=Regular:size=11
 URxvt*depth:      32
 URxvt*scrollBar:  false
 URxvt*background: [75]Background
