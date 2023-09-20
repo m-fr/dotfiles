@@ -41,7 +41,7 @@ done
 shift $((OPTIND -1))
 
 if [ $COUNT -le 1 ]; then
-    [ $PREFIX -eq "" ] && PREFIX="wallpaper"
+    [ $PREFIX  == "" ] && PREFIX="wallpaper"
     feh --bg-fill "$FOLDER/$PREFIX$SUFFIX"
     exit 0
 fi
