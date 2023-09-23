@@ -1,33 +1,51 @@
+## DEFAULT SETTINGS
 - defaults:
     link:
-      relink: true
-      force: true
+        relink: true
+        force: true
     shell:
-      quiet: true
-      stderr: true
+        quiet: true
+        stderr: true
 
+## PRE-INSTALL
 - clean: ['~', '~/.local/bin']
 
-- shell:
-  - command: cd meta && ./apt.sh packages
-    description: Installing APT packages
-    stdin: true
-    stdout: true
-    stderr: false
-
-- shell:
-  - [git submodule update --init --recursive, Installing submodules]
-  - [cd mons && DESTDIR=$HOME/.local make install, Installing mons]
-  - [curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y, Installing rust]
-  - [cd eww && cargo build --release --no-default-features --features x11 && mv target/release/eww $HOME/.local/bin/, Installing eww]
-  - [cargo install --git https://github.com/lsd-rs/lsd.git --branch master, Installing lsd]
-
 - create:
-  - ~/.local/share/fonts
+    - ~/.local/bin
 
+## APT INSTALL
 - shell:
-  - [cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/v3.0.2/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf, Installing Fira Code Nerd Font]
+    - description: Installing APT packages
+        command: cd meta && ./apt.sh packages
+        stdin: true
+        stdout: true
+        stderr: false
 
+## CUSTOM INSTALL
+- shell:
+    - description: Installing submodules
+        command: git submodule update --init --recursive
+    - description: Installing mons
+        command: cd mons && DESTDIR=$HOME/.local make install
+    - description: Installing rust
+        command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    - description: Installing eww dependencies
+        command: sudo apt install libgdk-3-dev
+    - description: Installing eww
+        command: cargo instal --git https://github.com/elkowar/eww.git --tag v0.4.0 --no-default-features --features x11
+    - description: Installing lsd
+        command: cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.0.0
+    - description: Installing VSCodium
+        command: cd meta && ./vscodium.sh
+    - description: Installing WTF
+        command: cd meta && ./wtfutil.sh
+
+- link:
+    ~/.local/bin:
+        glob: true
+        path: bin/*
+
+## INSTALL PROFILE
 - link:
     ~/.vimrc: vim/vimrc
 
@@ -39,61 +57,62 @@
     ~/.Xresources: x11/resources
     ~/.xsessionrc: x11/session
 
+    ~/.config/VSCodium/User/settings.json: vscode/settings.json
+
+## INSTALL DOTFILES
 - create:
     - ~/.config/bspwm
     - ~/.config/cava
     - ~/.config/dunst
+    - ~/.config/eww
     - ~/.config/lsd
     - ~/.config/rofi
     - ~/.config/sxhkd
-    - ~/.shortcuts
+    - ~/.config/wtf
 
 - link:
     ~/.config/bspwm:
-      glob: true
-      path: bspwm/*
+        glob: true
+        path: bspwm/*
     ~/.config/cava:
-      glob: true
-      path: cava/*
+        glob: true
+        path: cava/*
     ~/.config/dunst:
-      glob: true
-      path: dunst/*
-    ~/.config/lsd:
-      glob: true
-      path: lsd/*
-    ~/.config/rofi:
-      glob: true
-      path: rofi/*
-    ~/.config/sxhkd:
-      glob: true
-      path: sxhkd/*
-    ~/.shortcuts:
-      glob: true
-      path: shortcuts/*
-
-- create:
-    - ~/.config/eww
-    - ~/.config/polybar
-
-- link:
+        glob: true
+        path: dunst/*
     ~/.config/eww:
-      if: '[ `hostname` != debian  ]'
-      glob: true
-      path: widgets/*
-    ~/.config/polybar:
-      if: '[ `hostname` = debian  ]'
-      glob: true
-      path: polybar/*
+        glob: true
+        path: widgets/*
+    ~/.config/lsd:
+        glob: true
+        path: lsd/*
+    ~/.config/rofi:
+        glob: true
+        path: rofi/*
+    ~/.config/sxhkd:
+        glob: true
+        path: sxhkd/*
+    ~/.config/wtf:
+        glob: true
+        path: wtf/*
 
+## POST-INSTALL
 - create:
-    - ~/.local/bin
+    - ~/.local/share/fonts
+    - ~/.shortcuts
     - ~/.wallpaper
 
+- shell:
+    - description: Installing Fira Code Nerd Font
+        command: cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/v3.0.2/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf
+    - description: Creating WTF to-do list
+        command: touch ~/.config/wtf/todo.yml
+
 - link:
-    ~/.local/bin:
-      glob: true
-      path: bin/*
+    ~/.shortcuts:
+        glob: true
+        path: shortcuts/*
     ~/.wallpaper:
-      glob: true
-      path: wallpaper/*
+        glob: true
+        path: wallpaper/*
 
