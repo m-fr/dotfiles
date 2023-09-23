@@ -5,6 +5,3 @@
 [submodule "mons"]
 	path = mons
 	url = https://github.com/Ventto/mons.git
-[submodule "eww"]
-	path = eww
-	url = https://github.com/elkowar/eww.git
