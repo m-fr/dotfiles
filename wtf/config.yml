@@ -31,8 +31,20 @@ wtf:
       wrapText: false
       refreshInterval: 3600
       title: "To-Do"
-    logo:
+    git:
+      commitCount: 5
+      repositories:
+        - "/home/mfr/notes"
+        - "/home/mfr/dotfiles"
       enabled: true
+      position:
+        top: 0
+        left: 2
+        height: 20
+        width: 2
+      refreshInterval: 15
+    logo:
+      enabled: false
       focusable: false
       type: cmdrunner
       cmd: "neofetch"
@@ -67,13 +79,29 @@ wtf:
         width: 3
       refreshInterval: 1800
       title: "Hacker News"
+    exchangerates:
+      enabled: false
+      rates:
+        USD:
+          - "CZK"
+        EUR:
+          - "CZK"
+        GBP:
+          - "CZK"
+      position:
+        top: 13
+        left: 0
+        height: 7
+        width: 2
+      refreshInterval: 60
+      title: "Exchange"
     yfinance:
       enabled: true
       symbols:
         - "AAPL"
         - "CZK=X"
         - "EURCZK=X"
-        - "BTC-USD"
+        - "DOT-USD"
       colors:
         bigup: "#50FA7B"
         up: "#5AF78E"
@@ -147,6 +175,18 @@ wtf:
         width: 3
       refreshInterval: 60
       title: "IP info"
+    ipinfo:
+      colors:
+        name: "#50FA7B"
+        value: "#E6E6E6"
+      enabled: false
+      position:
+        top: 20
+        left: 4
+        height: 9
+        width: 3
+      refreshInterval: 60
+      title: "IP info"
     firewall:
       enabled: true
       type: cmdrunner
@@ -169,15 +209,27 @@ wtf:
         width: 2
       refreshInterval: 5
       title: "Resources"
+    urlcheck:
+      enabled: true
+      urls:
+        - "https://www.m-fr.cz"
+        - "https://example.com"
+      position:
+        top: 29
+        left: 4
+        height: 4
+        width: 3
+      refreshInterval: 30
+      title: "URL check"
     disk:
       enabled: true
       type: cmdrunner
       cmd: "df"
       args: ["-h", "-x", "squashfs"]
       position:
-        top: 29
+        top: 33
         left: 4
-        height: 12
+        height: 8
         width: 3
       refreshInterval: 30
       title: "Disk usage"

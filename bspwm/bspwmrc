@@ -26,4 +26,4 @@ bspc rule -a URxvt:nm state=floating
 bspc rule -a Firefox:Toolkit state=floating
 
 picom &
-urxvt -e wtfutil &
+urxvt -e wtf &
