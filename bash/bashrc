@@ -13,12 +13,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-if [ -f "/usr/share/powerline/bindings/bash/powerline.sh" ]; then
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    source /usr/share/powerline/bindings/bash/powerline.sh
-fi
+eval "$(starship init bash)"
 
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;

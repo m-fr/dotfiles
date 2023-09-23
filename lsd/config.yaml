@@ -31,7 +31,3 @@ total-size: false
 hyperlink: never
 symlink-arrow: ⟶
 header: false
-literal: false
-truncate-owner:
-  after:
-  marker: ""

@@ -16,29 +16,31 @@
 ## APT INSTALL
 - shell:
     - description: Installing APT packages
-        command: cd meta && ./apt.sh packages
-        stdin: true
-        stdout: true
-        stderr: false
+      command: cd meta && ./apt.sh packages
+      stdin: true
+      stdout: true
+      stderr: false
 
 ## CUSTOM INSTALL
 - shell:
     - description: Installing submodules
-        command: git submodule update --init --recursive
+      command: git submodule update --init --recursive
     - description: Installing mons
-        command: cd mons && DESTDIR=$HOME/.local make install
+      command: cd mons && DESTDIR=$HOME/.local make install
     - description: Installing rust
-        command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     - description: Installing eww dependencies
-        command: sudo apt install libgdk-3-dev
+      command: sudo apt install libgdk-3-dev
     - description: Installing eww
-        command: cargo instal --git https://github.com/elkowar/eww.git --tag v0.4.0 --no-default-features --features x11
+      command: cargo install --git https://github.com/elkowar/eww.git --tag v0.4.0 --no-default-features --features x11
     - description: Installing lsd
-        command: cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.0.0
+      command: cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.0.0
+    - description: Installing Starship
+      command: curl -sS https://starship.rs/install.sh | sh
     - description: Installing VSCodium
-        command: cd meta && ./vscodium.sh
+      command: cd meta && ./vscodium.sh
     - description: Installing WTF
-        command: cd meta && ./wtfutil.sh
+      command: cd meta && ./wtfutil.sh
 
 - link:
     ~/.local/bin:
@@ -47,17 +49,19 @@
 
 ## INSTALL PROFILE
 - link:
-    ~/.vimrc: vim/vimrc
-
     ~/.bashrc: bash/bashrc
     ~/.bash_aliases: bash/alias
     ~/.env: bash/env
     ~/.profile: bash/profile
 
-    ~/.Xresources: x11/resources
-    ~/.xsessionrc: x11/session
+    ~/.config/starship.toml: starship/starship.toml
+
+    ~/.vimrc: vim/vimrc
 
     ~/.config/VSCodium/User/settings.json: vscode/settings.json
+
+    ~/.Xresources: x11/resources
+    ~/.xsessionrc: x11/session
 
 ## INSTALL DOTFILES
 - create:
@@ -104,9 +108,9 @@
 
 - shell:
     - description: Installing Fira Code Nerd Font
-        command: cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/v3.0.2/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf
+      command: cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/v3.0.2/patched-fonts/FiraCode/Regular/FiraCodeNerdFont-Regular.ttf
     - description: Creating WTF to-do list
-        command: touch ~/.config/wtf/todo.yml
+      command: touch ~/.config/wtf/todo.yml
 
 - link:
     ~/.shortcuts:

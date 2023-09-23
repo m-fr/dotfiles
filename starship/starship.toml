@@ -1,0 +1,68 @@
+format = """
+[](#bd93f9)\
+$os\
+$username\
+$hostname\
+[](fg:#bd93f9 bg:#6272a4)\
+$directory\
+[](fg:#6272a4 bg:#44475a)\
+$git_branch\
+$git_status\
+[](fg:#44475a bg:#f1fa8c)\
+$cmd_duration\
+$status\
+$character\
+"""
+
+[os]
+style = "bg:#8be9fd"
+disabled = true
+
+[username]
+show_always = true
+style_user = "bold fg:#44475a bg:#bd93f9"
+style_root = "bold fg:#44475a bg:#bd93f9"
+format = '[$user ]($style)'
+disabled = false
+
+[hostname]
+ssh_only = false
+style = "bold fg:#44475a bg:#bd93f9"
+format = "[@ $hostname]($style)"
+
+[directory]
+style = "bold bg:#6272a4"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Downloads" = "󰇚"
+"Documents" = "󱈎"
+"notes" = "󰺿"
+
+[git_branch]
+symbol = ""
+style = "bold bg:#44475a"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bold bg:#44475a"
+format = '[$all_status$ahead_behind ]($style)'
+
+[cmd_duration]
+style = "bold fg:#44475a bg:#f1fa8c"
+format = '[ 󱦟 $duration ]($style)'
+
+[status]
+symbol = "[](fg:#f1fa8c bg:#ff5555)"
+success_symbol = ""
+style = "bold bg:#ff5555"
+format = '$symbol[ $status ]($style)'
+pipestatus = false
+disabled = false
+
+[character]
+error_symbol = "[](fg:#ff5555)"
+success_symbol = "[](fg:#f1fa8c bg:#50fa7b)[](fg:#50fa7b)"
+
