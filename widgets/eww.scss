@@ -11,8 +11,7 @@ $purple: #bd93f9;
 $red: #ff5555;
 $yellow: #f1fa8c;
 
-$font: 'DejaVu Sans Mono';
-$iconFont: 'Font Awesome 6 Free';
+$font: 'FiraCode Nerd Font';
 
 /** Global *******************************************/
 *{
@@ -36,9 +35,8 @@ $iconFont: 'Font Awesome 6 Free';
 
 /** System ********************************************/
 .icon, .icon * {
-	font-size: 32px;
+	font-size: 24px;
 	font-weight: normal;
-	font-family: $iconFont;
 }
 .cpu_bar .icon, .mem_bar .icon, .disk_bar .icon, .bat_bar .icon, .bright_bar .icon, .vol_bar .icon {
 	min-width: 45px;
