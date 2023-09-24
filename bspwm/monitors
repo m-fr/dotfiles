@@ -25,12 +25,10 @@ else
     done
 fi
 
-if [[ -f "$HOME/.config/polybar/config.ini" ]]
-    . $HOME/.config/polybar/launch.sh &
-fi
-
 if [[ -f "$HOME/.config/eww/eww.yuck" ]]
-    eww daemon &
+    hostnamectl | grep Virtualization > /dev/null 
+        && eww daemon --config "$HOME/.config/eww/bar.yuck" &
+        || eww daemon --config "$HOME/.config/eww/eww.yuck" &
 fi
 
 killall -q wall_theme 
