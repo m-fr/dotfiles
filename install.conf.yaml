@@ -28,15 +28,15 @@
     - description: Installing mons
       command: cd mons && DESTDIR=$HOME/.local make install
     - description: Installing rust
-      command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && source "$HOME/.cargo/env"
     - description: Installing eww dependencies
-      command: sudo apt install libgdk-3-dev
+      command: sudo apt install libgtk-3-dev
     - description: Installing eww
       command: cargo install --git https://github.com/elkowar/eww.git --tag v0.4.0 --no-default-features --features x11
     - description: Installing lsd
       command: cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.0.0
     - description: Installing Starship
-      command: curl -sS https://starship.rs/install.sh | sh
+      command: curl -sS https://starship.rs/install.sh | sh -s -- -y
     - description: Installing VSCodium
       command: cd meta && ./vscodium.sh
     - description: Installing WTF
