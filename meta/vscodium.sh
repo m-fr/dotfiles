@@ -19,5 +19,6 @@ then
 fi
 
 # Install vscodium
-sudo apt update && sudo apt install codium
+sudo apt-get update
+sudo apt-get install -y codium
 
