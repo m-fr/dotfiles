@@ -32,7 +32,7 @@
     - description: Installing eww dependencies
       command: sudo apt-get install -y libgtk-3-dev
     - description: Installing eww
-      command: $HOME/.cargo/bin/cargo install --git https://github.com/elkowar/eww.git --tag v0.4.0 --no-default-features --features x11
+      command: $HOME/.cargo/bin/cargo install --git https://github.com/elkowar/eww.git --branch master --no-default-features --features x11
     - description: Installing lsd
       command: $HOME/.cargo/bin/cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.0.0
     - description: Installing Starship
@@ -58,8 +58,6 @@
 
     ~/.vimrc: vim/vimrc
 
-    ~/.config/VSCodium/User/settings.json: vscode/settings.json
-
     ~/.Xresources: x11/resources
     ~/.xsessionrc: x11/session
 
@@ -72,6 +70,7 @@
     - ~/.config/lsd
     - ~/.config/rofi
     - ~/.config/sxhkd
+    - ~/.config/VSCodium/User
     - ~/.config/wtf
 
 - link:
@@ -96,6 +95,8 @@
     ~/.config/sxhkd:
         glob: true
         path: sxhkd/*
+    ~/.config/VSCodium/User/settings.json:
+        path: vscode/settings.json
     ~/.config/wtf:
         glob: true
         path: wtf/*
