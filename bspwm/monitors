@@ -26,9 +26,9 @@ else
 fi
 
 if [[ -f "$HOME/.config/eww/eww.yuck" ]]
-    hostnamectl | grep Virtualization > /dev/null 
-        && eww daemon --config "$HOME/.config/eww/bar.yuck" &
-        || eww daemon --config "$HOME/.config/eww/eww.yuck" &
+then
+    eww daemon
+    hostnamectl | grep Virtualization > /dev/null && eww open bar
 fi
 
 killall -q wall_theme 
