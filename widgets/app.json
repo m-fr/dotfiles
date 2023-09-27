@@ -2,27 +2,22 @@
     [
         {
             "name":"Files",
-            "short":"",
+            "short":"󰉋",
             "action":"nemo"
         },
         {
             "name":"Browser",
-            "short":"",
+            "short":"󰈹",
             "action":"firefox"
         },
         {
-            "name":"Virtual",
-            "short":"",
-            "action":"vmware"
-        },
-        {
             "name":"Notes",
-            "short":"",
+            "short":"󰎚",
             "action":"obsidian"
         },
         {
             "name":"IDE",
-            "short":"",
+            "short":"󰨞",
             "action":"codium"
         }
     ],
@@ -34,22 +29,22 @@
         },
         {
             "name":"Network",
-            "short":"",
+            "short":"󰢩",
             "action":"urxvt -name nm -e nmtui"
         },
         {
             "name":"Chat",
-            "short":"",
+            "short":"󰭹",
             "action":"signal-desktop"
         },
         {
             "name":"Secrets",
-            "short":"",
+            "short":"󰦝",
             "action":"keepass2"
         },
         {
             "name":"Mixer",
-            "short":"",
+            "short":"󱄠",
             "action":"pavucontrol"
         }
     ]

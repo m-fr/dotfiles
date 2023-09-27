@@ -5,22 +5,18 @@
 ;;;;;;; WIDGETS   ;;;;;;;
 
 (defwidget app[label action ?tooltip ?class]
-    (box
-        :class "box"
-        (button
-            :class {class ?: "icon"}
-            :tooltip {tooltip ?: ""}
-            :onclick action
-            label
-        )
+    (button
+        :class "box large"
+        :tooltip {tooltip ?: ""}
+        :onclick action
+        label
     )
 )
 
-(defwidget apps[]
+(defwidget apps[?orientation]
     (box
-        :orientation "v"
+        :orientation {orientation ?: "v"}
         :space-evenly false
-        :class "apps"
         (for row in apps
             (box
                 :orientation "h"

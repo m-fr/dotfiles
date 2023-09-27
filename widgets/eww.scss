@@ -10,34 +10,87 @@ $pink: #ff79c6;
 $purple: #bd93f9;
 $red: #ff5555;
 $yellow: #f1fa8c;
+$gray: #44475a;
 
 $font: 'FiraCode Nerd Font';
 
 /** Global *******************************************/
-*{
+* {
 	all: unset;
 	font-family: $font;
-	color: $foreground;
+	color: $comment;
+}
+.cyan, .cyan * {
+    color: $cyan;
+}
+.green, .green * {
+    color: $green;
+}
+.orange, .orange * {
+    color: $orange;
+}
+.pink, .pink * {
+    color: $pink;
+}
+.purple, .purple * {
+    color: $purple;
+}
+.red, .red * {
+    color: $red;
+}
+.yellow, .yellow * {
+    color: $yellow;
+}
+.gray, .gray * {
+    color: $gray;
 }
 
-/** Background ***************************************/
-.bg {
+/** Dashboard ***************************************/
+.dashboard {
 	opacity: 1;
 }
-
-/** Box ***********************************************/
-.box {
-	background-color: $background;
-	border-radius: 16px;
-	margin: 5px;
-	padding: 5px;
+.dashboard * {
+	font-size: 16px;
 }
-
-/** System ********************************************/
-.icon, .icon * {
+.dashboard .big, .dashboard .big * {
+	font-size: 1.2em;
+}
+.dashboard .large, .dashboard .large * {
+	font-size: 1.5em;
+}
+.dashboard .huge, .dashboard .huge * {
+	font-size: 1.8em;
+}
+.dashboard .icon, .dashboard .icon * {
 	font-size: 24px;
 	font-weight: normal;
 }
+
+/** Bar ***********************************************/
+.bar {
+	background-color: $background;
+}
+.bar .icon, .bar .icon * {
+	font-size: 18px;
+	font-weight: normal;
+}
+.bar .btn {
+    margin: 2px;
+}
+.bar .box {
+    margin: 2px;
+}
+
+/** Box ***********************************************/
+.dashboard .box {
+	background-color: $background;
+	border-radius: 16px;
+	margin: 5px;
+	min-width: 2em;
+	min-height: 2em;
+}
+
+/** System ********************************************/
 .cpu_bar .icon, .mem_bar .icon, .disk_bar .icon, .bat_bar .icon, .bright_bar .icon, .vol_bar .icon {
 	min-width: 45px;
     padding: .5em;
@@ -67,7 +120,6 @@ $font: 'FiraCode Nerd Font';
 /** Keyboard ********************************************/
 .keyboard .icon * {
     color: $cyan;
-    font-size: 24;
 }
 .keyboard .icon {
     min-width: 40px;
@@ -88,7 +140,6 @@ $font: 'FiraCode Nerd Font';
 
 /** Clock ********************************************/
 .clock {
-	font-size : 64px;
 	font-weight : bold;
 }
 .time {
@@ -98,41 +149,13 @@ $font: 'FiraCode Nerd Font';
 
 /** Date ********************************************/
 .calendar {
-	font-size: 18px;
 }
 .date * {
-	font-size: 32px;
 	color: $cyan;
-}
-
-/** Power buttons ***************************************/
-.btn {
-	font-weight : bold;
-	margin: 3px 6px;
-	padding: 3px 6px;
-}
-.btn.icon.stop * {
-	color: $red;
-}
-.btn.icon.reset * {
-	color: $orange;
-}
-.btn.icon.suspend * {
-	color: $purple;
-}
-.btn.icon.pause * {
-	color: $cyan;
-}
-.btn.icon.run * {
-	color: $green;
-}
-.btn.icon.close * {
-	color: $currentLine;
 }
 
 /** network ***************************************/
 .if .status * {
-    font-size: 16px;
     color: $currentLine;
     margin: 0px 5px;
 }
@@ -157,11 +180,9 @@ $font: 'FiraCode Nerd Font';
 
 /** apt ***************************************/
 .packages * {
-    font-size: 16px;
     color: $comment;
 }
 .apt * {
-    font-size: 24px;
     margin: 0px 10px;
     color: $cyan;
 }
@@ -171,7 +192,6 @@ $font: 'FiraCode Nerd Font';
 
 /** cve ***************************************/
 .cve * {
-    font-size: 24px;
     margin: 0px 10px;
     color: $cyan;
 }
@@ -185,45 +205,12 @@ $font: 'FiraCode Nerd Font';
 	color: $red;
 }
 
-/** apps ***************************************/
-.apps .icon {
-	min-width: 40px;
-	min-height: 40px;
-}
-.apps .icon * {
-	font-size: 24px;
-	color: $comment;
-}
-
-/** bspwm ***************************************/
-.bspwm .icon {
-	min-width: 40px;
-	min-height: 40px;
-}
-.bspwm .icon * {
-	font-size: 24px;
-	color: $comment;
-}
-.bspwm .icon.empty * {
-	font-size: 24px;
-	color: $currentLine;
-}
-.bspwm .icon.shown * {
-	font-size: 24px;
-	color: $cyan;
-}
-.bspwm .icon.urgent * {
-	font-size: 24px;
-	color: $red;
-}
-
 /** vmware ***************************************/
 .vm.icon {
 	min-width: 40px;
 	min-height: 40px;
 }
 .vm.icon * {
-	font-size: 16px;
     color: $currentLine;
 }
 .vm.icon.stop.true * {
@@ -245,10 +232,8 @@ $font: 'FiraCode Nerd Font';
     color: $comment;
 }
 .vmName {
-	font-size: 16px;
     color: $cyan;
 }
 .vmName.true {
-	font-size: 16px;
     color: $green;
 }

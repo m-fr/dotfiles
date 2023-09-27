@@ -1,26 +1,41 @@
 ;;;;;;; VARIABLES ;;;;;;;
 
 (defpoll bspwm
-    :interval '500ms'
+    :interval '1s'
     :initial ""
     `python3 bspwm.py`
 )
 
 ;;;;;;; WIDGETS   ;;;;;;;
 
-(defwidget desktop[name label ?class]
-    (box
-        :class "box"
-        (button
-            :tooltip name
-            :class "icon ${class ?: ''}"
-            :onclick "bspc desktop -f ${name}"
-            label
-        )
+(defwidget desktop[name label empty visible urgent]
+    (button
+        :tooltip name
+        :class "box large ${urgent ? 'red' : visible ? 'cyan' : empty ? 'gray' : ''}"
+        :onclick "bspc desktop -f ${name}"
+        label
     )
 )
 
-(defwidget bspwm[]
-    (literal :content bspwm)
+(defwidget bspwm[?orientation]
+    (box
+        :orientation {orientation ?: "v"}
+        :space-evenly false
+        (for row in bspwm
+            (box
+                :orientation "h"
+                :space-evenly false
+                (for desktop in row
+                    (desktop
+                        :name {desktop.name}
+                        :label {desktop.short}
+                        :empty {desktop.empty}
+                        :visible {desktop.visible}
+                        :urgent {desktop.urgent}
+                    )
+                )
+            )
+        )
+    )
 )
 

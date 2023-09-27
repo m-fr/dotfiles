@@ -1,62 +1,18 @@
 ;;;;;;; VARIABLES ;;;;;;;
 
+(defpoll power :interval "1h" :initial '[]' `cat $HOME/.config/eww/power.json`)
+
 ;;;;;;; WIDGETS   ;;;;;;;
 
-(defwidget powermenu[]
+(defwidget powermenu[?orientation]
     (box
-        :orientation "v"
+        :orientation "h"
         :space-evenly false
-        :class "menu"
-        (box
-            :orientation "h"
-            :space-evenly false
-            (box
-                :class "box"
-                (button
-                    :onclick "power poweroff"
-                    :class "icon btn stop"
-                    ""
-                )
-            )
-            (box
-                :class "box"
-                (button
-                    :onclick "power reboot"
-                    :class "icon btn reset"
-                    ""
-                )
-            )
-            (box
-                :class "box"
-                (button
-                    :onclick "power suspend"
-                    :class "icon btn suspend"
-                    ""
-                )
-            )
-            (box
-                :class "box"
-                (button
-                    :onclick "power lock"
-                    :class "icon btn run"
-                    ""
-                )
-            )
-            (box
-                :class "box"
-                (button
-                    :onclick "power logout"
-                    :class "icon btn pause"
-                    ""
-                )
-            )
-            (box
-                :class "box"
-                (button
-                    :onclick "eww close-all"
-                    :class "icon btn close"
-                    ""
-                )
+        (for item in power
+            (button
+                :onclick "power ${item.action}"
+                :class "box large ${item.class}"
+                {item.short}
             )
         )
     )

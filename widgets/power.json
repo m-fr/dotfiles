@@ -1,0 +1,38 @@
+[
+    {
+        "name":"Power Off",
+        "short":"󰐥",
+        "action":"poweroff",
+        "class":"red"
+    },
+    {
+        "name":"Reboot",
+        "short":"󰜉",
+        "action":"Reboot",
+        "class":"orange"
+    },
+    {
+        "name":"Suspend",
+        "short":"󰤄",
+        "action":"suspend",
+        "class":"purple"
+    },
+    {
+        "name":"Lock",
+        "short":"󰌾",
+        "action":"lock",
+        "class":"green"
+    },
+    {
+        "name":"Log Off",
+        "short":"󰩈",
+        "action":"logout",
+        "class":"cyan"
+    },
+    {
+        "name":"Close",
+        "short":"󰅖",
+        "action":"close",
+        "class":"gray"
+    }
+]
