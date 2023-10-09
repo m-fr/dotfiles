@@ -23,28 +23,20 @@
 ;;;;;;; WIDGETS   ;;;;;;;
 
 (defwidget apt[]
-    (box
-        :class "info box"
-        :orientation "v"
-        :space-evenly false
-        (button
-            :onclick "eww update showApt=${ showApt ? false : true }"
-            (box
-                :class "apt"
-                :space-evenly false
-                (label :text "")
-                (label :text aptNum)
-                (label :class "dim" :text "of")
-                (label :class "dim" :text aptTotal)
+    (button
+        :onclick "eww update showApt=${ showApt ? false : true }"
+        (box
+            :class "box big"
+            :space-evenly true
+            (label :text "")
+            (label :text aptNum)
+            (label
+                :class "gray"
+                :text "of"
             )
-        )
-        (revealer
-            :transition "slidedown"
-            :reveal showApt
-            (box
-                :class "packages"
-                :orientation "v"
-                apt
+            (label
+                :class "gray"
+                :text aptTotal
             )
         )
     )

@@ -23,28 +23,23 @@
 ;;;;;;; WIDGETS   ;;;;;;;
 
 (defwidget cve[]
-    (box
-        :class "info box"
-        :orientation "v"
-        :space-evenly false
-        (button
-            :onclick "eww update showCVE=${ showCVE ? false : true }"
-            (box
-                :class "cve"
-                :space-evenly false
-                (label :text "")
-                (label
-                    :class "low"
-                    :text CVElow
+    (button
+        :onclick "eww update showCVE=${ showCVE ? false : true }"
+        (box
+            :class "box big"
+            :space-evenly true
+            (label :text "")
+            (label
+                :class "green"
+                :text CVElow
+            )
+            (label
+                :class "orange"
+                :text CVEmedium
                 )
-                (label
-                    :class "medium"
-                    :text CVEmedium
-                )
-                (label
-                    :class "high"
-                    :text CVEhigh
-                )
+            (label
+                :class "red"
+                :text CVEhigh
             )
         )
     )

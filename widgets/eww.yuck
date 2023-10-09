@@ -65,12 +65,14 @@
           (bspwm
                :orientation "h"
           )
-          ;(date)
-          ;(clock)
+          (date
+               :orientation "h"
+          )
+          (clock)
           ;(sys)
           ;(network)
-          ;(apt)
-          ;(cve)
-          ;(keyboard)
+          (apt)
+          (cve)
+          (keyboard)
      )
 )

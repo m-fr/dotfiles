@@ -117,43 +117,6 @@ $font: 'FiraCode Nerd Font';
 	color: $cyan;
 }
 
-/** Keyboard ********************************************/
-.keyboard .icon * {
-    color: $cyan;
-}
-.keyboard .icon {
-    min-width: 40px;
-    min-height: 40px;
-}
-.keyboard .icon.off * {
-    color: $currentLine;
-}
-.keyboard .icon.on * {
-    color: $cyan;
-}
-.keyboard .icon.max * {
-    color: $green;
-}
-.kb {
-    margin-left: 8px;
-}
-
-/** Clock ********************************************/
-.clock {
-	font-weight : bold;
-}
-.time {
-	color: $cyan;
-	margin: 5px;
-}
-
-/** Date ********************************************/
-.calendar {
-}
-.date * {
-	color: $cyan;
-}
-
 /** network ***************************************/
 .if .status * {
     color: $currentLine;
@@ -176,33 +139,6 @@ $font: 'FiraCode Nerd Font';
 }
 .net * {
     color: $cyan;
-}
-
-/** apt ***************************************/
-.packages * {
-    color: $comment;
-}
-.apt * {
-    margin: 0px 10px;
-    color: $cyan;
-}
-.dim {
-    color: $currentLine;
-}
-
-/** cve ***************************************/
-.cve * {
-    margin: 0px 10px;
-    color: $cyan;
-}
-.cve .low {
-	color: $green;
-}
-.cve .medium {
-	color: $orange;
-}
-.cve .high {
-	color: $red;
 }
 
 /** vmware ***************************************/

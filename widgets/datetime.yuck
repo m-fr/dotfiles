@@ -7,7 +7,12 @@
 
 (defpoll date
     :interval "1m"
-    `date +'%A%n%e. %B %Y'`
+    `date +'%e. %B %Y'`
+)
+
+(defpoll dow
+    :interval "1h"
+    `date +%A`
 )
 
 (defpoll day
@@ -31,29 +36,20 @@
 
 (defwidget clock[]
     (box
-        :class "clock box"
-        (label :class "time" :text time)
+        :class "box huge cyan"
+        time
     )
 )
 
-(defwidget date[]
-    (box
-        :class "box"
-        :orientation "v"
-        :space-evenly false
-        (button
-            :class "date"
-            :onclick "eww update showCal=${ showCal ? false : true }"
-            date)
-        (revealer
-            :reveal showCal
-            :transition "slidedown"
-            (calendar
-                :class "calendar"
-                :day day
-                :month {month - 1}
-                :year year
-            )
+(defwidget date[?orientation]
+    (button
+        :onclick "eww update showCal=${ showCal ? false : true }"
+        (box
+            :class "box big cyan"
+            :orientation {orientation ?: "v"}
+            :space-evenly true
+            (label :text dow)
+            (label :text date)
         )
     )
 )

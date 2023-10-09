@@ -25,19 +25,18 @@
         :orientation "h"
         :class "keyboard"
         :space-evenly false
-        (box
+        (button
             :space-evenly false
-            :class "box"
-            (box :class "icon" "")
-            (box :class "kb icon" kbd)
+            :class "box large"
+            " ${kbd}"
         )
-        (box
-            :class "box icon ${caps == 'on' ? 'on' : 'off'}"
-            ""
+        (button
+            :class "box large ${caps == 'on' ? 'cyan' : 'gray'}"
+            "󰪛"
         )
-        (box
-            :class "box icon ${kbdlight == 2 ? 'max' : kbdlight == 1 ? 'on' : 'off'}"
-            ""
+        (button
+            :class "box large ${kbdlight == 2 ? 'cyan' : kbdlight == 1 ? '' : 'gray'}"
+            "󰌌"
         )
     )
 )
