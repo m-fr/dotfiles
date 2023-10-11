@@ -8,7 +8,9 @@ $directory\
 [](fg:#6272a4 bg:#44475a)\
 $git_branch\
 $git_status\
-[](fg:#44475a bg:#f1fa8c)\
+[](fg:#44475a bg:#ffb86c)\
+$python\
+[](fg:#ffb86c bg:#f1fa8c)\
 $cmd_duration\
 $status\
 $character\
@@ -49,6 +51,11 @@ format = '[ $symbol $branch ]($style)'
 [git_status]
 style = "bold bg:#44475a"
 format = '[$all_status$ahead_behind ]($style)'
+
+[python]
+style = "bold bg:#ffb86c"
+symbol= '󰌠 '
+format = '[$symbol$virtalenv]($style)'
 
 [cmd_duration]
 style = "bold fg:#44475a bg:#f1fa8c"
