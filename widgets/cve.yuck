@@ -1,7 +1,5 @@
 ;;;;;;; VARIABLES ;;;;;;;
 
-(defvar showCVE false)
-
 (defpoll CVElow
     :interval "300s"
     :initial 0
@@ -24,7 +22,7 @@
 
 (defwidget cve[]
     (button
-        :onclick "eww update showCVE=${ showCVE ? false : true }"
+        :onclick "debsecan | awk '{ vuln[$2]++ } END { for (package in vuln) print vuln[package], package }' | sort -nr | rofi -dmenu -i -no-show-icons -width 1000"
         (box
             :class "box big"
             :space-evenly true

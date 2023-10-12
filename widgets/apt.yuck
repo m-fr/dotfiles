@@ -1,7 +1,5 @@
 ;;;;;;; VARIABLES ;;;;;;;
 
-(defvar showApt false)
-
 (defpoll aptNum
     :interval "300s"
     :initial 0
@@ -14,17 +12,11 @@
     `apt list --installed | grep -c installed`
 )
 
-(defpoll apt
-    :interval "300s"
-    :initial ""
-    `apt list --upgradable | tail -n +2 | cut -d"/" -f1`
-)
-
 ;;;;;;; WIDGETS   ;;;;;;;
 
 (defwidget apt[]
     (button
-        :onclick "eww update showApt=${ showApt ? false : true }"
+        :onclick "apt list --upgradable | tail -n +2 | cut -d'/' -f1 | rofi -dmenu -i -no-show-icons -width 1000"
         (box
             :class "box big"
             :space-evenly true

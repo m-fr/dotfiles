@@ -54,7 +54,7 @@ format = '[$all_status$ahead_behind ]($style)'
 
 [python]
 style = "bold fg:#44475a bg:#ffb86c"
-symbol= '󰌠 '
+symbol= '󰌠'
 format = '[ $symbol $virtualenv ]($style)'
 
 [cmd_duration]

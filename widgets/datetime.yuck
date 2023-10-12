@@ -30,8 +30,6 @@
     `date +%Y`
 )
 
-(defvar showCal false)
-
 ;;;;;;; WIDGETS   ;;;;;;;
 
 (defwidget clock[]
@@ -43,7 +41,7 @@
 
 (defwidget date[?orientation]
     (button
-        :onclick "eww update showCal=${ showCal ? false : true }"
+        :onclick "urxvt -name calendar -e khal interactive"
         (box
             :class "box big cyan"
             :orientation {orientation ?: "v"}
