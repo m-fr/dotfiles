@@ -28,11 +28,5 @@
         "short":"󰩈",
         "action":"logout",
         "class":"cyan"
-    },
-    {
-        "name":"Close",
-        "short":"󰅖",
-        "action":"close",
-        "class":"gray"
     }
 ]

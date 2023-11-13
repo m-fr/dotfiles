@@ -28,7 +28,7 @@
         :orientation "h"
         :space-evenly true
         (circular-progress
-            :class class
+            :class "metric ${class}"
             :start-at 25
             :clockwise false
             :thickness 5
@@ -42,41 +42,118 @@
     )
 )
 
+(defwidget cmetric [class label value ?onchange ?maxValue]
+    (box
+        :orientation "h"
+        :space-evenly false
+        (label
+            :class "icon ${class}"
+            :text label
+        )
+        (progress
+            :class class
+            :flipped true
+            :orientation "h"
+            :tooltip {value == 'x' ? 0 : value}
+            :value {value == 'x' ? 0 : value}
+        )
+    )
+)
+
 (defwidget sys[]
     (box
         :orientation "v"
         :space-evenly true
-        :class "sys"
         (box
             :orientation "h"
             :space-evenly true
-            (metric :class "cpu_bar" :label "" :value {EWW_CPU.avg})
-            (metric :class "mem_bar" :label "" :value {EWW_RAM.used_mem_perc})
-            (metric :class "disk_bar" :label "" :value {EWW_DISK["/"].used_perc})
+            (metric :class "red" :label "󰝨" :value {EWW_CPU.avg})
+            (metric :class "green" :label "󰘚" :value {EWW_RAM.used_mem_perc})
+            (metric :class "orange" :label "󰋊" :value {EWW_DISK["/"].used_perc})
         )
         (box
             :orientation "h"
             :space-evenly true
-            (metric :class "bright_bar" :label "" :value brightness)
             (metric
-                :class "vol_bar ${unmute == 'off' ? 'mute' : ''}"
-                :label {unmute == "off" ? "" :
-                    volume > 50 ? "" :
-                    volume > 0 ? "" : ""
+                :class "yellow"
+                :label {brightness > 90 ? "󰃠" :
+                    brightness > 75 ? "󰃟" :
+                    brightness > 60 ? "󰃞" :
+                    brightness > 40 ? "󰃝" :
+                    brightness > 25 ? "󰃜" :
+                    brightness > 10 ? "󰃛" : "󰃚"
+                }
+                :value brightness
+            )
+            (metric
+                :class {unmute == "off" ? "" : "cyan" }
+                :label {unmute == "off" ? "󰝟" :
+                    volume > 50 ? "󰕾" :
+                    volume > 0 ? "󰖀" : "󰕿"
                 }
                 :value volume
             )
             (metric
-                :class "bat_bar"
+                :class "purple"
                 :label {EWW_BATTERY["BAT0"].status == "Discharging" ?
-                    EWW_BATTERY["BAT0"].capacity > 90 ? "" :
-                    EWW_BATTERY["BAT0"].capacity > 60 ? "" :
-                    EWW_BATTERY["BAT0"].capacity > 30 ? "" :
-                    EWW_BATTERY["BAT0"].capacity > 10 ? "" : "" :
-                    EWW_BATTERY["BAT0"].status == "Charging" ? "" : ""
+                    EWW_BATTERY["BAT0"].capacity > 90 ? "󰁹" :
+                    EWW_BATTERY["BAT0"].capacity > 80 ? "󰂂" :
+                    EWW_BATTERY["BAT0"].capacity > 70 ? "󰂁" :
+                    EWW_BATTERY["BAT0"].capacity > 60 ? "󰂀" :
+                    EWW_BATTERY["BAT0"].capacity > 50 ? "󰁿" :
+                    EWW_BATTERY["BAT0"].capacity > 40 ? "󰁾" :
+                    EWW_BATTERY["BAT0"].capacity > 30 ? "󰁽" :
+                    EWW_BATTERY["BAT0"].capacity > 20 ? "󰁼" :
+                    EWW_BATTERY["BAT0"].capacity > 10 ? "󰁻" : "󰁺" :
+                    EWW_BATTERY["BAT0"].status == "Charging" ? "󰂄" : "󰂃"
                 }
                 :value {EWW_BATTERY["BAT0"].capacity}
             )
+        )
+    )
+)
+
+(defwidget csys[]
+    (box
+        :orientation "h"
+        :space-evenly false
+        (cmetric :class "red" :label "󰝨" :value {EWW_CPU.avg})
+        (cmetric :class "green" :label "󰘚" :value {EWW_RAM.used_mem_perc})
+        (cmetric :class "orange" :label "󰋊" :value {EWW_DISK["/"].used_perc})
+        (label
+            :class "box icon yellow"
+            :tooltip {brightness == 'x' ? 0 : brightness}
+            :text {brightness > 90 ? "󰃠" :
+                brightness > 75 ? "󰃟" :
+                brightness > 60 ? "󰃞" :
+                brightness > 40 ? "󰃝" :
+                brightness > 25 ? "󰃜" :
+                brightness > 10 ? "󰃛" : "󰃚"
+            }
+        )
+        (label
+            :class "box icon ${unmute == 'off' ? '' : 'cyan'}"
+            :tooltip {volume == 'x' ? 0 : volume}
+            :text {unmute == "off" ? "󰝟" :
+                volume > 50 ? "󰕾" :
+                volume > 0 ? "󰖀" : "󰕿"
+            }
+        )
+        (label
+            :class "box icon purple"
+            :tooltip {EWW_BATTERY["BAT0"].capacity}
+            :text {EWW_BATTERY["BAT0"].status == "Discharging" ?
+                EWW_BATTERY["BAT0"].capacity > 90 ? "󰁹" :
+                EWW_BATTERY["BAT0"].capacity > 80 ? "󰂂" :
+                EWW_BATTERY["BAT0"].capacity > 70 ? "󰂁" :
+                EWW_BATTERY["BAT0"].capacity > 60 ? "󰂀" :
+                EWW_BATTERY["BAT0"].capacity > 50 ? "󰁿" :
+                EWW_BATTERY["BAT0"].capacity > 40 ? "󰁾" :
+                EWW_BATTERY["BAT0"].capacity > 30 ? "󰁽" :
+                EWW_BATTERY["BAT0"].capacity > 20 ? "󰁼" :
+                EWW_BATTERY["BAT0"].capacity > 10 ? "󰁻" : "󰁺" :
+                EWW_BATTERY["BAT0"].status == "Charging" ? "󰂄" : "󰂃"
+            }
         )
     )
 )

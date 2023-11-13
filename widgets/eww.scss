@@ -91,30 +91,34 @@ $font: 'FiraCode Nerd Font';
 }
 
 /** System ********************************************/
-.cpu_bar .icon, .mem_bar .icon, .disk_bar .icon, .bat_bar .icon, .bright_bar .icon, .vol_bar .icon {
-	min-width: 45px;
+.metric .icon {
+    padding: 1em ;
+}
+.metric {
+    background-color: $currentLine;
+}
+
+.red > trough > progress {
+    background-color: $red;
+}
+.green > trough > progress {
+    background-color: $green;
+}
+.orange > trough > progress {
+    background-color: $orange;
+}
+progressbar > trough > progress {
+    min-height: 1.5em;
+    border-radius: 3px;
+}
+progressbar > trough {
+    min-width: 50px;
+    min-height: 1.5em;
+    background-color: $currentLine;
+    border-radius: 3px;
+}
+progressbar {
     padding: .5em;
-}
-.cpu_bar, .mem_bar, .disk_bar, .bat_bar, .bright_bar, .vol_bar {
-	background-color: $currentLine;
-}
-.cpu_bar, .cpu_bar .icon {
-	color: $red;
-}
-.mem_bar, .mem_bar .icon {
-	color: $green;
-}
-.disk_bar, .disk_bar .icon {
-	color: $orange;
-}
-.bat_bar, .bat_bar .icon {
-	color: $purple;
-}
-.bright_bar, .bright_bar .icon {
-	color: $yellow;
-}
-.vol_bar, .vol_bar .icon {
-	color: $cyan;
 }
 
 /** network ***************************************/

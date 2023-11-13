@@ -1,5 +1,6 @@
 ;;;;;;; VARIABLES ;;;;;;;
 
+(defvar appsShow false)
 (defpoll apps :interval "1h" :initial '[[]]' `cat $HOME/.config/eww/app.json`)
 
 ;;;;;;; WIDGETS   ;;;;;;;
@@ -13,9 +14,9 @@
     )
 )
 
-(defwidget apps[?orientation]
+(defwidget apps[]
     (box
-        :orientation {orientation ?: "v"}
+        :orientation "v"
         :space-evenly false
         (for row in apps
             (box
@@ -28,3 +29,33 @@
         )
     )
 )
+
+(defwidget capps[]
+    (box
+        :orientation "h"
+        :space-evenly false
+        (revealer
+            :transition "slideleft"
+            :reveal appsShow
+            (box
+                :orientation "h"
+                :space-evenly false
+                (for row in apps
+                    (box
+                        :orientation "h"
+                        :space-evenly false
+                        (for app in row
+                            (app :tooltip {app.name} :label {app.short} :action {app.action})
+                        )
+                    )
+                )
+            )
+        )
+        (button
+            :onclick "eww update appsShow=${ !appsShow }"
+            :class "box large ${ appsShow ? 'gray' : '' }"
+            { appsShow ? "󰅖" : "󰍜" }
+        )
+    )
+)
+

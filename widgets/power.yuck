@@ -1,10 +1,11 @@
 ;;;;;;; VARIABLES ;;;;;;;
 
+(defvar powerShow false)
 (defpoll power :interval "1h" :initial '[]' `cat $HOME/.config/eww/power.json`)
 
 ;;;;;;; WIDGETS   ;;;;;;;
 
-(defwidget powermenu[?orientation]
+(defwidget powermenu[]
     (box
         :orientation "h"
         :space-evenly false
@@ -14,6 +15,33 @@
                 :class "box large ${item.class}"
                 {item.short}
             )
+        )
+    )
+)
+
+(defwidget cpowermenu[]
+    (box
+        :orientation "h"
+        :space-evenly false
+        (revealer
+            :transition "slideleft"
+            :reveal powerShow
+            (box
+                :orientation "h"
+                :space-evenly false
+                (for item in power
+                    (button
+                        :onclick "power ${item.action}"
+                        :class "box large ${item.class}"
+                        {item.short}
+                    )
+                )
+            )
+        )
+        (button
+            :onclick "eww update powerShow=${ !powerShow }"
+            :class "box large ${ powerShow ? 'gray' : '' }"
+            { powerShow ? "󰅖" : "󰐥" }
         )
     )
 )

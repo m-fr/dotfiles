@@ -56,12 +56,8 @@
           :orientation "h"
           :space-evenly false
           :class "bar"
-          (powermenu
-               :orientation "h"
-          )
-          (apps
-               :orientation "h"
-          )
+          (cpowermenu)
+          (capps)
           (bspwm
                :orientation "h"
           )
@@ -69,7 +65,7 @@
                :orientation "h"
           )
           (clock)
-          ;(sys)
+          (csys)
           ;(network)
           (apt)
           (cve)
