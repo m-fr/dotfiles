@@ -86,9 +86,13 @@ super + d
 super + shift + Escape
 	pkill -USR1 -x sxhkd
 
-# take screenshot (full, active window, select window)
-Print + {_,ctrl,alt}
-    scrot -d 3 {-m,-u,-s} /tmp/'scr_%Y%m%d_%H%M%S_$wx$h.png' -e 'feh -F $f'
+# take screenshot (window, selection)
+Print + {ctrl,alt}
+    maim -u -d 3 {-st 9999999,-s} | tee /tmp/scr_$(date +%s).png | feh -F -
+
+# take screenshot (full, window, select window)
+Print
+    maim -u -d 3 | tee /tmp/scr_$(date +%s).png | feh -F -
 
 #
 # launcher

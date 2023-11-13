@@ -1,0 +1,30 @@
+#!/bin/bash
+
+usage () {
+    echo "Usage:"
+    echo "  $0 <file>"
+    exit 1
+}
+
+[[ -z "$1" ]] && usage
+
+if [[ ! -f "$1" ]]
+then
+    echo "File \"$1\" not found"
+    exit 1
+else
+    feh \
+        --quiet \
+        --fullscreen \
+        --offset +0+0 \
+        --zoom 100 \
+        "$1" \
+    & convert \
+        "$1" \
+        -region $(slop) \
+        -filter Gaussian \
+        -blur 0x8 \
+        "$1" \
+    && kill $!
+fi
+
