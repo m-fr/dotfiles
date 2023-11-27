@@ -34,7 +34,7 @@
                 (button
                     :class "big ${a.class}"
                     :tooltip {a.name}
-                    :onclick "virsh ${a.action} ${id}"
+                    :onclick "virsh ${a.action} ${name}"
                     {a.short}
                 )
             )
