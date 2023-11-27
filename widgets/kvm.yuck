@@ -1,0 +1,64 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll kvm
+    :interval '2s'
+    :initial "[[]]"
+    `python3 kvm.py`
+)
+
+(defpoll actions
+    :interval "1h"
+    :initial '[]'
+    `cat $HOME/.config/eww/kvm.json`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget vm[id name state]
+    (box
+        :class "box"
+        :orientation "v"
+        :space-evenly false
+        (label
+            :class "cyan"
+            :text name
+        )
+        (label
+            :class "small grey"
+            :text state
+        )
+        (box
+            :orientation "h"
+            :space-evenly true
+            (for a in actions
+                (button
+                    :class "big ${a.class}"
+                    :tooltip {a.name}
+                    :onclick "virsh ${a.action} ${id}"
+                    {a.short}
+                )
+            )
+        )
+    )
+)
+
+(defwidget kvm []
+    (box
+        :orientation "h"
+        :space-evenly true
+        (for row in kvm
+            (box
+                :orientation "v"
+                :space-evenly true
+                (for vm in row
+                    (vm
+                        :id {vm.id}
+                        :name {vm.name}
+                        :state {vm.state}
+                    )
+                )
+            )
+        )
+    )
+)
+

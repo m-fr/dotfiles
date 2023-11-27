@@ -1,0 +1,26 @@
+[
+    {
+        "name":"Power Off",
+        "short":"󰐥",
+        "action":"shutdown",
+        "class":"red"
+    },
+    {
+        "name":"Reboot",
+        "short":"󰜉",
+        "action":"reboot",
+        "class":"orange"
+    },
+    {
+        "name":"Suspend",
+        "short":"󰤄",
+        "action":"suspend",
+        "class":"purple"
+    },
+    {
+        "name":"Run",
+        "short":"󰐊",
+        "action":"start",
+        "class":"green"
+    }
+]

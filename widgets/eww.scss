@@ -52,6 +52,9 @@ $font: 'FiraCode Nerd Font';
 .dashboard * {
 	font-size: 16px;
 }
+.dashboard .small, .dashboard .small * {
+	font-size: 0.8em;
+}
 .dashboard .big, .dashboard .big * {
 	font-size: 1.2em;
 }

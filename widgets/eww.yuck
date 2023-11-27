@@ -32,7 +32,7 @@
                :orientation "v"
                :space-evenly false
                (powermenu)
-               (vmware)
+               (kvm)
                (network)
           )
      )
