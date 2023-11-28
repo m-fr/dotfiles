@@ -86,11 +86,15 @@ super + d
 super + shift + Escape
 	pkill -USR1 -x sxhkd
 
-# take screenshot (window, selection)
-Print + {ctrl,alt}
-    maim -u -d 3 {-st 9999999,-s} | tee /tmp/scr_$(date +%s).png | feh -F -
+# take screenshot (window)
+Print + ctrl
+    maim -u -d 3 -st 9999999 | tee /tmp/scr_$(date +%s).png | feh -F -
 
-# take screenshot (full, window, select window)
+# take screenshot (selection)
+Print + alt
+    maim -u -d 3 -s | tee /tmp/scr_$(date +%s).png | feh -F -
+
+# take screenshot (full screen)
 Print
     maim -u -d 3 | tee /tmp/scr_$(date +%s).png | feh -F -
 
@@ -103,11 +107,11 @@ super + alt + {1,2,3,4,5}
 	{nemo,firefox,vmware,obsidian,codium}
 
 # quick launch (terminal, network)
-super + alt + {6,7,8,9,0}
+super + alt + {6,7}
 	urxvt {--chdir $HOME, -name nm -e nmtui}
 
 # quick launch (chat, secrets, mixer)
-super + alt + {6,7,8,9,0}
+super + alt + {8,9,0}
 	{signal-desktop,keepass2,pavucontrol}
 
 # program launcher
