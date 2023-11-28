@@ -21,9 +21,7 @@ else
         "$1" \
     & convert \
         "$1" \
-        -region $(slop) \
-        -filter Gaussian \
-        -blur 0x8 \
+        -crop $(slop) \
         "$1" \
     && sleep 3 && kill $!
 fi
