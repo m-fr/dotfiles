@@ -1,0 +1,61 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll bluetooth
+    :interval '5s'
+    :initial "[]"
+    `python3 bluetooth.py`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget bt[id name powered discoverable pairable]
+    (box
+        :class "box"
+        :orientation "v"
+        :space-evenly false
+        (label
+            :class "cyan"
+            :text "󰂯 ${name}"
+        )
+        (label
+            :class "small"
+            :text id
+        )
+        (box
+            :orientation "h"
+            :space-evenly true
+            (label
+                :class "large ${powered == 'yes'? 'green' : 'gray'}"
+                :tooltip "Powered"
+                :text {powered == "yes" ? "󰤃" : "󰤂"}
+            )
+            (label
+                :class "big ${discoverable == 'yes' ? 'orange' : 'gray'}"
+                :tooltip "Discoverable"
+                :text "󰈈"
+            )
+            (label
+                :class "big ${pairable == 'yes' ? 'red' : 'gray'}"
+                :tooltip "Pairable"
+                :text "󰹳"
+            )
+        )
+    )
+)
+
+(defwidget bluetooth []
+    (box
+        :orientation "h"
+        :space-evenly true
+        (for row in bluetooth
+            (bt
+                :id {row.Address}
+                :name {row.Name}
+                :powered {row.Powered}
+                :discoverable {row.Discoverable}
+                :pairable {row.Pairable}
+            )
+        )
+    )
+)
+
