@@ -24,20 +24,23 @@
         (box
             :orientation "h"
             :space-evenly true
-            (label
-                :class "large ${powered == 'yes'? 'green' : 'gray'}"
+            (button
+                :class "big ${powered == 'yes'? 'green' : 'gray'}"
                 :tooltip "Powered"
-                :text {powered == "yes" ? "󰤃" : "󰤂"}
+                :onclick {powered == 'yes'? 'bluetoothctl power off' : 'bluetoothctl power on'}
+                {powered == "yes" ? "󰤃" : "󰤂"}
             )
-            (label
+            (button
                 :class "big ${discoverable == 'yes' ? 'orange' : 'gray'}"
                 :tooltip "Discoverable"
-                :text "󰈈"
+                :onclick {discoverable == 'yes'? 'bluetoothctl discoverable off' : 'bluetoothctl discoverable on'}
+                "󰈈"
             )
-            (label
+            (button
                 :class "big ${pairable == 'yes' ? 'red' : 'gray'}"
                 :tooltip "Pairable"
-                :text "󰹳"
+                :onclick {pairable == 'yes'? 'bluetoothctl pairable off' : 'bluetoothctl pairable on'}
+                "󰹳"
             )
         )
     )
