@@ -4,6 +4,7 @@
 (include "bspwm.yuck")
 (include "cve.yuck")
 (include "datetime.yuck")
+(include "inet.yuck")
 (include "keyboard.yuck")
 (include "kvm.yuck")
 (include "network.yuck")

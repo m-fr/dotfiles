@@ -48,7 +48,7 @@
 
 (defwidget bluetooth []
     (box
-        :orientation "h"
+        :orientation "v"
         :space-evenly true
         (for row in bluetooth
             (bt

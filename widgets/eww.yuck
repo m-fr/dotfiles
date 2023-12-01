@@ -24,6 +24,7 @@
           (box
                :orientation "v"
                :space-evenly false
+               (powermenu)
                (bspwm)
                (sys)
                (apps)
@@ -31,9 +32,9 @@
           (box
                :orientation "v"
                :space-evenly false
-               (powermenu)
                (kvm)
                (bluetooth)
+               (inet)
                (network)
           )
      )

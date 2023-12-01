@@ -1,22 +1,33 @@
 import subprocess
+import json
+
+types = ["ethernet", "wifi"]
+
+labels = {"ethernet":"󰈀", "loopback":"󱞭", "wifi":"󰖩", "wifi-p2p":"󱚸"}
+defaultlabel = ""
 
 ifaces = subprocess.check_output("nmcli -t device status", shell=True).decode("utf-8").strip().split("\n")
 
-labels = {"ethernet":"", "loopback":"", "wifi":""}
-defaultlabel = ""
-
-print('(box :orientation "v" :space-evenly false :class "network box"')
+out = []
 for i in ifaces:
-    iface = i.split(":")
-    info = ""
-    if iface[2] == "connected":
-        ip = subprocess.check_output("nmcli -t connection show '"+iface[3]+"' | grep ADDRESS", shell=True).decode("utf-8").strip().split("\n")
+    info = i.split(":")
+    type = info[1].strip()
+    if type not in types:
+        continue
+    ips = []
+    iface = {
+        "id": info[0].strip(),
+        "type": info[1].strip(),
+        "name": info[3].strip(),
+        "status": info[2].split(" ")[0].strip(),
+        "label": labels[type] if type in labels else defaultlabel,
+    }
+    if iface["status"] == "connected":
+        ip = subprocess.check_output("nmcli -t device show " + iface["id"] + " | grep ADDRESS", shell=True).decode("utf-8").strip().split("\n")
         for j in ip:
-            info += j.split(":", 1)[1] + "\n"
-    print("(if :id '", iface[0],
-        "' :type '", labels[iface[1]] if iface[1] in labels else defaultlabel,
-        "' :status '", iface[2],
-        "' :name '" + iface[3] if iface[3] != "" else "",
-        "' :info '" + info.strip() if info != "" else "",
-        "' )", sep='')
-print(')')
+            ips.append(j.split(":", maxsplit=1)[1])
+    iface["ips"] = ips
+    out.append(iface)
+
+
+print(json.dumps(out))

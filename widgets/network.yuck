@@ -1,33 +1,27 @@
 ;;;;;;; VARIABLES ;;;;;;;
 
-(defvar showNetwork true)
-
 (defpoll network
     :interval '5s'
-    :initial ""
-    :run-while showNetwork
+    :initial "[]"
     `python3 network.py`
 )
 
 ;;;;;;; WIDGETS   ;;;;;;;
 
-(defwidget if[id type status ?name ?info]
+(defwidget if[id type status label name ips]
     (box
-        :class "if"
+        :class "box"
         :orientation "v"
         :space-evenly false
-        (box
-            :class "status ${status}"
-            :space-evenly false
-            (label :class "icon" :text type)
-            (label :text id)
-            (label :text "${name !='' ? '—': ''} ${name ?: ''}")
+        (label
+            :class {status == "connected" ? "green" : status == "disconnected" ? "red" : "gray"}
+            :text "${label} ${id}${name !='' ? ' — ': ''}${name ?: ''}"
         )
-        (revealer
-            :class "info"
-            :reveal {info != "" ? true : false}
-            :transition "slidedown"
-            (label :text info)
+        (for ip in ips
+            (label
+                :class "small"
+                :text ip
+            )
         )
     )
 )
@@ -36,24 +30,14 @@
     (box
         :orientation "v"
         :space-evenly false
-        (revealer
-            :reveal {!showNetwork}
-            :transition "slidedown"
-            (box
-                :space-evenly false
-                (button
-                    :class "box icon net"
-                    :onclick "eww update showNetwork=${ showNetwork ? false : true }"
-                    ""
-                )
-            )
-        )
-        (revealer
-            :reveal showNetwork
-            :transition "slidedown"
-            (button
-                :onclick "eww update showNetwork=${ showNetwork ? false : true }"
-                (literal :content network)
+        (for row in network
+            (if
+                :id {row.id}
+                :type {row.type}
+                :status {row.status}
+                :label {row.label}
+                :name {row.name}
+                :ips {row.ips}
             )
         )
     )

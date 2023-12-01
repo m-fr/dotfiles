@@ -1,0 +1,21 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll inet
+    :interval '5s'
+    :initial ""
+    `curl ipinfo.io/ip`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget inet[]
+    (box
+        :class "box"
+        :orientation "v"
+        :space-evenly true
+        (label
+            :text "󰍏 ${inet}"
+        )
+    )
+)
+
