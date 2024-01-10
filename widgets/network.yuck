@@ -8,7 +8,7 @@
 
 ;;;;;;; WIDGETS   ;;;;;;;
 
-(defwidget if[id type status label name ips]
+(defwidget if[id type status label name ips rx tx]
     (box
         :class "box"
         :orientation "v"
@@ -16,6 +16,21 @@
         (label
             :class {status == "connected" ? "green" : status == "disconnected" ? "red" : "gray"}
             :text "${label} ${id}${name !='' ? ' — ': ''}${name ?: ''}"
+        )
+        (revealer
+            :reveal {rx != 0 || tx != 0}
+            (box
+                :orientation "h"
+                :space-evenly true
+                (label
+                    :class "small cyan"
+                    :text "󰇚 ${rx}"
+                )
+                (label
+                    :class "small cyan"
+                    :text "󰕒 ${tx}"
+                )
+            )
         )
         (for ip in ips
             (label
@@ -38,6 +53,8 @@
                 :label {row.label}
                 :name {row.name}
                 :ips {row.ips}
+                :rx {row.rx}
+                :tx {row.tx}
             )
         )
     )

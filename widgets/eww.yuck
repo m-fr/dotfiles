@@ -68,6 +68,7 @@
           )
           (clock)
           (csys)
+          (inet)
           ;(network)
           (apt)
           (cve)

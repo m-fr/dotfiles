@@ -27,6 +27,9 @@ for i in ifaces:
         for j in ip:
             ips.append(j.split(":", maxsplit=1)[1])
     iface["ips"] = ips
+    rxtx = subprocess.check_output("ip -s -h link show " + iface["id"] + " | tr -s [:blank:] | cut -d' ' -f 2 | grep -E -e '[0-9.]+'", shell=True).decode("utf-8").strip().split("\n")
+    iface["rx"] = rxtx[-2]
+    iface["tx"] = rxtx[-1]
     out.append(iface)
 
 
