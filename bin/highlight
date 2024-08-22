@@ -1,0 +1,28 @@
+#!/bin/bash
+
+usage () {
+    echo "Usage:"
+    echo "  $0 <file>"
+    exit 1
+
+[[ -z "$1" ]] && usage
+
+if [[ ! -f "$1" ]]
+then
+    echo "File \"$1\" not found"
+    exit 1
+else
+    feh \
+       --quiet \
+       --fullscreen \
+       --offset +0+0 \
+       --zoom 100 \
+       "$1" \
+    & convert \
+        "$1" \
+        -fill red \
+        -stroke red \
+        -draw "fill-opacity 0.3 rectangle `awk '{ print $1,$2,$1+$3,$2+$4 }' <(slop -f '%x %y %w %h') | tr -s ' ' ','`" \
+        "$1" \
+    && sleep 3 && kill $!
+fi
