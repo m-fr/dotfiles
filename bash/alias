@@ -1,9 +1,16 @@
 # ls
-alias ls='ls --color=auto'
+alias ls='lsd'
 alias ll='lsd -al'
+
+# bat
+alias cat='bat --paging=never'
 
 # dd
 alias dd='dd status=progress'
+
+# tar
+alias tgz='tar -cv -Ipigz'
+alias txgz='tar -xv -Ipigz'
 
 # wget
 alias wget='wget2'

@@ -30,11 +30,13 @@
     - description: Installing rust
       command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain nightly -y
     - description: Installing eww dependencies
-      command: sudo apt-get install -y libgtk-3-dev
+      command: sudo apt-get install -y libgtk-3-dev libdbusmenu-gtk3-dev
     - description: Installing eww
-      command: $HOME/.cargo/bin/cargo install --git https://github.com/elkowar/eww.git --branch master --no-default-features --features x11
+      command: $HOME/.cargo/bin/cargo install --git https://github.com/elkowar/eww.git --tag v0.5.0 --no-default-features --features x11
     - description: Installing lsd
-      command: $HOME/.cargo/bin/cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.0.0
+      command: $HOME/.cargo/bin/cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.1.5
+    - description: Installing bat
+      command: $HOME/.cargo/bin/cargo install --git https://github.com/sharkdp/bat.git --tag v0.24.0
     - description: Installing Starship
       command: curl -sS https://starship.rs/install.sh | sh -s -- -y
     - description: Installing VSCodium
@@ -100,6 +102,9 @@
     ~/.config/wtf:
         glob: true
         path: wtf/*
+    ~/.config/bat:
+        glob: true
+        path: bat/*
 
 ## POST-INSTALL
 - create:
