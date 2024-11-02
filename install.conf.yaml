@@ -74,6 +74,7 @@
     - ~/.config/sxhkd
     - ~/.config/VSCodium/User
     - ~/.config/wtf
+    - ~/.config/bat
 
 - link:
     ~/.config/bspwm:
