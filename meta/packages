@@ -1,7 +1,10 @@
 bash-completion
 build-essential
+brightnessctl
+policykit-1-gnome
 bspwm
 sxhkd
+i3lock
 picom
 rofi
 dunst
@@ -22,3 +25,5 @@ debsecan
 curl
 wget2
 vim
+fzf
+flatpak

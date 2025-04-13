@@ -104,7 +104,7 @@ Print
 
 # quick launch (files, browser, virtual, notes, ide)
 super + alt + {1,2,3,4,5}
-	{nemo,firefox,vmware,obsidian,codium}
+	{nemo,org.mozilla.firefox,vmware,md.obsidian.Obsidian,zed}
 
 # quick launch (terminal, network)
 super + alt + {6,7}

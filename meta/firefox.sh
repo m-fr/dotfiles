@@ -11,7 +11,7 @@ GPG_FILE="/etc/apt/keyrings/packages.mozilla.org.asc"
 # Add the GPG key of the repository:
 if [ ! -f "$GPG_FILE" ]
 then
-    wget -q "$GPG_URL" -O- | sudo tee "$GPG_FILE" > /dev/null
+    wget2 -q "$GPG_URL" -O- | sudo tee "$GPG_FILE" > /dev/null
     gpg -n -q --import --import-options import-show "$GPG_FILE" | awk '/pub/{getline; gsub(/^ +| +$/,""); if($0 == "35BAA0B33E9EB396F59CA838C0BA5CE6DC6315A3") print "\nThe key fingerprint matches ("$0").\n"; else print "\nVerification failed: the fingerprint ("$0") does not match the expected one.\n"}'
 fi
 

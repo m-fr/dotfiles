@@ -10,8 +10,9 @@ lock () {
     FILE=`mktemp -u`.png
     WIDTH=`xdpyinfo | grep dimensions | cut -d: -f2 | cut -dx -f1`
     maim -u "${FILE}" \
-        && primitive -i "${FILE}" -o "${FILE}" -n 50 -m 4 -s $WIDTH \
-        && i3lock --color=282a36 --image="${FILE}" --tiling
+        && i3lock --color=282a36 --tiling
+#        && primitive -i "${FILE}" -o "${FILE}" -n 50 -m 4 -s $WIDTH \
+#        && i3lock --color=282a36 --image="${FILE}" --tiling
 }
 
 case $1 in

@@ -20,6 +20,7 @@
                (date)
                (apt)
                (cve)
+               (up)
           )
           (box
                :orientation "v"

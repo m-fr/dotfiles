@@ -5,6 +5,9 @@ alias ll='lsd -al'
 # bat
 alias cat='bat --paging=never'
 
+# bottom
+alias top='btm'
+
 # dd
 alias dd='dd status=progress'
 

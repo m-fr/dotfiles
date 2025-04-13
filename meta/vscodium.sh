@@ -9,7 +9,7 @@ GPG_FILE="/usr/share/keyrings/vscodium-archive-keyring.gpg"
 # Add the GPG key of the repository:
 if [ ! -f "$GPG_FILE" ]
 then
-    wget -qO - "$GPG_URL" | gpg --dearmor | sudo dd of="$GPG_FILE"
+    wget2 -qO - "$GPG_URL" | gpg --dearmor | sudo dd of="$GPG_FILE"
 fi
 
 # Add the repository:

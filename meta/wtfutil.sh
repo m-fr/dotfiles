@@ -8,7 +8,7 @@ ARCHIVE_FILE="${NAME}.tar.gz"
 BIN="$HOME/.local/bin"
 
 cd /tmp
-wget -qO "$ARCHIVE_FILE" "$ARCHIVE_URL"
+wget2 -qO "$ARCHIVE_FILE" "$ARCHIVE_URL"
 tar -xzf "$ARCHIVE_FILE"
 mv "${NAME}/wtfutil" "$BIN/wtf"
 

@@ -25,5 +25,6 @@ bspc rule -a URxvt:calendar state=floating
 bspc rule -a URxvt:nm state=floating
 bspc rule -a Firefox:Toolkit state=floating
 
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 picom &
 urxvt -e wtf &

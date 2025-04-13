@@ -21,6 +21,16 @@
       stdout: true
       stderr: false
 
+## FLATPAK INSTALL
+- shell:
+    - description: Setting up Flatpak
+      command: flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    - description: Installing Flatpak packages
+      command: cd meta && ./flatpak.sh flatpak
+      stdin: true
+      stdout: true
+      stderr: false
+
 ## CUSTOM INSTALL
 - shell:
     - description: Installing submodules
@@ -37,6 +47,8 @@
       command: $HOME/.cargo/bin/cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.1.5
     - description: Installing bat
       command: $HOME/.cargo/bin/cargo install --git https://github.com/sharkdp/bat.git --tag v0.24.0
+    - description: Installing bottom
+      command: $HOME/.cargo/bin/cargo install --git https://github.com/ClementTsang/bottom --tag 0.10.2
     - description: Installing Starship
       command: curl -sS https://starship.rs/install.sh | sh -s -- -y
     - description: Installing VSCodium

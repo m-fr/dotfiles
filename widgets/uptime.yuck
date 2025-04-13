@@ -1,0 +1,19 @@
+;;;;;;; VARIABLES ;;;;;;;
+
+(defpoll uptime
+    :interval "300s"
+    :initial 0
+    `uptime --pretty`
+)
+
+;;;;;;; WIDGETS   ;;;;;;;
+
+(defwidget up[]
+    (box
+        :class "box"
+        :space-evenly false
+        (label :text " ")
+        (label :text uptime)
+    )
+)
+
