@@ -65,8 +65,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-source /usr/share/doc/fzf/examples/key-bindings.bash
-
-if [ -f "$HOME/.cargo/env" ]; then
-    . "$HOME/.cargo/env"
+if [ -f ~/.fzf.bash ]; then
+  source ~/.fzf.bash
 fi

@@ -10,5 +10,5 @@ do
     [[ "${item:0:1}" == "#" ]] && continue
 
     echo "Installing $item"
-    flatpak install flathub $item || echo -e "\e[31m$item installation failed\e[0m"
+    flatpak install --or-update -y flathub $item || echo -e "\e[31m$item installation failed\e[0m"
 done
