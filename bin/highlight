@@ -4,6 +4,7 @@ usage () {
     echo "Usage:"
     echo "  $0 <file>"
     exit 1
+}
 
 [[ -z "$1" ]] && usage
 
@@ -26,3 +27,4 @@ else
         "$1" \
     && sleep 3 && kill $!
 fi
+
