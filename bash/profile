@@ -26,8 +26,13 @@ fi
 if [ -d "$HOME/.local/usr/bin" ] ; then
     PATH="$HOME/.local/usr/bin:$PATH"
 fi
+
+# add Flatpak binaries to path
 if [ -d "/var/lib/flatpak/exports/bin/" ] ; then
     PATH="/var/lib/flatpak/exports/bin/:$PATH"
+fi
+if [ -d "$HOME/.local/share/flatpak/exports/bin/" ] ; then
+    PATH="$HOME/.local/share/flatpak/exports/bin/:$PATH"
 fi
 
 # environment

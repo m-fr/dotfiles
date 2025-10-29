@@ -44,11 +44,11 @@
     - description: Installing eww
       command: $HOME/.cargo/bin/cargo install --git https://github.com/elkowar/eww.git --tag v0.5.0 --no-default-features --features x11
     - description: Installing lsd
-      command: $HOME/.cargo/bin/cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.1.5
+      command: $HOME/.cargo/bin/cargo install --git https://github.com/lsd-rs/lsd.git --tag v1.2.0
     - description: Installing bat
-      command: $HOME/.cargo/bin/cargo install --git https://github.com/sharkdp/bat.git --tag v0.24.0
+      command: $HOME/.cargo/bin/cargo install --git https://github.com/sharkdp/bat.git --tag v0.26.0
     - description: Installing bottom
-      command: $HOME/.cargo/bin/cargo install --git https://github.com/ClementTsang/bottom --tag 0.10.2
+      command: $HOME/.cargo/bin/cargo install --git https://github.com/ClementTsang/bottom --tag 0.11.2
     - description: Installing Starship
       command: curl -sS https://starship.rs/install.sh | sh -s -- -y
     - description: Installing WTF
@@ -92,6 +92,7 @@
     - ~/.config/VSCodium/User
     - ~/.config/wtf
     - ~/.config/bat
+    - ~/.config/zathura
 
 - link:
     ~/.config/bspwm:
@@ -123,6 +124,9 @@
     ~/.config/bat:
         glob: true
         path: bat/*
+    ~/.config/zathura:
+        glob: true
+        path: zathura/*
 
 ## POST-INSTALL
 - create:

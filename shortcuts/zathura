@@ -1,0 +1,111 @@
+# Go to the next page
+J, PgDn
+
+# Go to the previous page
+K, PgUp
+
+# Scroll to the left, down, up or right direction
+h, k, j, l
+
+# Scroll to the left, down, up or right direction
+Left, Down, Up, Right
+
+# Scroll a half page left, down, up or right
+^t, ^d, ^u, ^y
+
+# Scroll a full page left, down, up or right
+t, ^f, ^b, space, <S-space>, y
+
+# Goto to the first, the last or to the nth page
+gg, G, nG
+
+# Snaps to the current page
+P
+
+# Goto top or bottom of the current page
+H, L
+
+# Move backward and forward through the jump list
+^o, ^i
+
+# Bisect forward and backward between the last two jump points
+^j, ^k
+
+# Abort
+^c, Escape
+
+# Adjust window in best-fit or width mode
+a, s
+
+# Search for text
+/, ?
+
+# Search for the next or previous result
+n, N
+
+# Open document
+o, O
+
+# Follow links
+f
+
+# Display link target
+F
+
+# Copy link target into the clipboard
+c
+
+# Enter command
+\:
+
+# Rotate by 90 degrees
+r
+
+# Recolor (grayscale and invert colors)
+^r
+
+# Reload document
+R
+
+# Show index and switch to **Index mode**
+Tab
+
+# Toggle dual page view
+d
+
+# Cycle opening column in dual page view
+D
+
+# Switch to presentation mode
+F5
+
+# Switch to fullscreen mode
+F11
+
+# Toggle inputbar
+^m
+
+# Toggle statusbar
+^n
+
+# Hide notification bar
+Escape
+
+# Zoom in, out or to the original size
++, -, =
+
+# Zoom in, out or to the original size
+zI, zO, z0
+
+# Zoom to size n
+n=
+
+# Set a quickmark to a letter or number X
+mX
+
+# Goto quickmark saved at letter or number X
+'X
+
+# Quit
+q
+
