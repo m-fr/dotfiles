@@ -43,6 +43,9 @@ truncation_symbol = "…/"
 "Documents" = "󱈎"
 "notes" = "󰺿"
 
+[direnv]
+disabled = false
+
 [git_branch]
 symbol = ""
 style = "bold bg:#44475a"

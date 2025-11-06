@@ -22,6 +22,7 @@ maim
 pavucontrol
 cava
 debsecan
+direnv
 curl
 wget2
 vim
