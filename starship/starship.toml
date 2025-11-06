@@ -51,6 +51,7 @@ loaded_msg = ""
 unloaded_msg = ""
 allowed_msg = ""
 not_allowed_msg = "󰓛"
+denied_msg = ""
 disabled = false
 
 [git_branch]
