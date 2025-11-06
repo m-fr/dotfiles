@@ -5,6 +5,7 @@ $username\
 $hostname\
 [](fg:#bd93f9 bg:#6272a4)\
 $directory\
+$direnv\
 [](fg:#6272a4 bg:#44475a)\
 $git_branch\
 $git_status\
@@ -44,6 +45,12 @@ truncation_symbol = "…/"
 "notes" = "󰺿"
 
 [direnv]
+style = "bold bg:#6272a4"
+format = "[$allowed $loaded ]($style)"
+loaded_msg = ""
+unloaded_msg = ""
+allowed_msg = ""
+not_allowed_msg = "󰓛"
 disabled = false
 
 [git_branch]

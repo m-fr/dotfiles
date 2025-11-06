@@ -84,6 +84,7 @@
 - create:
     - ~/.config/bspwm
     - ~/.config/cava
+    - ~/.config/direnv
     - ~/.config/dunst
     - ~/.config/eww
     - ~/.config/lsd
@@ -101,6 +102,9 @@
     ~/.config/cava:
         glob: true
         path: cava/*
+    ~/.config/direnv:
+        glob: true
+        path: direnv/*
     ~/.config/dunst:
         glob: true
         path: dunst/*
