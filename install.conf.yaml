@@ -53,13 +53,8 @@
       command: curl -sS https://starship.rs/install.sh | sh -s -- -y
     - description: Installing WTF
       command: cd meta && ./wtfutil.sh
-
-## FZF
-- shell:
-    - description: Getting fzf
-      command: git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
     - description: Installing fzf
-      command: $HOME/.fzf/install
+      command: cd meta && ./fzf.sh
 
 - link:
     ~/.local/bin:
