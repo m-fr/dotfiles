@@ -1,86 +1,132 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = "dracula"
+
 format = """
-[](#bd93f9)\
+[](comment)\
 $os\
+[ ](fg:comment bg:purple)\
 $username\
+[@ ](fg:background bg:purple)\
 $hostname\
-[](fg:#bd93f9 bg:#6272a4)\
+[ ](fg:purple bg:comment)\
 $directory\
 $direnv\
-[](fg:#6272a4 bg:#44475a)\
+[](fg:comment bg:current_line)\
 $git_branch\
 $git_status\
-[](fg:#44475a bg:#ffb86c)\
+[](fg:current_line bg:orange)\
 $python\
-[](fg:#ffb86c bg:#f1fa8c)\
+[](fg:orange bg:yellow)\
 $cmd_duration\
 $status\
 $character\
+$fill\
+[](comment)\
+$time\
+[](comment)
+[ ](comment)
 """
 
+continuation_prompt = ' '
+
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+green = "#50fa7b"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
+
+[fill]
+symbol = ' '
+
+[time]
+disabled = false
+style = "bg:comment"
+time_format = '%T  %v'
+format = "[ $time ]($style)"
+
 [os]
-style = "bg:#8be9fd"
-disabled = true
+style = "bg:comment"
+format = "[ $symbol ]($style)"
+disabled = false
+
+[os.symbols]
+Debian = ''
+Raspbian = ''
+Kali = ''
 
 [username]
 show_always = true
-style_user = "bold fg:#44475a bg:#bd93f9"
-style_root = "bold fg:#44475a bg:#bd93f9"
+style_user = "fg:background bg:purple"
+style_root = "fg:background bg:purple"
 format = '[$user ]($style)'
 disabled = false
 
 [hostname]
 ssh_only = false
-style = "bold fg:#44475a bg:#bd93f9"
-format = "[@ $hostname]($style)"
+style = "fg:background bg:purple"
+format = "[$hostname ]($style)"
 
 [directory]
-style = "bold bg:#6272a4"
-format = "[ $path ]($style)"
+style = "bg:comment"
+format = "[$path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
 "Downloads" = "󰇚"
 "Documents" = "󱈎"
+"git" = ''
 "notes" = "󰺿"
+"reports" = '󰦪'
+"-wiki" = ' '
+"wiki" = ''
 
 [direnv]
-style = "bold bg:#6272a4"
-format = "[$allowed $loaded ]($style)"
+style = "bg:comment"
+format = "[$allowed$loaded ]($style)"
 loaded_msg = ""
 unloaded_msg = ""
 allowed_msg = ""
 not_allowed_msg = "󰓛"
-denied_msg = ""
+denied_msg = "✘"
 disabled = false
 
 [git_branch]
 symbol = ""
-style = "bold bg:#44475a"
-format = '[ $symbol $branch ]($style)'
+style = "bg:current_line"
+format = '[ $symbol $branch]($style)'
 
 [git_status]
-style = "bold bg:#44475a"
-format = '[$all_status$ahead_behind ]($style)'
+style = "bg:current_line"
+format = '[ $all_status$ahead_behind ]($style)'
 
 [python]
-style = "bold fg:#44475a bg:#ffb86c"
-symbol= ''
-format = '[ $symbol $virtualenv ]($style)'
+style = "fg:current_line bg:orange"
+symbol = ''
+version_format = 'v${major}.${minor}'
+format = '[ $symbol $version  $virtualenv ]($style)'
 
 [cmd_duration]
-style = "bold fg:#44475a bg:#f1fa8c"
+style = "fg:background bg:yellow"
 format = '[ 󱦟 $duration ]($style)'
 
 [status]
-symbol = "[](fg:#f1fa8c bg:#ff5555)"
+symbol = "[](fg:yellow bg:red)"
 success_symbol = ""
-style = "bold bg:#ff5555"
+style = "bg:red"
 format = '$symbol[ $status ]($style)'
 pipestatus = false
 disabled = false
 
 [character]
-error_symbol = "[](fg:#ff5555)"
-success_symbol = "[](fg:#f1fa8c bg:#50fa7b)[](fg:#50fa7b)"
+error_symbol = "[](red)"
+success_symbol = "[](fg:yellow bg:green)[](green)"
 
