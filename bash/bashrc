@@ -15,6 +15,7 @@ fi
 
 eval "$(direnv hook bash)"
 eval "$(starship init bash)"
+eval "$(fzf --bash)"
 
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
@@ -66,7 +67,4 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [ -f ~/.fzf.bash ]; then
-  source ~/.fzf.bash
-fi
 . "$HOME/.cargo/env"
