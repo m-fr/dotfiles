@@ -238,7 +238,7 @@ wtf:
       border: false
       focusable: false
       type: cmdrunner
-      cmd: "wtfutil"
+      cmd: "wtf"
       args: ["-v"]
       color: lime
       position:

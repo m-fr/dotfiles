@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="0.47.0"
+VERSION="0.48.0"
 ARCH="linux_amd64"
 NAME="wtf_${VERSION}_${ARCH}"
 ARCHIVE_URL="https://github.com/wtfutil/wtf/releases/download/v${VERSION}/${NAME}.tar.gz"
